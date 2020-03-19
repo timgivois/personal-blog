@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql, Link } from 'gatsby'
 
+import 'semantic-ui-css/semantic.min.css'
+
 const Layout = ({ data }) => {
   const { edges } = data.allMarkdownRemark
   return (

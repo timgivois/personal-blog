@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby'
 
+import 'semantic-ui-css/semantic.min.css'
+
 const Template = ({ data, pageContext }) => {
   console.log(pageContext)
   const { markdownRemark } = data // data.markdownRemark holds your post data
