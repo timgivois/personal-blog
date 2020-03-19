@@ -7,6 +7,7 @@
 <h1 align="center">
   Gatsby's hello-world starter
 </h1>
+[![Netlify Status](https://api.netlify.com/api/v1/badges/44e45043-5be7-4822-a125-fe31a4fbc209/deploy-status)](https://app.netlify.com/sites/tim-givois/deploys)
 
 Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
