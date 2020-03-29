@@ -10,11 +10,11 @@ import { Wrapper } from './style'
 const Topbar = ({ switchTheme }) => {
   const theme = useTheme();
   return (
-    <Wrapper theme={theme} between='xs' middle='xs' center='xs'>
-      <Col xs={3}>
+    <Wrapper type={theme.type} between='xs' middle='xs' center='xs'>
+      <Col xs={5} md={3}>
         <Logo />
       </Col>
-      <Col xs={3}>
+      <Col xs={5} md={3}>
         <Toggle
           className='change-mode'
           icons={{

@@ -15,14 +15,14 @@ const Landing = ({ data, switchTheme }) => {
   return (
     <>
       <Wrapper middle='md'>
-        <Col xs={12} md={3}>
+        <Col xs={12} lg={3}>
           <Row center='xs'>
             <Avatar
               src={profileImg}
               size={220}
               />
           </Row>
-          <Row  center='xs' align='center'>
+          <Row center='xs' align='center'>
             <Text>Tim Givois – Software Engineer</Text>
           </Row>
           <Row center='xs' align='center'>
@@ -67,11 +67,11 @@ const Landing = ({ data, switchTheme }) => {
           </Row>
 
         </Col>
-        <Col xs={12} md={9} style={{padding: '0 30px', borderLeft: '1px solid'}}>
-          <Row center='xs' start='md'>
+        <Col xs={12} lg={9} style={{padding: '0 30px', borderLeft: '1px solid'}}>
+          <Row center='xs' start='lg'>
             <Text h2>Hey! Welcome to my blog.</Text>
           </Row>
-          <Row center='xs' start='md' style={{marginTop: '25px'}}>
+          <Row center='xs' start='lg' style={{marginTop: '25px'}}>
             <Text h4>I believe in the Wisdom of the crowd, that's why I created this small spot to share a bit of what I learnt.</Text>
             <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
           </Row>
