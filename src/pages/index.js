@@ -58,7 +58,7 @@ const Landing = ({ data, switchTheme }) => {
               borderStyle="solid"
               icon="linkedin"
               iconColor="rgba(255,255,255,1)"
-              backgroundColor="0e76a8 "
+              backgroundColor="#0e76a8"
               iconSize="4"
               roundness="50%"
               url="https://linkedin.com/in/timgivois"
