@@ -5,10 +5,10 @@ import { Col, Row } from 'react-flexbox-grid';
 
 import { Avatar, Topbar } from '../components'
 import withStyle from '../components/Layout'
-import { Wrapper, StyledSocialMediaIconsReact } from './style'
+import { Wrapper, StyledSocialMediaIconsReact } from '../utils/style'
+import paths from '../../utils/paths'
 import profileImg from '../../static/tim-image.png'
 
-// TODO: Adjust avatar when in phone
 const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMarkdownRemark
 
@@ -76,7 +76,7 @@ const Landing = ({ data, switchTheme }) => {
             <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
           </Row>
           <Row center='xs'>
-            <Link href='/about' pure underline>About</Link>
+            <Link href={paths.ABOUT} pure underline>About</Link>
             <Text style={{margin: "10px"}}>|</Text>
             <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
           </Row>
