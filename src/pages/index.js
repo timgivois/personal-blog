@@ -1,28 +1,93 @@
 import React from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
+import { Text, Link } from '@zeit-ui/react'
+import { Col, Row } from 'react-flexbox-grid';
 
-import 'semantic-ui-css/semantic.min.css'
+import { Avatar, Topbar } from '../components'
+import withStyle from '../components/Layout'
+import { Wrapper, StyledSocialMediaIconsReact } from './style'
+import profileImg from '../../static/tim-image.png'
 
-const Layout = ({ data }) => {
+// TODO: Adjust avatar when in phone
+const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMarkdownRemark
+
   return (
-    <div>
-      <h1>Welcome to my blog</h1>
-      <div>
-        <ul>
-          {
-            edges.map(edge => {
-              const { title, path } = edge.node.frontmatter
+    <>
+      <Wrapper middle='md'>
+        <Col xs={12} md={3}>
+          <Row center='xs'>
+            <Avatar
+              src={profileImg}
+              size={220}
+              />
+          </Row>
+          <Row  center='xs' align='center'>
+            <Text>Tim Givois – Software Engineer</Text>
+          </Row>
+          <Row center='xs' align='center'>
+            <StyledSocialMediaIconsReact
+              borderColor="rgba(0,0,0,0.25)"
+              borderWidth="0"
+              borderStyle="solid"
+              icon="twitter"
+              iconColor="rgba(255,255,255,1)"
+              backgroundColor="rgba(28,186,223,1)"
+              iconSize="4"
+              roundness="50%"
+              url="https://twitter.com/timgivois"
+              size="25"
+            />
+            •
+            <StyledSocialMediaIconsReact
+              borderColor="rgba(0,0,0,0.25)"
+              borderWidth="0"
+              borderStyle="solid"
+              icon="github"
+              iconColor="rgba(255,255,255,1)"
+              backgroundColor="rgba(0,0,0,1)"
+              iconSize="4"
+              roundness="50%"
+              url="https://github.com/timgivois"
+              size="25"
+            />
+          •
+            <StyledSocialMediaIconsReact
+              borderColor="rgba(0,0,0,0.25)"
+              borderWidth="0"
+              borderStyle="solid"
+              icon="linkedin"
+              iconColor="rgba(255,255,255,1)"
+              backgroundColor="0e76a8 "
+              iconSize="4"
+              roundness="50%"
+              url="https://linkedin.com/in/timgivois"
+              size="25"
+            />
+          </Row>
 
-              return (
-                <li key={path}><Link to={path}>{title}</Link></li>
-              )
-            })
-          }
-        </ul>
-
-      </div>
-    </div>
+        </Col>
+        <Col xs={12} md={9} style={{padding: '0 30px', borderLeft: '1px solid'}}>
+          <Row center='xs' start='md'>
+            <Text h2>Hey! Welcome to my blog.</Text>
+          </Row>
+          <Row center='xs' start='md' style={{marginTop: '25px'}}>
+            <Text h4>I believe in the Wisdom of the crowd, that's why I created this small spot to share a bit of what I learnt.</Text>
+            <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
+          </Row>
+          <Row center='xs'>
+            <Link href='/about' pure underline>About</Link>
+            <Text style={{margin: "10px"}}>|</Text>
+            <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
+          </Row>
+        </Col>
+      </Wrapper>
+      <Row>
+        <Col xs={12}>
+          <Topbar switchTheme={switchTheme} />
+        </Col>
+      </Row>
+    </>
 
   )
 }
@@ -44,4 +109,4 @@ query HomePageQuery {
 }
 `
 
-export default Layout;
+export default withStyle(Landing);
