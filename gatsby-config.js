@@ -24,7 +24,6 @@ module.exports = {
         path: `${__dirname}/src/pages`
       }
     },
-    'gatsby-plugin-dark-mode',
     'gatsby-plugin-styled-components',
   ]
 }
