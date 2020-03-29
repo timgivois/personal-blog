@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from '@zeit-ui/react'
 
-import paths from '../../pages/paths'
+import paths from '../../utils/paths'
 import LogoImage from '../../../static/tim.png'
 
 const Logo = () => {

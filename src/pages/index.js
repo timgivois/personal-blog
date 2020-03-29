@@ -6,7 +6,7 @@ import { Col, Row } from 'react-flexbox-grid';
 import { Avatar, Topbar } from '../components'
 import withStyle from '../components/Layout'
 import { Wrapper, StyledSocialMediaIconsReact } from '../utils/style'
-import paths from '../../utils/paths'
+import paths from '../utils/paths'
 import profileImg from '../../static/tim-image.png'
 
 const Landing = ({ data, switchTheme }) => {
