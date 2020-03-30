@@ -29,3 +29,10 @@ p, h1, h2, h3, h4, h5, span {
 .change-mode.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
   background-color: #fafafa;
 }
+
+@media (max-width: 480px) {
+  .refmedia {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
