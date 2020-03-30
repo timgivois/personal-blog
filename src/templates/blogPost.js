@@ -1,9 +1,14 @@
-import React from 'react';
-import { graphql, Link } from 'gatsby'
+import React from 'react'
+import { Row, Col } from 'react-flexbox-grid'
+import { graphql } from 'gatsby'
+import { Text, Link, Card, Tag } from '@zeit-ui/react'
+import { Helmet } from 'react-helmet'
 
+import { Avatar } from '../components'
+
+import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
-import '@zeit-ui/style'
 
 const Template = ({ data, pageContext, switchTheme }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
@@ -12,30 +17,56 @@ const Template = ({ data, pageContext, switchTheme }) => {
 
   return (
     <>
+      <Helmet title={frontmatter.title} defer={false} />
       <Topbar switchTheme={switchTheme} />
-        <div className="blog-post-container">
-          <div className="blog-post">
-            <h1>{frontmatter.title}</h1>
-            <h2>{frontmatter.date}</h2>
-            <div
-              className="blog-post-content"
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
-          </div>
-          <div className="blog-post-footer">
-            {
-              prev ? (
-                <Link to={prev.frontmatter.path}>Prev</Link>
-              ) : null
-            }
-            {' '} | {' '}
-            {
-              next ? (
-                <Link to={next.frontmatter.path}>Next</Link>
-              ) : null
-            }
-          </div>
-        </div>
+      <Row center="xs">
+        <Col xs={9} lg={7}>
+          <Row start="xs">
+
+          </Row>
+        </Col>
+      </Row>
+      <Row center="xs">
+        <Col xs={9} lg={7}>
+          <Row start="xs">
+            <Text h1>{frontmatter.title}</Text>
+          </Row>
+        </Col>
+      </Row>
+      <Row center="xs">
+        <Col xs={9} lg={7}>
+          <Row start="xs">
+            <Avatar
+              src={profileImg}
+              size={60}
+              />
+          </Row>
+        </Col>
+      </Row>
+
+      <Row center="xs">
+        <Col xs={9} lg={7}>
+          <Row start="xs">
+            <Col xs={12} style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{ __html: html }}>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+
+{      // <div className="blog-post-footer">
+      //   {
+      //     prev ? (
+      //       <Link pure underline href={prev.frontmatter.path}>Prev</Link>
+      //     ) : null
+      //   }
+      //   {' '} | {' '}
+      //   {
+      //     next ? (
+      //       <Link pure underline href={next.frontmatter.path}>Next</Link>
+      //     ) : null
+      //   }
+      // </div>
+}
     </>
   )
 }
