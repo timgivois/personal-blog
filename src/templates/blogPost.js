@@ -1,8 +1,10 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, Card, Tag, useTheme } from '@zeit-ui/react'
+import { Text, Link, Card, Tag, useTheme, Code, Display } from '@zeit-ui/react'
 import { Helmet } from 'react-helmet'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import { MDXProvider } from "@mdx-js/react"
 
 import { Avatar } from '../components'
 
@@ -11,11 +13,10 @@ import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 const Template = ({ data, pageContext, switchTheme }) => {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { mdx } = data // data.mdx holds your post data
+  const { frontmatter, body } = mdx
   const { next, prev } = pageContext
   const { palette } = useTheme()
-
   return (
     <>
       <Helmet title={frontmatter.title} defer={false} />
@@ -28,7 +29,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
         </Col>
       </Row>
       <Row center="xs">
-        <Col xs={9} lg={7}>
+        <Col xs={9} lg={6}>
           <Row start="xs">
             <Text h1>{frontmatter.title}</Text>
           </Row>
@@ -38,7 +39,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
         </Col>
       </Row>
       <Row style={{margin: '20px 0'}} center="xs">
-        <Col xs={9} lg={7}>
+        <Col xs={9} lg={6}>
           <Row start="xs">
             <Col style={{minWidth: '70px'}} xs={1}>
               <Row>
@@ -61,9 +62,12 @@ const Template = ({ data, pageContext, switchTheme }) => {
       </Row>
 
       <Row center="xs">
-        <Col xs={9} lg={7}>
+        <Col xs={9} lg={6}>
           <Row start="xs">
-            <Col xs={12} style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{ __html: html }}>
+            <Col xs={12} style={{textAlign: 'justify'}}>
+              <MDXProvider components={{Code, Display, Link}}>
+                <MDXRenderer>{body}</MDXRenderer>
+              </MDXProvider>
             </Col>
           </Row>
         </Col>
@@ -89,8 +93,8 @@ const Template = ({ data, pageContext, switchTheme }) => {
 
 export const pageQuery = graphql`
   query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path

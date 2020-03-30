@@ -9,7 +9,7 @@ import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 const Landing = ({ data, switchTheme }) => {
-  const { edges } = data.allMarkdownRemark
+  const { edges } = data.allMdx
 
   return (
     <>
@@ -57,7 +57,7 @@ const Landing = ({ data, switchTheme }) => {
 
 export const query = graphql`
 query HomePageQuery {
-  allMarkdownRemark(
+  allMdx(
     sort: { order: DESC, fields: [frontmatter___date]}
   ) {
     edges {

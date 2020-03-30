@@ -18,14 +18,16 @@ const Topbar = ({ switchTheme, isMainPage }) => {
   useEffect(() => {
     const navbar = document.getElementById("navbar");
     const sticky = navbar.offsetTop;
+    const height = navbar.offsetHeight;
 
     const addStickyToNavBar = () => {
-      if (window.pageYOffset >= sticky) {
+      if (window.pageYOffset >= sticky + navbar.offsetHeight) {
         navbar.classList.add("sticky")
       } else {
         navbar.classList.remove("sticky");
       }
     }
+    addStickyToNavBar()
 
     window.onscroll = function() {addStickyToNavBar()};
   })
@@ -98,7 +100,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
             </Row>
             <Row center='xs'>
               <Text>
-                <Link href={paths.ABOUT} pure underline>About</Link>  |  <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
+                <Link href={paths.ROOT} pure underline>About</Link>  |  <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
               </Text>
 
             </Row>

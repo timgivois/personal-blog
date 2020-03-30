@@ -6,7 +6,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
 
   return graphql(`
     query loadPagesQuery ($limit: Int!) {
-      allMarkdownRemark(
+      allMdx(
         limit: $limit,
         sort: {order: ASC, fields: [frontmatter___date]}
       ) {
@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       }
     }
   `, { limit: 1000 }).then(result => {
-    const posts = result.data.allMarkdownRemark.edges;
+    const posts = result.data.allMdx.edges;
     if (result.errors) {
       reporter.panicOnBuild(`Error while running GraphQL query.`)
       return

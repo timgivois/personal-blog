@@ -16,13 +16,30 @@ module.exports = {
         trackingId: "UA-161191405-1",
       },
     },
-    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name:'pages',
         path: `${__dirname}/src/pages`
       }
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+
+        ],
+      },
     },
     'gatsby-plugin-styled-components',
     {
@@ -31,13 +48,6 @@ module.exports = {
         precachePages: [`${__dirname}/static/`],
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `img`,
-        path: `${__dirname}/static/`
-      }
-    },
-    `gatsby-transformer-sharp`, `gatsby-plugin-sharp`
+    `gatsby-plugin-feed-mdx`
   ]
 }
