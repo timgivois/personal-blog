@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import Toggle from 'react-toggle'
 import { useTheme, Text, Link } from '@zeit-ui/react'
@@ -9,10 +9,27 @@ import Emoji from '../Emoji'
 import Avatar from '../Avatar'
 import { Wrapper, BarWrapper, StyledSocialMediaIconsReact } from './style'
 import paths from '../../utils/paths'
+import './style.css'
 
 
 const Topbar = ({ switchTheme, isMainPage }) => {
   const theme = useTheme();
+
+  useEffect(() => {
+    const navbar = document.getElementById("navbar");
+    const sticky = navbar.offsetTop;
+
+    const addStickyToNavBar = () => {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+    window.onscroll = function() {addStickyToNavBar()};
+  })
+
 
   return (
     <>
@@ -89,7 +106,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
         </Wrapper>
       ) : null
     }
-      <BarWrapper type={theme.type} between='xs' middle='xs' center='xs'>
+      <BarWrapper id='navbar' type={theme.type} between='xs' middle='xs' center='xs'>
         <Col xs={5} md={3}>
           <Logo />
         </Col>
