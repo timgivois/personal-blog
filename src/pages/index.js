@@ -25,21 +25,19 @@ const Landing = ({ data, switchTheme }) => {
                     <Link href={edge.node.frontmatter.path} pure style={{width: '100%'}}>
                       <Card shadow>
                         <Row center="xs">
-                          <Col xs={12}>
-                            <img src={edge.node.frontmatter.image} alt={edge.node.frontmatter.title} height={250}/>
+                          <Col xs={6}>
+                            <img src={edge.node.frontmatter.image} alt={edge.node.frontmatter.title} height={180} />
                           </Col>
-                        </Row>
-                        <Row start="xs">
-                          <Col xs={12}>
-                            <Text h3>{edge.node.frontmatter.title}</Text>
-                          </Col>
-                        </Row>
-                        <Row start="xs">
-                          {edge.node.frontmatter.tags.map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
-                        </Row>
-                        <Row start="xs">
-                          <Col xs={12}>
-                            <Text>{edge.node.frontmatter.excerpt}</Text>
+                          <Col xs={6}>
+                            <Row start="xs">
+                              <Text h3>{edge.node.frontmatter.title}</Text>
+                            </Row>
+                            <Row start="xs">
+                              {edge.node.frontmatter.tags.map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
+                            </Row>
+                            <Row start="xs">
+                              <Text>{edge.node.frontmatter.excerpt}</Text>
+                            </Row>
                           </Col>
                         </Row>
                       </Card>
