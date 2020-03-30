@@ -25,10 +25,10 @@ const Landing = ({ data, switchTheme }) => {
                     <Link href={edge.node.frontmatter.path} pure style={{width: '100%'}}>
                       <Card shadow>
                         <Row center="xs">
-                          <Col xs={6}>
+                          <Col xs={10} md={6}>
                             <img src={edge.node.frontmatter.image} alt={edge.node.frontmatter.title} height={180} />
                           </Col>
-                          <Col xs={6}>
+                          <Col xs={10} md={6}>
                             <Row start="xs">
                               <Text h3>{edge.node.frontmatter.title}</Text>
                             </Row>
