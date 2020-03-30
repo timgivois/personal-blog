@@ -1,91 +1,48 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Text, Link } from '@zeit-ui/react'
+import { Topbar } from '../components'
+import { Text, Link, Card, Tag } from '@zeit-ui/react'
 import { Col, Row } from 'react-flexbox-grid';
+import uniqueId from 'lodash/uniqueId';
 
-import { Avatar, Topbar } from '../components'
 import withStyle from '../components/Layout'
-import { Wrapper, StyledSocialMediaIconsReact } from '../utils/style'
-import paths from '../utils/paths'
-import profileImg from '../../static/tim-image.png'
 
 const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMarkdownRemark
-
+  console.log(edges)
   return (
     <>
-      <Wrapper middle='md'>
-        <Col xs={12} lg={3}>
-          <Row center='xs'>
-            <Avatar
-              src={profileImg}
-              size={220}
-              />
-          </Row>
-          <Row center='xs' align='center'>
-            <Text>Tim Givois – Software Engineer</Text>
-          </Row>
-          <Row center='xs' align='center'>
-            <StyledSocialMediaIconsReact
-              borderColor="rgba(0,0,0,0.25)"
-              borderWidth="0"
-              borderStyle="solid"
-              icon="twitter"
-              iconColor="rgba(255,255,255,1)"
-              backgroundColor="rgba(28,186,223,1)"
-              iconSize="4"
-              roundness="50%"
-              url="https://twitter.com/timgivois"
-              size="25"
-            />
-            •
-            <StyledSocialMediaIconsReact
-              borderColor="rgba(0,0,0,0.25)"
-              borderWidth="0"
-              borderStyle="solid"
-              icon="github"
-              iconColor="rgba(255,255,255,1)"
-              backgroundColor="rgba(0,0,0,1)"
-              iconSize="4"
-              roundness="50%"
-              url="https://github.com/timgivois"
-              size="25"
-            />
-          •
-            <StyledSocialMediaIconsReact
-              borderColor="rgba(0,0,0,0.25)"
-              borderWidth="0"
-              borderStyle="solid"
-              icon="linkedin"
-              iconColor="rgba(255,255,255,1)"
-              backgroundColor="#0e76a8"
-              iconSize="4"
-              roundness="50%"
-              url="https://linkedin.com/in/timgivois"
-              size="25"
-            />
-          </Row>
-
-        </Col>
-        <Col xs={12} lg={9} style={{padding: '0 30px', borderLeft: '1px solid'}}>
-          <Row center='xs' start='lg'>
-            <Text h2>Hey! Welcome to my blog.</Text>
-          </Row>
-          <Row center='xs' start='lg' style={{marginTop: '25px'}}>
-            <Text h4>I believe in the Wisdom of the crowds, that's why I created this small spot to share a bit of what I learnt.</Text>
-            <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
-          </Row>
-          <Row center='xs'>
-            <Text>
-              <Link href={paths.ABOUT} pure underline>About</Link>  |  <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
-            </Text>
-
-          </Row>
-        </Col>
-      </Wrapper>
-      <Row>
+      <Topbar isMainPage switchTheme={switchTheme} />
+      <Row style={{marginTop: '10px'}}>
         <Col xs={12}>
-          <Topbar switchTheme={switchTheme} />
+          <Row center="xs">
+            <Col xs={10} lg={6}>
+              {
+                edges.map(edge => (
+                  <Row key={uniqueId()} style={{margin: '10px 0'}}>
+                    <Link href={edge.node.frontmatter.path} pure style={{width: '100%'}}>
+                      <Card shadow>
+                        <Row start="xs">
+                          <Col xs={12}>
+                            <Text h3>{edge.node.frontmatter.title}</Text>
+                          </Col>
+                        </Row>
+                        <Row start="xs">
+                          {edge.node.frontmatter.tags.map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
+                        </Row>
+                        <Row start="xs">
+                          <Col xs={12}>
+                            <Text>{edge.node.frontmatter.excerpt}</Text>
+                          </Col>
+                        </Row>
+                      </Card>
+                    </Link>
+                  </Row>
+
+                ))
+              }
+            </Col>
+          </Row>
         </Col>
       </Row>
     </>
@@ -103,6 +60,8 @@ query HomePageQuery {
         frontmatter {
           title
           path
+          excerpt
+          tags
         }
       }
     }

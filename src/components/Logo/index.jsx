@@ -6,10 +6,9 @@ import LogoImage from '../../../static/tim.png'
 
 const Logo = () => {
   return (
-    <Link to={paths.ROOT} pure>
+    <Link href={paths.ROOT} pure>
         <img alt='tim givois' src={LogoImage} style={{ height: '30px'}} />
     </Link>
-
   )
 }
 
