@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { Text, Link, Card, Tag } from '@zeit-ui/react'
-import { Col, Row } from 'react-flexbox-grid';
+import { Grid, Col, Row } from 'react-flexbox-grid';
 import uniqueId from 'lodash/uniqueId';
 import { Helmet } from 'react-helmet';
 
@@ -12,7 +12,7 @@ const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMdx
 
   return (
-    <>
+    <Grid fluid>
       <Helmet title='Tim Givois' defer={false} />
       <Topbar isMainPage switchTheme={switchTheme} />
       <Row style={{marginTop: '10px'}}>
@@ -50,7 +50,7 @@ const Landing = ({ data, switchTheme }) => {
           </Row>
         </Col>
       </Row>
-    </>
+    </Grid>
 
   )
 }

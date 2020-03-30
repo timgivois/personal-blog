@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'react-flexbox-grid'
+import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
 import { Text, Link, Card, Tag, useTheme, Code, Display } from '@zeit-ui/react'
 import { Helmet } from 'react-helmet'
@@ -19,7 +19,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
   const { next, prev } = pageContext
   const { palette } = useTheme()
   return (
-    <>
+    <Grid fluid>
       <Helmet title={frontmatter.title} defer={false} />
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
@@ -88,7 +88,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
       //   }
       // </div>
 }
-    </>
+    </Grid>
   )
 }
 
