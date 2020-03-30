@@ -72,13 +72,14 @@ const Landing = ({ data, switchTheme }) => {
             <Text h2>Hey! Welcome to my blog.</Text>
           </Row>
           <Row center='xs' start='lg' style={{marginTop: '25px'}}>
-            <Text h4>I believe in the Wisdom of the crowd, that's why I created this small spot to share a bit of what I learnt.</Text>
+            <Text h4>I believe in the Wisdom of the crowds, that's why I created this small spot to share a bit of what I learnt.</Text>
             <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
           </Row>
           <Row center='xs'>
-            <Link href={paths.ABOUT} pure underline>About</Link>
-            <Text style={{margin: "10px"}}>|</Text>
-            <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
+            <Text>
+              <Link href={paths.ABOUT} pure underline>About</Link>  |  <Link href='mailto:tim.givois.mendez@gmail.com' pure underline>Contact</Link>
+            </Text>
+
           </Row>
         </Col>
       </Wrapper>
