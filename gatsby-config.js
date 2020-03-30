@@ -7,7 +7,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Tim Givois Personal Blog',
-    description: 'This is my cool blog.'
+    description: 'This is my cool blog.',
+    siteUrl: 'https://timgivois.me'
   },
   plugins: [
     {
