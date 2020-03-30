@@ -19,13 +19,13 @@ const Template = ({ data, pageContext, switchTheme }) => {
   const { next, prev } = pageContext
   const { palette } = useTheme()
   return (
-    <Grid fluid>
+    <Grid fluid style={{ paddingTop: '70px'}}>
       <Helmet title={frontmatter.title} defer={false} />
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={9} lg={7}>
           <Row center="xs">
-            <img height={'50%'} width={'50%'} src={frontmatter.image}/>
+            <img height={'100%'} width={'100%'} src={frontmatter.image}/>
           </Row>
         </Col>
       </Row>
