@@ -5,6 +5,7 @@ import { Text, Link, Card, Tag, useTheme, Code, Display } from '@zeit-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from "@mdx-js/react"
+import styled from 'styled-components'
 
 import { Avatar } from '../components'
 
@@ -24,7 +25,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
       <Row center="xs">
         <Col xs={9} lg={7}>
           <Row center="xs">
-            <img width={'50%'} src={frontmatter.image}/>
+            <img height={'50%'} width={'50%'} src={frontmatter.image}/>
           </Row>
         </Col>
       </Row>
