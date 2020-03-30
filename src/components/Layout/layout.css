@@ -30,9 +30,6 @@ p, h1, h2, h3, h4, h5, span {
   background-color: #fafafa;
 }
 
-@media (max-width: 480px) {
-  .refmedia {
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+.refimg {
+  max-height: 100%;
 }
