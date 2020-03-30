@@ -21,7 +21,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
     const height = navbar.offsetHeight;
 
     const addStickyToNavBar = () => {
-      if (window.pageYOffset >= sticky + navbar.offsetHeight) {
+      if (window.pageYOffset >= sticky + 2* navbar.offsetHeight) {
         navbar.classList.add("sticky")
       } else {
         navbar.classList.remove("sticky");
