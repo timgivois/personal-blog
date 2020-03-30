@@ -25,7 +25,7 @@ const Template = ({ data, pageContext, switchTheme }) => {
       <Row center="xs">
         <Col xs={9} lg={7}>
           <Row center="xs">
-            <img height={'50%'} width={'50%'} src={frontmatter.image}/>
+            <img height={'100%'} width={'100%'} src={frontmatter.image}/>
           </Row>
         </Col>
       </Row>
