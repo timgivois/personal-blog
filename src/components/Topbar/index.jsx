@@ -95,7 +95,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
               <Text h2>Hey! Welcome to my blog.</Text>
             </Row>
             <Row center='xs' start='lg' style={{marginTop: '25px'}}>
-              <Text h4>I believe in the Wisdom of the crowds, that's why I created this small spot to share a bit of what I learnt.</Text>
+              <Text h4>I believe in the wisdom of the crowds, that's why I created this small spot to share a bit of what I've learned.</Text>
               <Text h4>The blog doesn't have a topic, but I mainly write about software (React and stuff).</Text>
             </Row>
             <Row center='xs'>
