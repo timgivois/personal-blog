@@ -19,6 +19,10 @@ const Landing = ({ data, switchTheme }) => {
         <Col xs={12}>
           <Row center="xs">
             <Col xs={10} lg={6}>
+              <Row>
+                <Text h2>Posts</Text>
+              </Row>
+
               {
                 edges.map(edge => (
                   <Row key={uniqueId()} style={{margin: '10px 0'}}>

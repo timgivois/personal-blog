@@ -110,20 +110,26 @@ const Topbar = ({ switchTheme, isMainPage }) => {
     }
       <BarWrapper id='navbar' type={theme.type} between='xs' middle='xs' center='xs'>
         <Col xs={5} md={3}>
-          <Logo />
+          <Row end='xs'>
+            <Logo />
+          </Row>
+
         </Col>
         <Col xs={5} md={3}>
-          <Toggle
-            className='change-mode'
-            icons={{
-              checked: <Emoji style={{ marginLeft: '-3px' }} symbol='🌙' />,
-              unchecked: <Emoji style={{ marginLeft: '-3px' }} symbol='☀️' />,
-            }}
-            onChange={e => {
-              const nextTheme = e.target.checked ? 'dark' : 'light'
-              switchTheme(nextTheme)
-            }}
-          />
+          <Row>
+            <Toggle
+              checked={theme.type === 'dark'}
+              className='change-mode'
+              icons={{
+                checked: <Emoji style={{ marginLeft: '-3px' }} symbol='🌙' />,
+                unchecked: <Emoji style={{ marginLeft: '-3px' }} symbol='☀️' />,
+              }}
+              onChange={e => {
+                const nextTheme = e.target.checked ? 'dark' : 'light'
+                switchTheme(nextTheme)
+              }}
+            />
+          </Row>
         </Col>
       </BarWrapper>
 

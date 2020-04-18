@@ -3,21 +3,17 @@ body, html, #___gatsby, #gatsby-focus-wrapper {
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--bg);
-  --bg: #fafafa
-}
-
-html, body.light {
-  --bg: #fafafa
-}
-
-html, body.dark {
-  --bg: #111216
-}
-
 p, h1, h2, h3, h4, h5, span {
   font-family: 'Maven Pro', sans-serif !important;
+}
+
+p {
+  font-size: 1.08em !important;
+}
+
+h3 {
+  padding-top: 10px;
+  font-size: 1.55em !important;
 }
 
 .change-mode.react-toggle--checked .react-toggle-track,
