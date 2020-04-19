@@ -1,6 +1,6 @@
 ---
 path: "/using-jest-and-enzyme"
-date: "2020-04-18"
+date: "2018-07-09"
 title: "Using Jest and Enzyme for testing React Apps"
 tags: ['React', 'Jest', 'Software']
 excerpt: "Testing components can be trickier than you think."
