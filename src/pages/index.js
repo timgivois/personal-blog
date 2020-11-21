@@ -15,7 +15,7 @@ const Landing = ({ data, switchTheme }) => {
     <Grid fluid>
       <Helmet title='Tim Givois' defer={false} />
       <Topbar isMainPage switchTheme={switchTheme} />
-      <Row style={{marginTop: '10px'}}>
+      <Row style={{ marginTop: '10px', }}>
         <Col xs={12}>
           <Row center="xs">
             <Col xs={10} lg={6}>
@@ -25,8 +25,8 @@ const Landing = ({ data, switchTheme }) => {
 
               {
                 edges.map(edge => (
-                  <Row key={uniqueId()} style={{margin: '10px 0'}}>
-                    <Link href={edge.node.frontmatter.path} pure style={{width: '100%'}}>
+                  <Row key={uniqueId()} style={{ margin: '10px 0', }}>
+                    <Link href={edge.node.frontmatter.path} pure style={{ width: '100%',  }}>
                       <Card shadow>
                         <Row center="xs">
                           <Col xs={10} md={6}>
@@ -37,7 +37,7 @@ const Landing = ({ data, switchTheme }) => {
                               <Text h3>{edge.node.frontmatter.title}</Text>
                             </Row>
                             <Row start="xs">
-                              {(edge.node.frontmatter.tags || []).map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
+                              {(edge.node.frontmatter.tags || []).map(tag => <Tag style={{ margin: '0 5px', }} key={uniqueId()}>{tag}</Tag>)}
                             </Row>
                             <Row start="xs">
                               <Text>{edge.node.frontmatter.excerpt}</Text>
