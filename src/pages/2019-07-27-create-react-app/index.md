@@ -1,12 +1,13 @@
 ---
-path: "/react-from-scratch"
-date: "2019-07-27"
-title: "Create a react project from scratch"
+path: '/react-from-scratch'
+date: '2019-07-27'
+title: 'Create a react project from scratch'
 tags: ['React', 'Software']
-excerpt: "Create a react app the hard way."
-image: "/react.png"
-time: "5 min."
+excerpt: 'Create a react app the hard way.'
+image: '/react.png'
+time: '5 min.'
 ---
+
 Even when create-react-app is one of the most used tools for starting React projects, we don’t see most of the configuration that we needed to do for it. When we need to modify that config, we are not sure how to do it. This tutorial walks you through the normal steps that I’ve seen are needed for a high-level React project (with tests, linter, and best-practices). My objective is that you can understand what’s needed to create a react app, and modify your create-react-app configuration or legacy projects. The app that we are going to create will have the following features:
 
 - Uses babel for transpiling ES6 code into ES5 javascript.
@@ -18,8 +19,8 @@ Even when create-react-app is one of the most used tools for starting React proj
 
 ### Prerequisites
 
-  - <Code>Node</Code>, you can download and install it from here. Go for the LTS (Long Terms Support) version if you don’t have installed it yet. If you already have a different node version. I advise you to use tools like nvmrc, so you can manage node versions (and use LTS for this tutorial).
-  - <Code>npm</Code> is the default package manager, you can use it for the tutorial, just change yarn for npm. If you want to install yarn, you can do it by running yarn install in your terminal.
+- <Code>Node</Code>, you can download and install it from here. Go for the LTS (Long Terms Support) version if you don’t have installed it yet. If you already have a different node version. I advise you to use tools like nvmrc, so you can manage node versions (and use LTS for this tutorial).
+- <Code>npm</Code> is the default package manager, you can use it for the tutorial, just change yarn for npm. If you want to install yarn, you can do it by running yarn add in your terminal.
 
 ### Creating the project and adding dependencies
 
@@ -50,14 +51,19 @@ After we installed babel, we may need to add basic configuration for it in .babe
 ```json
 // .babelrc
 {
-"presets": ["@babel/preset-react", "@babel/preset-env"]
+  "presets": ["@babel/preset-react", "@babel/preset-env"]
 }
 ```
 
 Now that we have our transpiler for JavaScript ES7 and React, we are able to add webpack. It’s a module bundler that will basically create a dependency graph in the project and spit a packaged javascript file that we’ll attach to our index html.
-<Code darkBash>yarn install webpack webpack-cli babel-loader webpack-dev-server html-webpack-plugin</Code>
+<Code darkBash>yarn add webpack webpack-cli babel-loader webpack-dev-server html-webpack-plugin</Code>
 
 We installed webpack and some dependencies we’ll need for building our react app. Babel-loader is basically a bridge between webpack and babel and webpack dev server is a helpful plugin for creating dev bundles really quick.
+
+### Adding needed packages
+
+You'll need React and React-DOM for this. You can run the following command for adding it to your node_modules and package.json:
+<Code darkBash>yarn add react react-dom</Code>
 
 ### Configuring webpack
 
@@ -98,22 +104,23 @@ module.exports = {
     }
 }
 ```
+
 I added the following files to the project (as you may deduct from the webpack configuration).
 
 ```html
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8"/>
-	<title>React Example</title>
-</head>
-<body>
-  <div id="root"></div>
-  <script src="/build/bundle.js"></script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Example</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="/build/bundle.js"></script>
+  </body>
 </html>
 ```
+
 ```JavaScript
 import React from 'react';
 
@@ -125,6 +132,7 @@ const App = () => (
 
 export default App;
 ```
+
 ```JavaScript
 .container {
     align-items: center;
@@ -134,6 +142,7 @@ export default App;
     width: 100%;
 }
 ```
+
 ```JavaScript
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -144,6 +153,7 @@ ReactDOM.render(<App />, document.getElementById("root"))
 ```
 
 And now, we need to update our `package.json` scripts:
+
 ```
 "scripts": {
     "start": "webpack-dev-server --hot --open",
@@ -171,6 +181,7 @@ We are going to add sass loader to our configuration. To do so, we just need to 
 ```
 
 Add a sass file in your src folder.
+
 ```
 
 $default-background: #D3D3D3;
@@ -218,6 +229,7 @@ The first thing you have to do is install typescript and its webpack loader.
 <Code darkBash>yarn add --dev typescript ts-loader source-map-loader</Code>
 
 Add the following configuration for your TypeScript project:
+
 ```JavaScript
 {
     "compilerOptions": {
@@ -234,6 +246,7 @@ Add the following configuration for your TypeScript project:
 ```
 
 Now, you should just need to add the loader and rename App.jsx to App.tsx.
+
 ```JavaScript
 ...
             {
@@ -277,6 +290,7 @@ declare module '*.svg'
 ```
 
 ### Add a linter for the project
+
 Another nice-to-have in projects are the linters. While more people work in it, there are different styles of writing code. Some may prefer to use single quotes for strings and some others love to use the semicolon. Linters are the tool for keeping a consisting style in your code. We’ll see how we can setup StandardJS with TS.
 
 <Code darkBash>yarn add --dev @typescript-eslint/parser @typescript-eslint/eslint-plugin</Code>
@@ -308,6 +322,7 @@ Now that we have fixed our lint problems, we’ll know add configuration for jes
 <Code darkBash>yarn add --dev jest enzyme enzyme-adapter-react-16 @types/jest ts-jest @types/enzyme babel-jest identity-obj-proxy</Code>
 
 Add the following jest config file:
+
 ```JavaScript
 {
     "roots": [

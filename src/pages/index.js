@@ -37,7 +37,7 @@ const Landing = ({ data, switchTheme }) => {
                               <Text h3>{edge.node.frontmatter.title}</Text>
                             </Row>
                             <Row start="xs">
-                              {edge.node.frontmatter.tags.map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
+                              {(edge.node.frontmatter.tags || []).map(tag => <Tag style={{margin: '0 5px'}} key={uniqueId()}>{tag}</Tag>)}
                             </Row>
                             <Row start="xs">
                               <Text>{edge.node.frontmatter.excerpt}</Text>
