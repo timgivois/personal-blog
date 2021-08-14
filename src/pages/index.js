@@ -32,7 +32,7 @@ const Landing = ({ data, switchTheme }) => {
                   >
                     <Card shadow>
                       <Row center="xs">
-                        <Col xs={10} md={5}>
+                        <Col xs={12} md={5}>
                           <img
                             src={edge.node.frontmatter.image}
                             alt={edge.node.frontmatter.title}
