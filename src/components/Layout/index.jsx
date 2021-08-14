@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { CSSBaseline, ZEITUIProvider, useTheme } from '@zeit-ui/react'
-import { Grid, Col, Row } from 'react-flexbox-grid'
+import { CSSBaseline, ZEITUIProvider } from '@zeit-ui/react'
+import { Col, Row } from 'react-flexbox-grid'
 
 import './layout.css'
 import 'react-toggle/style.css'
@@ -17,19 +17,17 @@ export const BarWrapper = styled(Row)`
 `
 
 const withStyle = Component => props => {
-  const myTheme = {
-    // palette: {
-    //   background: '#FAFAFA',
-    //   foreground: '#151617'
-    // }
-  }
+  // const myTheme = {
+  //   // palette: {
+  //   //   background: '#FAFAFA',
+  //   //   foreground: '#151617'
+  //   // }
+  // }
   const [type, setType] = useState('light')
 
   const switchTheme = theme => {
     setType(theme)
   }
-
-  const theme = {}
 
   var d = new Date()
 
