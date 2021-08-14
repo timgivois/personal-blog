@@ -1,9 +1,18 @@
-body, html, #___gatsby, #gatsby-focus-wrapper {
+body,
+html,
+#___gatsby,
+#gatsby-focus-wrapper {
   height: 100%;
   box-sizing: border-box;
 }
 
-p, h1, h2, h3, h4, h5, span {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+span {
   font-family: 'Maven Pro', sans-serif !important;
 }
 
@@ -17,15 +26,23 @@ h3 {
 }
 
 .change-mode.react-toggle--checked .react-toggle-track,
-.change-mode.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track{
-  background-color: #4D4D4D;
+.change-mode.react-toggle--checked:hover:not(.react-toggle--disabled)
+  .react-toggle-track {
+  background-color: #4d4d4d;
 }
 
 .change-mode.react-toggle--checked .react-toggle-track,
-.change-mode.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
+.change-mode.react-toggle--checked:hover:not(.react-toggle--disabled)
+  .react-toggle-track {
   background-color: #fafafa;
 }
 
 .refimg {
   max-height: 100%;
+}
+
+.container-fluid {
+  @media screen and (max-width: 600px) {
+    padding: 0;
+  }
 }

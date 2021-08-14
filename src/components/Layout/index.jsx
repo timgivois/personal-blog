@@ -23,7 +23,7 @@ const withStyle = Component => props => {
   //   //   foreground: '#151617'
   //   // }
   // }
-  const [type, setType] = useState('light')
+  const [type, setType] = useState('dark')
 
   const switchTheme = theme => {
     setType(theme)
