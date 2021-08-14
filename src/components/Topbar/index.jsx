@@ -136,12 +136,12 @@ const Topbar = ({ switchTheme, isMainPage }) => {
         center="xs"
       >
         <Col xs={5} md={3}>
-          <Row end="xs">
+          <Row center="xs" end="md">
             <Logo />
           </Row>
         </Col>
         <Col xs={5} md={3}>
-          <Row>
+          <Row center="xs" start="md">
             <Toggle
               checked={theme.type === 'dark'}
               className="change-mode"
