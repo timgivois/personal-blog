@@ -12,7 +12,7 @@ import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
-const Template = ({ data, pageContext, switchTheme }) => {
+const Template = ({ data, switchTheme }) => {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
