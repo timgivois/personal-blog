@@ -30,14 +30,21 @@ const Landing = ({ data, switchTheme }) => {
                     pure
                     style={{ width: '100%' }}
                   >
-                    <Space margins={[0, 0, 4, 0]} fullWidth>
+                    <Space margins={[0, 0, 5, 0]} fullWidth>
                       <Card shadow>
-                        <Row center="xs">
+                        <Row center="xs" middle="xs">
                           <Col xs={12} md={5}>
                             <img
                               src={edge.node.frontmatter.image}
                               alt={edge.node.frontmatter.title}
-                              height={165}
+                              style={{
+                                margin: 'auto',
+                                heigth: '100%',
+                                width: '100%',
+                                maxHeight: '175px',
+                                maxWidth: '175px',
+                                objectFit: 'scale-down',
+                              }}
                             />
                           </Col>
                           <Col xs={12} md={7} center="xs" start="md">
