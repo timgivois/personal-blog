@@ -42,7 +42,7 @@ const Landing = ({ data, switchTheme }) => {
                                 heigth: '100%',
                                 width: '100%',
                                 maxHeight: '175px',
-                                OObjectFit: 'scale-down',
+                                objectFit: 'scale-down',
                               }}
                             />
                           </Col>
