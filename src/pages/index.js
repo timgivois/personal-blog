@@ -1,11 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Text, Link, Card, Tag } from '@zeit-ui/react'
+import { Text, Link, Card, Tag } from '@geist-ui/react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 import uniqueId from 'lodash/uniqueId'
 import { Helmet } from 'react-helmet'
 
-import { Topbar } from '../components'
+import { Topbar, Space } from '../components'
 import withStyle from '../components/Layout'
 
 const Landing = ({ data, switchTheme }) => {
@@ -18,7 +18,7 @@ const Landing = ({ data, switchTheme }) => {
       <Row style={{ marginTop: '10px' }}>
         <Col xs={12}>
           <Row center="xs">
-            <Col xs={10} lg={6}>
+            <Col xs={10} lg={7}>
               <Row>
                 <Text h2>Posts</Text>
               </Row>
@@ -30,32 +30,37 @@ const Landing = ({ data, switchTheme }) => {
                     pure
                     style={{ width: '100%' }}
                   >
-                    <Card shadow>
-                      <Row center="xs">
-                        <Col xs={12} md={5}>
-                          <img
-                            src={edge.node.frontmatter.image}
-                            alt={edge.node.frontmatter.title}
-                            height={165}
-                          />
-                        </Col>
-                        <Col xs={12} md={7} center="xs" start="md">
-                          <Row start="md" center="xs">
-                            <Text h3>{edge.node.frontmatter.title}</Text>
-                          </Row>
-                          <Row start="md" center="xs">
-                            {(edge.node.frontmatter.tags || []).map(tag => (
-                              <Tag style={{ margin: '0 5px' }} key={uniqueId()}>
-                                {tag}
-                              </Tag>
-                            ))}
-                          </Row>
-                          <Row start="md" center="xs">
-                            <Text>{edge.node.frontmatter.excerpt}</Text>
-                          </Row>
-                        </Col>
-                      </Row>
-                    </Card>
+                    <Space margins={[0, 0, 4, 0]} fullWidth>
+                      <Card shadow>
+                        <Row center="xs">
+                          <Col xs={12} md={5}>
+                            <img
+                              src={edge.node.frontmatter.image}
+                              alt={edge.node.frontmatter.title}
+                              height={165}
+                            />
+                          </Col>
+                          <Col xs={12} md={7} center="xs" start="md">
+                            <Row start="md" center="xs">
+                              <Text h3>{edge.node.frontmatter.title}</Text>
+                            </Row>
+                            <Row start="md" center="xs">
+                              {(edge.node.frontmatter.tags || []).map(tag => (
+                                <Tag
+                                  style={{ margin: '0 5px' }}
+                                  key={uniqueId()}
+                                >
+                                  {tag}
+                                </Tag>
+                              ))}
+                            </Row>
+                            <Row start="md" center="xs">
+                              <Text>{edge.node.frontmatter.excerpt}</Text>
+                            </Row>
+                          </Col>
+                        </Row>
+                      </Card>
+                    </Space>
                   </Link>
                 </Row>
               ))}

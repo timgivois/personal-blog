@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, useTheme, Code, Display } from '@zeit-ui/react'
+import { Text, Link, useTheme, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
@@ -12,7 +12,7 @@ import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
-const Template = ({ data, switchTheme }) => {
+const Template = ({ data, switchTheme, theme }) => {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
@@ -21,45 +21,61 @@ const Template = ({ data, switchTheme }) => {
       <Helmet title={frontmatter.title} defer={false} />
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
-        <Col xs={9} lg={7}>
+        <Col xs={11} lg={10}>
           <Row center="xs">
             <img
               alt="Tim Givois"
               height="100%"
               width="100%"
+              style={{ maxHeight: '400px', objectFit: 'scale-down' }}
               src={frontmatter.image}
             />
           </Row>
         </Col>
       </Row>
       <Row center="xs">
-        <Col xs={9} lg={6}>
+        <Col xs={11} lg={10}>
           <Row start="xs">
             <Text h1>{frontmatter.title}</Text>
           </Row>
           <Row start="xs">
-            <Text style={{ color: palette.accents_4 }} h4>
+            <Text
+              style={{
+                color: theme === 'light' ? palette.accents_4 : 'inherit',
+              }}
+              h4
+            >
               {frontmatter.excerpt}
             </Text>
           </Row>
         </Col>
       </Row>
       <Row style={{ margin: '20px 0' }} center="xs">
-        <Col xs={9} lg={6}>
+        <Col xs={11} lg={10}>
           <Row start="xs">
             <Col style={{ minWidth: '70px' }} xs={1}>
               <Row>
-                <Avatar src={profileImg} size={60} />
+                <Avatar src={profileImg} className="avatar-small" />
               </Row>
             </Col>
             <Col xs={8}>
               <Row>
-                <Text style={{ margin: 0, color: palette.accents_4 }}>
+                <Text
+                  style={{
+                    margin: 0,
+                    color: theme === 'light' ? palette.accents_4 : 'inherit',
+                  }}
+                >
                   Tim Givois
                 </Text>
               </Row>
               <Row>
-                <Text style={{ margin: 0, color: palette.accents_4 }}>
+                <Text
+                  style={{
+                    margin: 0,
+                    color: theme === 'light' ? palette.accents_4 : 'inherit',
+                  }}
+                >
                   {frontmatter.date} • {frontmatter.time}
                 </Text>
               </Row>
@@ -69,7 +85,7 @@ const Template = ({ data, switchTheme }) => {
       </Row>
 
       <Row center="xs">
-        <Col xs={9} lg={6}>
+        <Col xs={11} lg={10}>
           <Row start="xs">
             <Col xs={12} style={{ textAlign: 'justify' }}>
               <MDXProvider components={{ Code, Display, Link }}>

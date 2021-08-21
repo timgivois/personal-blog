@@ -1,14 +1,12 @@
 import React from 'react'
-import { Avatar } from '@zeit-ui/react'
+import { Avatar } from '@geist-ui/react'
 
 import { Wrapper } from './style'
 
-const PersonalAvatar = (props) => (
+const PersonalAvatar = props => (
   <Wrapper>
-    <Avatar
-      {...props}
-      />
+    <Avatar {...props} />
   </Wrapper>
 )
 
-export default PersonalAvatar;
+export default PersonalAvatar

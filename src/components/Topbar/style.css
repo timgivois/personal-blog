@@ -6,3 +6,12 @@
   overflow: hidden;
   z-index: 10;
 }
+
+.avatar {
+  height: 180px !important;
+  width: 100% !important;
+}
+
+.avatar.avatar-small {
+  height: 60px !important;
+}

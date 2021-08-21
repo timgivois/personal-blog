@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import Toggle from 'react-toggle'
-import { useTheme, Text, Link } from '@zeit-ui/react'
+import { useTheme, Text, Link } from '@geist-ui/react'
 
 import profileImg from '../../../static/tim-image.png'
 import Logo from '../Logo'
@@ -47,7 +47,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
         <Wrapper middle="md">
           <Col xs={12} lg={3}>
             <Row center="xs">
-              <Avatar src={profileImg} size={180} />
+              <Avatar src={profileImg} />
             </Row>
             <Row center="xs" align="center">
               <Text>Tim Givois – Software Engineer</Text>
