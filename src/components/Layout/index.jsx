@@ -35,8 +35,8 @@ const withStyle = Component => props => {
       <Component {...props} switchTheme={switchTheme} theme={theme} />
       <footer>
         <BarWrapper type={theme}>
-          <Col xs={6} md={4}>
-            <Row center="xs">
+          <Col xs={5} md={3}>
+            <Row center="xs" end="md">
               <small>&copy; {d.getFullYear()} timgivois</small>
             </Row>
           </Col>
