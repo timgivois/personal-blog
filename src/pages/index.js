@@ -30,7 +30,7 @@ const Landing = ({ data, switchTheme }) => {
                     pure
                     style={{ width: '100%' }}
                   >
-                    <Space margins={[0, 0, 4, 0]} fullWidth>
+                    <Space margins={[0, 0, 5, 0]} fullWidth>
                       <Card shadow>
                         <Row center="xs" middle="xs">
                           <Col xs={12} md={5}>
