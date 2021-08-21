@@ -39,14 +39,7 @@ const Template = ({ data, switchTheme, theme }) => {
             <Text h1>{frontmatter.title}</Text>
           </Row>
           <Row start="xs">
-            <Text
-              style={{
-                color: theme === 'light' ? palette.accents_4 : 'inherit',
-              }}
-              h4
-            >
-              {frontmatter.excerpt}
-            </Text>
+            <Text h4>{frontmatter.excerpt}</Text>
           </Row>
         </Col>
       </Row>
@@ -63,7 +56,6 @@ const Template = ({ data, switchTheme, theme }) => {
                 <Text
                   style={{
                     margin: 0,
-                    color: theme === 'light' ? palette.accents_4 : 'inherit',
                   }}
                 >
                   Tim Givois
@@ -73,7 +65,6 @@ const Template = ({ data, switchTheme, theme }) => {
                 <Text
                   style={{
                     margin: 0,
-                    color: theme === 'light' ? palette.accents_4 : 'inherit',
                   }}
                 >
                   {frontmatter.date} • {frontmatter.time}
