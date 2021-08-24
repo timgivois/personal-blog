@@ -41,8 +41,8 @@ const Landing = ({ data, switchTheme }) => {
                                 margin: 'auto',
                                 heigth: '100%',
                                 width: '100%',
-                                maxHeight: '175px',
-                                maxWidth: '175px',
+                                maxHeight: '80%',
+                                maxWidth: '80%',
                                 objectFit: 'scale-down',
                               }}
                             />
