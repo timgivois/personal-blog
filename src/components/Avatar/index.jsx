@@ -3,7 +3,7 @@ import { Avatar } from '@geist-ui/react'
 
 import { Wrapper } from './style'
 
-const PersonalAvatar = props => (
+const PersonalAvatar = ({ ...props }) => (
   <Wrapper>
     <Avatar {...props} />
   </Wrapper>

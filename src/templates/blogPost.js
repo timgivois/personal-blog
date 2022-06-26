@@ -107,7 +107,7 @@ const Template = ({ data, switchTheme, theme }) => {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
       body
       frontmatter {
