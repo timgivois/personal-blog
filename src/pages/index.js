@@ -23,7 +23,7 @@ const Landing = ({ data, switchTheme }) => {
                 <Text h2>Posts</Text>
               </Row>
 
-              {edges.map(edge => (
+              {edges.map((edge) => (
                 <Row key={uniqueId()}>
                   <Link
                     href={edge.node.frontmatter.path}
@@ -52,7 +52,7 @@ const Landing = ({ data, switchTheme }) => {
                               <Text h3>{edge.node.frontmatter.title}</Text>
                             </Row>
                             <Row start="md" center="xs">
-                              {(edge.node.frontmatter.tags || []).map(tag => (
+                              {(edge.node.frontmatter.tags || []).map((tag) => (
                                 <Tag
                                   style={{ margin: '0 5px' }}
                                   key={uniqueId()}
