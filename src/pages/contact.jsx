@@ -36,6 +36,8 @@ const Contact = ({ switchTheme }) => {
     experience: [
       {
         company: 'Airbnb',
+        companyUrl: 'https://airbnb.com',
+        logoUrl: 'https://logo.clearbit.com/airbnb.com',
         role: 'Senior Software Engineer, Marketing Technology',
         period: '2021 \u2013 Present',
         details: [
@@ -47,6 +49,8 @@ const Contact = ({ switchTheme }) => {
       },
       {
         company: 'Carta',
+        companyUrl: 'https://carta.com',
+        logoUrl: 'https://logo.clearbit.com/carta.com',
         role: 'Software Engineer, Valuations and Compensation',
         period: '2020 \u2013 2021',
         details: [
@@ -56,6 +60,8 @@ const Contact = ({ switchTheme }) => {
       },
       {
         company: 'Wizeline',
+        companyUrl: 'https://wizeline.com',
+        logoUrl: 'https://logo.clearbit.com/wizeline.com',
         role: 'Senior Software Engineer, Services',
         period: '2017 \u2013 2019',
         details: [
@@ -65,6 +71,8 @@ const Contact = ({ switchTheme }) => {
       },
       {
         company: 'Rappi',
+        companyUrl: 'https://rappi.com',
+        logoUrl: 'https://logo.clearbit.com/rappi.com',
         role: 'Backend Engineer, Payments',
         period: '2017',
         details: [
@@ -73,6 +81,8 @@ const Contact = ({ switchTheme }) => {
       },
       {
         company: 'Sertech Consulting Group',
+        companyUrl: 'https://sertech.com',
+        logoUrl: 'https://logo.clearbit.com/sertech.com',
         role: 'Backend Engineer, Data',
         period: '2015 \u2013 2017',
         details: [
@@ -81,6 +91,8 @@ const Contact = ({ switchTheme }) => {
       },
       {
         company: 'Intelimetrica',
+        companyUrl: 'https://intelimetrica.com',
+        logoUrl: 'https://logo.clearbit.com/intelimetrica.com',
         role: 'Junior Software Engineer, Data',
         period: '2014 \u2013 2015',
         details: [
@@ -130,35 +142,43 @@ const Contact = ({ switchTheme }) => {
   return (
     <Grid fluid>
       <Topbar switchTheme={switchTheme} />
-      <Row center="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
+      <Row start="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
         <Col xs={11} md={8} lg={6}>
           <ResumeCard shadow>
-            <Row center="xs">
+            <Row start="xs">
               <Avatar src={profilePic} size="80px" />
             </Row>
-            <Row center="xs">
+            <Row start="xs">
               <Text h2>{resume.name}</Text>
             </Row>
-            <Row center="xs">
+            <Row start="xs">
               <Text h4>{resume.title}</Text>
             </Row>
             <Divider />
             <Section>
               <Text h4>Contact</Text>
-              <Text small>
-                Email:{' '}
-                <Link href={`mailto:${resume.contact.email}`} pure underline>
-                  {resume.contact.email}
-                </Link>
-              </Text>
-              <Text small>Phone: {resume.contact.phone}</Text>
-              <Text small>Location: {resume.contact.location}</Text>
-              <Text small>
-                Website:{' '}
-                <Link href={resume.contact.website} pure underline>
-                  {resume.contact.website}
-                </Link>
-              </Text>
+              <div style={{ marginBottom: '8px' }}>
+                <Text small>
+                  Email:{' '}
+                  <Link href={`mailto:${resume.contact.email}`} pure underline>
+                    {resume.contact.email}
+                  </Link>
+                </Text>
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <Text small>Phone: {resume.contact.phone}</Text>
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <Text small>Location: {resume.contact.location}</Text>
+              </div>
+              <div style={{ marginBottom: '8px' }}>
+                <Text small>
+                  Website:{' '}
+                  <Link href={resume.contact.website} pure underline>
+                    {resume.contact.website}
+                  </Link>
+                </Text>
+              </div>
             </Section>
             <Divider />
             <Section>
@@ -174,9 +194,18 @@ const Contact = ({ switchTheme }) => {
                   shadow
                   style={{ marginBottom: '15px', padding: '10px' }}
                 >
-                  <Text h5>
-                    {exp.role} - {exp.company}
-                  </Text>
+                  <Row middle="xs" start="xs">
+                    <Link href={exp.companyUrl} pure>
+                      <img
+                        alt={exp.company}
+                        src={exp.logoUrl}
+                        style={{ height: '20px', marginRight: '10px' }}
+                      />
+                    </Link>
+                    <Text h5>
+                      {exp.role} - {exp.company}
+                    </Text>
+                  </Row>
                   <Text small>{exp.period}</Text>
                   <ul style={{ marginLeft: '20px' }}>
                     {exp.details.map((d, i) => (
@@ -206,7 +235,7 @@ const Contact = ({ switchTheme }) => {
             <Divider />
             <Section>
               <Text h4>Skills</Text>
-              <Row center="xs">
+              <Row start="xs">
                 {resume.skills.map((skill, index) => (
                   <SkillCard key={index} shadow>
                     <Text small>{skill}</Text>
