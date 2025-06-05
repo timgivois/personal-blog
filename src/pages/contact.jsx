@@ -1,11 +1,25 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Text, Card, Link, Avatar, Divider } from '@geist-ui/react'
+import styled from 'styled-components'
 
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 import profilePic from '../../static/tim-image.png'
+
+const ResumeCard = styled(Card)`
+  padding: 20px;
+`
+
+const Section = styled.div`
+  margin: 20px 0;
+`
+
+const SkillCard = styled(Card)`
+  margin: 5px;
+  padding: 5px;
+`
 
 const Contact = ({ switchTheme }) => {
   const resume = {
@@ -116,9 +130,9 @@ const Contact = ({ switchTheme }) => {
   return (
     <Grid fluid>
       <Topbar switchTheme={switchTheme} />
-      <Row center="xs" style={{ marginTop: '20px' }}>
-        <Col xs={12} md={8} lg={6}>
-          <Card shadow>
+      <Row center="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
+        <Col xs={11} md={8} lg={6}>
+          <ResumeCard shadow>
             <Row center="xs">
               <Avatar src={profilePic} size="80px" />
             </Row>
@@ -129,84 +143,78 @@ const Contact = ({ switchTheme }) => {
               <Text h4>{resume.title}</Text>
             </Row>
             <Divider />
-            <Row>
-              <Col xs={12}>
-                <Text h4>Contact</Text>
-                <Text small>
-                  Email:{' '}
-                  <Link href={`mailto:${resume.contact.email}`} pure underline>
-                    {resume.contact.email}
-                  </Link>
-                </Text>
-                <Text small>Phone: {resume.contact.phone}</Text>
-                <Text small>Location: {resume.contact.location}</Text>
-                <Text small>
-                  Website:{' '}
-                  <Link href={resume.contact.website} pure underline>
-                    {resume.contact.website}
-                  </Link>
-                </Text>
-              </Col>
-            </Row>
+            <Section>
+              <Text h4>Contact</Text>
+              <Text small>
+                Email:{' '}
+                <Link href={`mailto:${resume.contact.email}`} pure underline>
+                  {resume.contact.email}
+                </Link>
+              </Text>
+              <Text small>Phone: {resume.contact.phone}</Text>
+              <Text small>Location: {resume.contact.location}</Text>
+              <Text small>
+                Website:{' '}
+                <Link href={resume.contact.website} pure underline>
+                  {resume.contact.website}
+                </Link>
+              </Text>
+            </Section>
             <Divider />
-            <Row>
-              <Col xs={12}>
-                <Text h4>Summary</Text>
-                <Text>{resume.summary}</Text>
-              </Col>
-            </Row>
+            <Section>
+              <Text h4>Summary</Text>
+              <Text>{resume.summary}</Text>
+            </Section>
             <Divider />
-            <Row>
-              <Col xs={12}>
-                <Text h4>Experience</Text>
-                {resume.experience.map((exp, index) => (
-                  <div key={index}>
-                    <Text h5>
-                      {exp.role} - {exp.company}
-                    </Text>
-                    <Text small>{exp.period}</Text>
-                    <ul>
-                      {exp.details.map((d, i) => (
-                        <li key={i}>
-                          <Text small>{d}</Text>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <Section>
+              <Text h4>Experience</Text>
+              {resume.experience.map((exp, index) => (
+                <Card
+                  key={index}
+                  shadow
+                  style={{ marginBottom: '15px', padding: '10px' }}
+                >
+                  <Text h5>
+                    {exp.role} - {exp.company}
+                  </Text>
+                  <Text small>{exp.period}</Text>
+                  <ul style={{ marginLeft: '20px' }}>
+                    {exp.details.map((d, i) => (
+                      <li key={i}>
+                        <Text small>{d}</Text>
+                      </li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </Section>
+            <Divider />
+            <Section>
+              <Text h4>Education</Text>
+              {resume.education.map((ed, index) => (
+                <Card
+                  key={index}
+                  shadow
+                  style={{ marginBottom: '15px', padding: '10px' }}
+                >
+                  <Text h5>{ed.institution}</Text>
+                  <Text small>{ed.degree}</Text>
+                  <Text small>{ed.period}</Text>
+                </Card>
+              ))}
+            </Section>
+            <Divider />
+            <Section>
+              <Text h4>Skills</Text>
+              <Row center="xs">
+                {resume.skills.map((skill, index) => (
+                  <SkillCard key={index} shadow>
+                    <Text small>{skill}</Text>
+                  </SkillCard>
                 ))}
-              </Col>
-            </Row>
-            <Divider />
-            <Row>
-              <Col xs={12}>
-                <Text h4>Education</Text>
-                {resume.education.map((ed, index) => (
-                  <div key={index}>
-                    <Text h5>{ed.institution}</Text>
-                    <Text small>{ed.degree}</Text>
-                    <Text small>{ed.period}</Text>
-                  </div>
-                ))}
-              </Col>
-            </Row>
-            <Divider />
-            <Row>
-              <Col xs={12}>
-                <Text h4>Skills</Text>
-                <Row>
-                  {resume.skills.map((skill, index) => (
-                    <Card
-                      key={index}
-                      shadow
-                      style={{ margin: '5px', padding: '5px' }}
-                    >
-                      <Text small>{skill}</Text>
-                    </Card>
-                  ))}
-                </Row>
-              </Col>
-            </Row>
-          </Card>
+              </Row>
+            </Section>
+          </ResumeCard>
         </Col>
       </Row>
     </Grid>
