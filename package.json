@@ -21,6 +21,7 @@
     "@babel/helper-function-name": "^7.24.7",
     "@babel/helper-hoist-variables": "^7.24.7",
     "@babel/helper-split-export-declaration": "^7.24.7",
+    "@babel/traverse": "^7.27.4",
     "@geist-ui/react": "^2.2.0",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
