@@ -148,7 +148,7 @@ const Contact = ({ switchTheme }) => {
         <Col xs={11} md={8} lg={6}>
           <ResumeCard shadow>
             <Row start="xs">
-              <Avatar src={profilePic} size="100px" />
+              <Avatar src={profilePic} size="60px" />
             </Row>
             <Row start="xs">
               <Text h2>{resume.name}</Text>
@@ -201,7 +201,7 @@ const Contact = ({ switchTheme }) => {
                       <img
                         alt={exp.company}
                         src={exp.logoUrl}
-                        style={{ height: '20px', marginRight: '10px' }}
+                        style={{ height: '60px', marginRight: '10px' }}
                       />
                     </Link>
                     <Text h5>
@@ -234,7 +234,7 @@ const Contact = ({ switchTheme }) => {
                         <img
                           alt={ed.institution}
                           src={ed.logoUrl}
-                          style={{ height: '30px', marginRight: '10px' }}
+                          style={{ height: '60px', marginRight: '10px' }}
                         />
                       </Link>
                     )}
