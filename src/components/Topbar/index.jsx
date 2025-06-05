@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
 import Toggle from 'react-toggle'
 import { useTheme, Text, Link } from '@geist-ui/react'
@@ -15,31 +15,12 @@ import {
 } from './style'
 import paths from '../../utils/paths'
 import './style.css'
+import useStickyNavInMainPage from '../../hooks/useStickyNavInMainPage'
 
 const Topbar = ({ switchTheme, isMainPage }) => {
   const theme = useTheme()
 
-  useEffect(() => {
-    const navbar = document.getElementById('navbar')
-    const sticky = navbar.offsetTop
-    const height = navbar.offsetHeight
-
-    const addStickyToNavBar = () => {
-      if (
-        window.pageYOffset >= sticky + navbar.offsetHeight - height ||
-        !isMainPage
-      ) {
-        navbar.classList.add('sticky')
-      } else {
-        navbar.classList.remove('sticky')
-      }
-    }
-    addStickyToNavBar()
-
-    window.onscroll = function () {
-      addStickyToNavBar()
-    }
-  })
+  useStickyNavInMainPage(isMainPage)
 
   return (
     <>
