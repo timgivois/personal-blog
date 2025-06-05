@@ -3,7 +3,6 @@ import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Text, Card, Link, Avatar, Divider } from '@geist-ui/react'
 import styled from 'styled-components'
 
-import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 import profilePic from '../../static/tim-image.png'
@@ -141,7 +140,6 @@ const Contact = ({ switchTheme }) => {
 
   return (
     <Grid fluid>
-      <Topbar switchTheme={switchTheme} />
       <Row start="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
         <Col xs={11} md={8} lg={6}>
           <ResumeCard shadow>
