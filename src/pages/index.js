@@ -39,7 +39,7 @@ const Landing = ({ data, switchTheme }) => {
                               alt={edge.node.frontmatter.title}
                               style={{
                                 margin: 'auto',
-                                heigth: '100%',
+                                height: '100%',
                                 width: '100%',
                                 maxHeight: '80%',
                                 maxWidth: '80%',
