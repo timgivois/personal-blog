@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row, Col } from 'react-flexbox-grid'
-import { SocialMediaIconsReact } from 'react-social-icons'
+import { SocialIcon } from 'react-social-icons'
 
 export const BarWrapper = styled(Row)`
   box-shadow: ${({ type }) =>
@@ -29,7 +29,7 @@ export const StyledSocialMediaIconsReact = (props) => {
 
   return (
     <Container>
-      <SocialMediaIconsReact {...props} />
+      <SocialIcon {...props} />
     </Container>
   )
 }
