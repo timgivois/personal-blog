@@ -25,6 +25,7 @@
     "@geist-ui/react": "^2.2.0",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
+    "@vercel/speed-insights": "^1.2.0",
     "babel-plugin-styled-components": "^1.10.7",
     "dotenv": "^10.0.0",
     "gatsby": "^3.12.0",

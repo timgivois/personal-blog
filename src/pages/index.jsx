@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet'
 
 import { Topbar, Space } from '../components'
 import withStyle from '../components/Layout'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMdx
@@ -15,6 +16,7 @@ const Landing = ({ data, switchTheme }) => {
     <Grid fluid>
       <Helmet title="Tim Givois" defer={false} />
       <Topbar isMainPage switchTheme={switchTheme} />
+      <SpeedInsights />
       <Row style={{ marginTop: '10px' }}>
         <Col xs={12}>
           <Row center="xs">
