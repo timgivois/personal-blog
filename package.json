@@ -17,6 +17,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@babel/helper-environment-visitor": "^7.24.7",
+    "@babel/helper-function-name": "^7.24.7",
+    "@babel/helper-hoist-variables": "^7.24.7",
+    "@babel/helper-split-export-declaration": "^7.24.7",
+    "@babel/traverse": "^7.27.4",
     "@geist-ui/react": "^2.2.0",
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
@@ -47,6 +52,7 @@
     "@babel/core": "7.27.4",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
+    "@testing-library/react-hooks": "^8.0.1",
     "babel-jest": "^29.7.0",
     "babel-preset-gatsby": "^3.14.0",
     "jest": "^29.7.0",
