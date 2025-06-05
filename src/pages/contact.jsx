@@ -9,38 +9,108 @@ import profilePic from '../../static/tim-image.png'
 
 const Contact = ({ switchTheme }) => {
   const resume = {
-    name: 'John Doe',
-    title: 'Full Stack Developer',
+    name: 'Timothee Givois Mendez',
+    title: 'Senior Software Engineer',
     summary:
-      'Experienced developer with a focus on building modern web applications.',
+      'Senior Software Engineer with 10 years of experience building frontend and backend systems. Proven ability to lead cross-functional teams, launch 0-to-1 products, and modernize legacy platforms.',
     contact: {
-      email: 'john.doe@example.com',
-      phone: '+1 234 567 890',
-      location: 'San Francisco, CA',
-      website: 'https://example.com',
+      email: 'tim.givois.mendez@gmail.com',
+      phone: '+1 305 501 9895',
+      location: 'Miami, FL',
+      website: 'https://timgivois.me',
     },
     experience: [
       {
-        company: 'ABC Corp',
-        role: 'Senior Engineer',
-        period: '2019 - Present',
-        details: ['Lead the front-end team', 'Implemented CI/CD pipelines'],
+        company: 'Airbnb',
+        role: 'Senior Software Engineer, Marketing Technology',
+        period: '2021 \u2013 Present',
+        details: [
+          'Led 0-to-1 product development of renewed marketing tools improving user engagement and driving ~$XXM in conversions in year one.',
+          'Designed and implemented a global localization system for marketing campaigns; used by 60% of launches.',
+          'Introduced frontend instrumentation and automated regression detection to improve visibility into performance, reliability, and user behavior.',
+          'Mentored 4 engineers and aligned cross-functional stakeholders across teams.',
+        ],
       },
       {
-        company: 'XYZ Inc',
-        role: 'Software Engineer',
-        period: '2016 - 2019',
-        details: ['Developed internal tools', 'Maintained legacy systems'],
+        company: 'Carta',
+        role: 'Software Engineer, Valuations and Compensation',
+        period: '2020 \u2013 2021',
+        details: [
+          'Led backend and frontend implementation of new compensation product, acquiring $X M in ARR within 3 months.',
+          'Migrated core valuation workflows to React, improving UI responsiveness and reducing valuation request time by 50%.',
+        ],
+      },
+      {
+        company: 'Wizeline',
+        role: 'Senior Software Engineer, Services',
+        period: '2017 \u2013 2019',
+        details: [
+          'Built scalable web applications using TypeScript, React, and GraphQL for multiple client projects.',
+          'Recruited and mentored junior engineers and interns, contributing to a stronger engineering culture.',
+        ],
+      },
+      {
+        company: 'Rappi',
+        role: 'Backend Engineer, Payments',
+        period: '2017',
+        details: [
+          'Reduced payment fraud rate from 18% to 5% using data-driven fraud detection systems.',
+        ],
+      },
+      {
+        company: 'Sertech Consulting Group',
+        role: 'Backend Engineer, Data',
+        period: '2015 \u2013 2017',
+        details: [
+          'Developed 10+ microservices and built a data pipeline processing 1M+ daily records.',
+        ],
+      },
+      {
+        company: 'Intelimetrica',
+        role: 'Junior Software Engineer, Data',
+        period: '2014 \u2013 2015',
+        details: [
+          'Built a cloud-based data pipeline (500k+ records/day) using Python and AWS services.',
+        ],
       },
     ],
     education: [
       {
-        institution: 'University of Example',
-        degree: 'B.Sc Computer Science',
-        period: '2012 - 2016',
+        institution: 'Mexico Autonomous Institute of Technology (ITAM)',
+        degree: 'M.Sc. in Computer Science. GPA: 9/10',
+        period: 'Aug. 2016 \u2013 Dec. 2018',
+      },
+      {
+        institution:
+          'Monterrey Institute of Technology and Higher Education (ITESM)',
+        degree: 'B.S. in Electronic and Computer Engineering. GPA: 92/100',
+        period: 'Jan. 2011 \u2013 Dec. 2015',
       },
     ],
-    skills: ['React', 'Node.js', 'GraphQL', 'AWS'],
+    skills: [
+      'Python',
+      'Flask',
+      'Django',
+      'JavaScript',
+      'Node.js',
+      'React',
+      'GraphQL',
+      'PHP',
+      'Laravel',
+      'Java',
+      'MySQL',
+      'PostgreSQL',
+      'AuroraDB',
+      'MongoDB',
+      'Redis',
+      'DynamoDB',
+      'AWS',
+      'Kubernetes',
+      'Docker',
+      'Git',
+      'Jest',
+      'Styled-components',
+    ],
   }
 
   return (
