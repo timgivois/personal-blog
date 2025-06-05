@@ -16,7 +16,7 @@ export default {
       logoUrl: 'https://logo.clearbit.com/airbnb.com',
       role: 'Senior Software Engineer, Marketing Technology',
       period: '2021 \u2013 Present',
-      duration: '3 years',
+      duration: '4 years',
       details: [
         'Led 0-to-1 product development of renewed marketing tools improving user engagement and driving ~$XXM in conversions in year one.',
         'Designed and implemented a global localization system for marketing campaigns; used by 60% of launches.',
@@ -30,7 +30,7 @@ export default {
       logoUrl: 'https://logo.clearbit.com/carta.com',
       role: 'Software Engineer, Valuations and Compensation',
       period: '2020 \u2013 2021',
-      duration: '1 year',
+      duration: '2 years',
       details: [
         'Led backend and frontend implementation of new compensation product, acquiring $X M in ARR within 3 months.',
         'Migrated core valuation workflows to React, improving UI responsiveness and reducing valuation request time by 50%.',
@@ -42,7 +42,7 @@ export default {
       logoUrl: 'https://logo.clearbit.com/wizeline.com',
       role: 'Senior Software Engineer, Services',
       period: '2017 \u2013 2019',
-      duration: '2 years',
+      duration: '3 years',
       details: [
         'Built scalable web applications using TypeScript, React, and GraphQL for multiple client projects.',
         'Recruited and mentored junior engineers and interns, contributing to a stronger engineering culture.',
@@ -65,7 +65,7 @@ export default {
       logoUrl: 'https://logo.clearbit.com/sertech.com',
       role: 'Backend Engineer, Data',
       period: '2015 \u2013 2017',
-      duration: '2 years',
+      duration: '3 years',
       details: [
         'Developed 10+ microservices and built a data pipeline processing 1M+ daily records.',
       ],
