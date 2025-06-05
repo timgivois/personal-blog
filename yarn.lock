@@ -193,6 +193,14 @@
   dependencies:
     "@babel/types" "^7.24.7"
 
+"@babel/helper-function-name@^7.24.7":
+  version "7.24.7"
+  resolved "https://registry.yarnpkg.com/@babel/helper-function-name/-/helper-function-name-7.24.7.tgz#75f1e1725742f39ac6584ee0b16d94513da38dd2"
+  integrity sha512-FyoJTsj/PEUWu1/TYRiXTIHc8lbw+TDYkZuoE43opPS5TrI7MyONBE1oNvfguEXAD9yhQRrVBnXdXzSLQl9XnA==
+  dependencies:
+    "@babel/template" "^7.24.7"
+    "@babel/types" "^7.24.7"
+
 "@babel/helper-hoist-variables@^7.24.7":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/helper-hoist-variables/-/helper-hoist-variables-7.24.7.tgz#b4ede1cde2fd89436397f30dc9376ee06b0f25ee"
@@ -1145,7 +1153,7 @@
   resolved "https://registry.yarnpkg.com/@babel/standalone/-/standalone-7.27.6.tgz#fa2fa45acb5b0d50a0d4562fdbb390f50761c923"
   integrity sha512-OHuaAM2Sh2SCt+yzP44J7nHt69Bx5Jos8t0NaeEwyK4IqInxKxkhDGIPq5UmSDhkrc6Od28wBHRI/qN10ufuPA==
 
-"@babel/template@^7.10.4", "@babel/template@^7.12.7", "@babel/template@^7.15.4", "@babel/template@^7.27.1", "@babel/template@^7.27.2", "@babel/template@^7.3.3":
+"@babel/template@^7.10.4", "@babel/template@^7.12.7", "@babel/template@^7.15.4", "@babel/template@^7.24.7", "@babel/template@^7.27.1", "@babel/template@^7.27.2", "@babel/template@^7.3.3":
   version "7.27.2"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.27.2.tgz#fa78ceed3c4e7b63ebf6cb39e5852fca45f6809d"
   integrity sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==
