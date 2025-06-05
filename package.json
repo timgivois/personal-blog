@@ -37,7 +37,7 @@
     "react-flexbox-grid": "^2.1.2",
     "react-helmet": "^6.1.0",
     "react-toggle": "^4.1.1",
-    "social-media-icons-react": "^1.0.10",
+    "social-media-icons-react": "1.2.4",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
