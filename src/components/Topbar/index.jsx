@@ -1,25 +1,15 @@
 import React from 'react'
 import { Row, Col } from 'react-flexbox-grid'
-import Toggle from 'react-toggle'
-import { useTheme, Text, Link } from '@geist-ui/react'
+import { Text, Link } from '@geist-ui/react'
 
 import profileImg from '../../../static/tim-image.png'
-import Logo from '../Logo'
-import Emoji from '../Emoji'
 import Avatar from '../Avatar'
-import {
-  Wrapper,
-  BarWrapper,
-  StyledSocialMediaIconsReact,
-  Description,
-} from './style'
+import { Wrapper, StyledSocialMediaIconsReact, Description } from './style'
 import paths from '../../utils/paths'
 import './style.css'
 import useStickyNavInMainPage from '../../hooks/useStickyNavInMainPage'
 
 const Topbar = ({ switchTheme, isMainPage }) => {
-  const theme = useTheme()
-
   useStickyNavInMainPage(isMainPage)
 
   return (
@@ -91,7 +81,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
                   About
                 </Link>{' '}
                 |{' '}
-                <Link href="mailto:tim.givois.mendez@gmail.com" pure underline>
+                <Link href={paths.CONTACT} pure underline>
                   Contact
                 </Link>
               </Text>
@@ -99,35 +89,6 @@ const Topbar = ({ switchTheme, isMainPage }) => {
           </Description>
         </Wrapper>
       ) : null}
-      <BarWrapper
-        id="navbar"
-        type={theme.type}
-        between="xs"
-        middle="xs"
-        center="xs"
-      >
-        <Col xs={5} md={3}>
-          <Row center="xs" end="md">
-            <Logo />
-          </Row>
-        </Col>
-        <Col xs={5} md={3}>
-          <Row center="xs" start="md">
-            <Toggle
-              checked={theme.type === 'dark'}
-              className="change-mode"
-              icons={{
-                checked: <Emoji style={{ marginLeft: '-3px' }} symbol="🌙" />,
-                unchecked: <Emoji style={{ marginLeft: '-3px' }} symbol="☀️" />,
-              }}
-              onChange={(e) => {
-                const nextTheme = e.target.checked ? 'dark' : 'light'
-                switchTheme(nextTheme)
-              }}
-            />
-          </Row>
-        </Col>
-      </BarWrapper>
     </>
   )
 }

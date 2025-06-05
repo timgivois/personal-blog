@@ -3,6 +3,9 @@ import { useEffect } from 'react'
 const useStickyNavInMainPage = (isMainPage) => {
   useEffect(() => {
     const navbar = document.getElementById('navbar')
+    if (!navbar) {
+      return
+    }
     const sticky = navbar.offsetTop
     const height = navbar.offsetHeight
 
@@ -18,10 +21,12 @@ const useStickyNavInMainPage = (isMainPage) => {
     }
     addStickyToNavBar()
 
-    window.onscroll = function () {
-      addStickyToNavBar()
+    window.addEventListener('scroll', addStickyToNavBar)
+
+    return () => {
+      window.removeEventListener('scroll', addStickyToNavBar)
     }
-  })
+  }, [isMainPage])
 }
 
 export default useStickyNavInMainPage

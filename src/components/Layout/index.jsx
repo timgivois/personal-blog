@@ -16,10 +16,10 @@ export const BarWrapper = styled(Row)`
   margin-top: 15px;
 `
 
-const withStyle = Component => props => {
+const withStyle = (Component) => (props) => {
   const [theme, setTheme] = useState('dark')
 
-  const switchTheme = theme => {
+  const switchTheme = (theme) => {
     setTheme(theme)
   }
 
@@ -30,7 +30,7 @@ const withStyle = Component => props => {
       <CssBaseline />
       <style>
         @import
-        url('https://fonts.googleapis.com/css?family=Maven+Pro&display=swap');
+        url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
       </style>
       <Component {...props} switchTheme={switchTheme} theme={theme} />
       <footer>
