@@ -91,7 +91,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
                   About
                 </Link>{' '}
                 |{' '}
-                <Link href="mailto:tim.givois.mendez@gmail.com" pure underline>
+                <Link href={paths.CONTACT} pure underline>
                   Contact
                 </Link>
               </Text>

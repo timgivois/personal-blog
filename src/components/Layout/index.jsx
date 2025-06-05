@@ -30,7 +30,7 @@ const withStyle = Component => props => {
       <CssBaseline />
       <style>
         @import
-        url('https://fonts.googleapis.com/css?family=Maven+Pro&display=swap');
+        url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
       </style>
       <Component {...props} switchTheme={switchTheme} theme={theme} />
       <footer>
