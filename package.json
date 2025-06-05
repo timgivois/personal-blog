@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@babel/helper-environment-visitor": "^7.24.7",
+    "@babel/helper-hoist-variables": "^7.24.7",
     "@babel/helper-split-export-declaration": "^7.24.7",
     "@geist-ui/react": "^2.2.0",
     "@mdx-js/mdx": "^1.5.8",
