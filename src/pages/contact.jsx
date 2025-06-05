@@ -102,12 +102,16 @@ const Contact = ({ switchTheme }) => {
     education: [
       {
         institution: 'Mexico Autonomous Institute of Technology (ITAM)',
+        logoUrl: 'https://logo.clearbit.com/itam.mx',
+        institutionUrl: 'https://itam.mx',
         degree: 'M.Sc. in Computer Science. GPA: 9/10',
         period: 'Aug. 2016 \u2013 Dec. 2018',
       },
       {
         institution:
           'Monterrey Institute of Technology and Higher Education (ITESM)',
+        logoUrl: 'https://logo.clearbit.com/tec.mx',
+        institutionUrl: 'https://tec.mx',
         degree: 'B.S. in Electronic and Computer Engineering. GPA: 92/100',
         period: 'Jan. 2011 \u2013 Dec. 2015',
       },
@@ -144,7 +148,7 @@ const Contact = ({ switchTheme }) => {
         <Col xs={11} md={8} lg={6}>
           <ResumeCard shadow>
             <Row start="xs">
-              <Avatar src={profilePic} size="80px" />
+              <Avatar src={profilePic} size="100px" />
             </Row>
             <Row start="xs">
               <Text h2>{resume.name}</Text>
@@ -224,7 +228,18 @@ const Contact = ({ switchTheme }) => {
                   shadow
                   style={{ marginBottom: '15px', padding: '10px' }}
                 >
-                  <Text h5>{ed.institution}</Text>
+                  <Row middle="xs" start="xs">
+                    {ed.logoUrl && (
+                      <Link href={ed.institutionUrl} pure>
+                        <img
+                          alt={ed.institution}
+                          src={ed.logoUrl}
+                          style={{ height: '30px', marginRight: '10px' }}
+                        />
+                      </Link>
+                    )}
+                    <Text h5>{ed.institution}</Text>
+                  </Row>
                   <Text small>{ed.degree}</Text>
                   <Text small>{ed.period}</Text>
                 </Card>
