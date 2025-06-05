@@ -13,3 +13,9 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/44e45043-5be7-4822-a125-fe31a4fbc209/deploy-status)](https://app.netlify.com/sites/tim-givois/deploys)
 
 Hey! This is the code I used for creating my website. I created it with GatsbyJS and deployed it on Netlify.
+
+## How to Run the App
+
+1. Install dependencies with `yarn install`.
+2. Build the project by running `yarn build`.
+3. After the build completes, open the generated `public` directory to review the static output.
