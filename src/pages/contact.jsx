@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 import withStyle from '../components/Layout'
 import { SpeedInsights } from '@vercel/speed-insights/react'
+import { Analytics } from '@vercel/analytics/react'
 
 import profilePic from '../../static/tim-image.png'
 
@@ -142,6 +143,7 @@ const Contact = ({ switchTheme }) => {
   return (
     <Grid fluid>
       <SpeedInsights />
+      <Analytics />
       <Row start="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
         <Col xs={11} md={8} lg={6}>
           <ResumeCard shadow>
