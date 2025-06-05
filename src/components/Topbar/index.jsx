@@ -36,7 +36,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
     }
     addStickyToNavBar()
 
-    window.onscroll = function() {
+    window.onscroll = function () {
       addStickyToNavBar()
     }
   })
@@ -104,16 +104,6 @@ const Topbar = ({ switchTheme, isMainPage }) => {
             <Row center="xs" start="lg">
               <Text h2>Hey! Welcome to my blog.</Text>
             </Row>
-            <Row center="xs" start="lg" style={{ marginTop: '25px' }}>
-              <Text h4>
-                I believe in the wisdom of the crowds, that's why I created this
-                small spot to share a bit of what I've learned.
-              </Text>
-              <Text h4>
-                The blog doesn't have a topic, but I mainly write about software
-                (React and stuff).
-              </Text>
-            </Row>
             <Row center="xs">
               <Text>
                 <Link href={paths.ROOT} pure underline>
@@ -149,7 +139,7 @@ const Topbar = ({ switchTheme, isMainPage }) => {
                 checked: <Emoji style={{ marginLeft: '-3px' }} symbol="🌙" />,
                 unchecked: <Emoji style={{ marginLeft: '-3px' }} symbol="☀️" />,
               }}
-              onChange={e => {
+              onChange={(e) => {
                 const nextTheme = e.target.checked ? 'dark' : 'light'
                 switchTheme(nextTheme)
               }}

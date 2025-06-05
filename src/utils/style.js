@@ -1,16 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Row } from 'react-flexbox-grid'
-import { SocialMediaIconsReact } from 'social-media-icons-react'
+import { SocialMediaIconsReact } from 'react-social-icons'
 
 export const Wrapper = styled(Row)`
   min-height: 65%;
 
-  @media (min-width:991px) {
+  @media (min-width: 991px) {
     padding: 20px 35px 0 35px;
   }
 
-  @media (max-width:991px) {
+  @media (max-width: 991px) {
     padding: 20px 10px 0 10px;
   }
 `
