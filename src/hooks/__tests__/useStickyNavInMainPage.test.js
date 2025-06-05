@@ -15,7 +15,6 @@ describe('useStickyNavInMainPage', () => {
 
   afterEach(() => {
     navbar.remove()
-    window.onscroll = null
   })
 
   it('adds sticky class when not on main page', () => {
@@ -28,8 +27,19 @@ describe('useStickyNavInMainPage', () => {
     expect(navbar.classList.contains('sticky')).toBe(false)
     act(() => {
       window.pageYOffset = 500
-      window.onscroll()
+      window.dispatchEvent(new Event('scroll'))
     })
     expect(navbar.classList.contains('sticky')).toBe(true)
+  })
+
+  it('handles missing navbar gracefully', () => {
+    navbar.remove()
+    expect(() => {
+      renderHook(() => useStickyNavInMainPage(true))
+    }).not.toThrow()
+    act(() => {
+      window.dispatchEvent(new Event('scroll'))
+    })
+    expect(document.getElementById('navbar')).toBeNull()
   })
 })
