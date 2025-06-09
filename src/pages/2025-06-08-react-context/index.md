@@ -3,7 +3,7 @@ path: '/react-context-guide'
 date: '2025-06-08'
 title: 'Understanding React Context'
 tags: ['React', 'JavaScript']
-excerpt: 'How to manage state globally with React Context, with examples and common pitfalls.'
+excerpt: "Learn how React Context shares state across your component tree without messy prop drilling. We'll set up contexts, provide values, and avoid common pitfalls."
 image: '/react.png'
 time: '5 min.'
 ---
