@@ -3,7 +3,7 @@ path: '/preact-signals'
 date: '2025-06-09'
 title: 'Using Preact Signals'
 tags: ['Preact', 'JavaScript']
-excerpt: 'When to reach for Preact Signals, how to use them, and when plain props are enough.'
+excerpt: "Discover when Preact Signals can replace props for fine-grained reactivity. We'll cover setup, usage patterns, and when simpler state management is enough."
 image: 'https://images.weserv.nl/?url=raw.githubusercontent.com/preactjs/preact-www/master/src/assets/branding/symbol.png&h=400'
 time: '7 min.'
 ---
