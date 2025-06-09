@@ -9,7 +9,9 @@ time: "8 min."
 ---
 Testing code is probably one of the most important things to do in software engineering. Testing ensures the quality of what we are building. There are many ways to test code, from end-to-end testing (manual testing) to unit testing (component testing in React). In this document, we’ll cover some of the most common and effective ways to test React code using Jest, Enzyme, and other great tools.
 
-### Test Pyramid
+A solid testing strategy saves time in the long run. By catching issues early, you keep regressions out of production and make refactoring safer as your project scales.
+
+## What is the Test Pyramid?
 
 In Agile frameworks, automated testing can be grouped into a testing pyramid. A testing pyramid illustrates when we should use one testing method versus another. The pyramid shows that many unit-snapshot tests can be used to validate one integration test, and many integration tests can be used to validate one manual test. At the peak of the pyramid, we have an end-to-end test: manual testing of the whole application. The idea of choosing what type of tests should be used is important, as we may be testing the same thing in two or three different levels of the pyramid.
 
@@ -22,7 +24,7 @@ Unit/Snapshot testing is probably the easiest way to test components. We only fo
 
 As rule of thumb for frontend development, start with unit/snapshot testing. Proceed to an integration test only if necessary. Try to avoid manual/UI testing. We can use Jest as our main testing tool for the first two steps of the pyramid.
 
-### Why Jest?
+## Why use Jest?
 ###### *Make Testing Great Again*
 
 Jest is a testing framework created by Facebook. Facebook uses it to test JavaScript and React code. It was created under the premise of performance, features and adaptability. Jest provides an integrated “zero-configuration” experience. This is a differentiator from other popular testing frameworks like Mocha. Some of the killer features are:
@@ -33,7 +35,7 @@ Jest is a testing framework created by Facebook. Facebook uses it to test JavaSc
 * **Built-in code coverage reports**: Supports —-coverage for bringing out of the box coverage reports.
 * **Zero configuration**
 
-### Jest Matchers
+### How do Jest matchers work?
 
 Matchers are the most basic unit for testing in Jest. They are used to assert that an expected object is equal, close to, greater, or less than, or contains any other logical connection to another output object. We can create different constructions with these logical connections. For more reference, check Jest <Link underline href="https://jestjs.io/docs/en/expect">documentation</Link>.
 
@@ -82,7 +84,7 @@ test(‘compiling android goes as expected’, () => {
 });
 ```
 
-### Jest Mocks
+### How do you mock functions in Jest?
 ###### *If you aren’t mocking, you aren’t unit testing.*
 
 Mocking is a useful way to isolate components and functions. To do this, we define the output of our function/dependency. A good mock is the one that mimics all corner cases. Another excellent Jest feature is the ease of creating mocking functions/dependencies.
@@ -104,7 +106,7 @@ test('computeList calls callback in array', () => {
 })
 ```
 
-### Setup and teardown
+### How do you set up and tear down tests?
 A good practice in Jest is organizing data in blocks. To do this, we can use `describe` function that receives two arguments: first the block name and then a function that will either have more organized blocks or test functions. To make it more modular, Jest provides a set of functions that will control code execution before and after we runtests.
 
 ```JavaScript
@@ -131,7 +133,7 @@ describe('City Database', () => {
 })
 ```
 
-### Snapshot testing
+## What is snapshot testing in Jest?
 ###### *As projects evolve and change, code and tests need to evolve too.*
 
 The most complex part of writing unit tests for long-term projects is the maintenance. As project evolves, code evolves and naturally, tests evolve. Certain functions or components may change the output deliberately and tests may need to adapt their assertions. As illustrated in the image, this adaptation often has repetitive tasks. 2. Snapshot testing is a way to automate this process and create unit tests that can easily be overwritten and managed through time. The main benefit of snapshot testing is that we can quickly create tests for black boxes without much configuration, and adapt them to changes easily.
@@ -176,7 +178,7 @@ Array [
 `;
 ```
 
-### Testing React Apps?
+## How do you test React components?
 Everything we’ve discussed so far doesn’t have a direct connection with React. All the previous tools may be used to test the logic of our front-end application. In frontend applications not everything is logic; we have a presentation that should be tested. But, how can we test this? The rule of thumb is that we should test everything that isn’t static. In other words, we should test two things:
 
 1. Given a set of inputs (state & props), assert what a component should output (render).
@@ -186,7 +188,7 @@ Everything we’ve discussed so far doesn’t have a direct connection with Reac
 
 That is great, but if you think it twice, what would be the output of the presentational component that we’ll be testing or snapshotting? It would be the React Tree generated. Enzyme is the tool we’ll use to easily render without problems React Trees that could even be isolated (not rendering child components, for example).
 
-### Enzyme
+### What is Enzyme and how does it help?
 Enzyme is a testing tool developed and managed by Airbnb. Enzyme uses several of the utilities provided by React to build its API. The API reduces boilerplate code.
 
 ```JavaScript
@@ -238,3 +240,7 @@ describe('the user populates the input', () => {
 ```
 
 We are now ready to test our React application. Code with more concrete examples can be found <Link underline href="https://github.com/timgivois/jest-talk">here</Link>.
+
+## Where can you learn more about SEO for personal blogs?
+
+See [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and [Ahrefs' SEO best practices](https://ahrefs.com/blog/seo-best-practices/) for tips that help your posts rank better.

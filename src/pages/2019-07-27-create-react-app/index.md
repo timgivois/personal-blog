@@ -17,12 +17,14 @@ Even when create-react-app is one of the most used tools for starting React proj
 - Has a basic setup for using Jest for tests.
 - Bonus: Uses TypeScript.
 
-### Prerequisites
+By configuring everything yourself you get a deeper sense of how each tool fits together. That knowledge will help you troubleshoot issues and adapt the stack as your application grows.
+
+## What do you need before starting?
 
 - <Code>Node</Code>, you can download and install it from here. Go for the LTS (Long Terms Support) version if you don’t have installed it yet. If you already have a different node version. I advise you to use tools like nvmrc, so you can manage node versions (and use LTS for this tutorial).
 - <Code>npm</Code> is the default package manager, you can use it for the tutorial, just change yarn for npm. If you want to install yarn, you can do it by running yarn add in your terminal.
 
-### Creating the project and adding dependencies
+### How do you create the project and add dependencies?
 
 The first thing, is creating our package.json file. We can do that with npm init, or yarn init. I’ll go for yarn, as I think it’s faster for installing dependencies and uses emojis.
 
@@ -60,12 +62,12 @@ Now that we have our transpiler for JavaScript ES7 and React, we are able to add
 
 We installed webpack and some dependencies we’ll need for building our react app. Babel-loader is basically a bridge between webpack and babel and webpack dev server is a helpful plugin for creating dev bundles really quick.
 
-### Adding needed packages
+### What packages does a React project require?
 
 You'll need React and React-DOM for this. You can run the following command for adding it to your node_modules and package.json:
 <Code darkBash>yarn add react react-dom</Code>
 
-### Configuring webpack
+### How do you configure webpack?
 
 As we made with babel, we need to create a configuration file. In most mature projects I’ve seen, more than one webpack configuration is needed (for dev and for production). This is because production bundles are normally optimized bundles that are hard to read and dev bundles can be read by developers. The following code snipper was created in the root folder with the name webpack.config.js
 
@@ -165,7 +167,7 @@ If you run npm run build or yarn build, you’ll see that there’s a production
 
 And, VOILÁ! we got a React app with minimal configuration. From now on, we’ll be adding features (post-css, lint rules, image loading, jest setup and finally typescript).
 
-### Adding a postcss loader to webpack
+## How can you add Sass support with PostCSS?
 
 We are going to add sass loader to our configuration. To do so, we just need to add the deps.
 
@@ -222,7 +224,7 @@ What about file images? We can add a webpack configuration for that too. First w
 ...
 ```
 
-### Add TypeScript to the project
+### How do you set up TypeScript with React?
 
 The first thing you have to do is install typescript and its webpack loader.
 
@@ -289,7 +291,7 @@ declare module '*.jpg'
 declare module '*.svg'
 ```
 
-### Add a linter for the project
+### Why set up a linter for React?
 
 Another nice-to-have in projects are the linters. While more people work in it, there are different styles of writing code. Some may prefer to use single quotes for strings and some others love to use the semicolon. Linters are the tool for keeping a consisting style in your code. We’ll see how we can setup StandardJS with TS.
 
@@ -315,7 +317,7 @@ One of the awesome things is that we can fix automatically the style differences
 
 <Code darkBash>yarn lint --fix</Code>
 
-### Adding Jest to the project
+### How do you add Jest to your project?
 
 Now that we have fixed our lint problems, we’ll know add configuration for jest so we can have tests. Let’s start by installing jest and enzyme:
 
@@ -367,3 +369,7 @@ describe('App', () => {
 ```
 
 Now, we can start to actually create our react app. We now control and understand all the configs that are in the project.
+
+## Where can you learn more about SEO for personal blogs?
+
+For further reading on optimizing blogs, review [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and [Ahrefs' SEO best practices](https://ahrefs.com/blog/seo-best-practices/).
