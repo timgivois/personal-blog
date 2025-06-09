@@ -3,7 +3,7 @@ path: '/react-from-scratch'
 date: '2019-07-27'
 title: 'Create a react project from scratch'
 tags: ['React', 'Software']
-excerpt: 'Create a react app the hard way.'
+excerpt: 'Follow along as we build a modern React project step by step without create-react-app. Learn how to configure Babel, Webpack, testing, and linting from scratch.'
 image: '/react.png'
 time: '5 min.'
 ---
