@@ -16,9 +16,17 @@ const Template = ({ data, switchTheme, theme }) => {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
+  const siteUrl = 'https://timgivois.me'
   return (
     <Grid fluid style={{ paddingTop: '70px' }}>
-      <Helmet title={frontmatter.title} defer={false} />
+      <Helmet defer={false}>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.excerpt} />
+        <meta property="og:title" content={frontmatter.title} />
+        <meta property="og:description" content={frontmatter.excerpt} />
+        <meta property="og:image" content={`${siteUrl}${frontmatter.image}`} />
+        <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+      </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={11} lg={10}>
@@ -107,7 +115,7 @@ const Template = ({ data, switchTheme, theme }) => {
 }
 
 export const pageQuery = graphql`
-  query ($path: String!) {
+  query BlogPostByPath($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
       body
       frontmatter {

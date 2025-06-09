@@ -12,10 +12,18 @@ import { Analytics } from '@vercel/analytics/react'
 
 const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMdx
+  const {
+    site: {
+      siteMetadata: { title, description },
+    },
+  } = data
 
   return (
     <Grid fluid>
-      <Helmet title="Tim Givois" defer={false} />
+      <Helmet defer={false}>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Topbar isMainPage switchTheme={switchTheme} />
       <SpeedInsights />
       <Analytics />
@@ -96,6 +104,12 @@ export const query = graphql`
             image
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
       }
     }
   }
