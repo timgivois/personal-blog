@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import { Text, Link, Card, Tag } from '@geist-ui/react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 import uniqueId from 'lodash/uniqueId'
@@ -16,16 +16,7 @@ const Landing = ({ data, switchTheme }) => {
     site: {
       siteMetadata: { title, description },
     },
-  } = useStaticQuery(graphql`
-    query LandingSiteMeta {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `)
+  } = data
 
   return (
     <Grid fluid>
@@ -113,6 +104,12 @@ export const query = graphql`
             image
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        description
       }
     }
   }
