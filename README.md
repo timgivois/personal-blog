@@ -19,3 +19,4 @@ Hey! This is the code I used for creating my website. I created it with GatsbyJS
 1. Install dependencies with `yarn install`.
 2. Build the project by running `yarn build`.
 3. After the build completes, open the generated `public` directory to review the static output.
+4. The sitemap is automatically generated using `gatsby-plugin-sitemap` and `gatsby-plugin-git-lastmod`.
