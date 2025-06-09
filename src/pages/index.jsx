@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Text, Link, Card, Tag } from '@geist-ui/react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 import uniqueId from 'lodash/uniqueId'
@@ -12,10 +12,27 @@ import { Analytics } from '@vercel/analytics/react'
 
 const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMdx
+  const {
+    site: {
+      siteMetadata: { title, description },
+    },
+  } = useStaticQuery(graphql`
+    query LandingSiteMeta {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `)
 
   return (
     <Grid fluid>
-      <Helmet title="Tim Givois" defer={false} />
+      <Helmet defer={false}>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Topbar isMainPage switchTheme={switchTheme} />
       <SpeedInsights />
       <Analytics />

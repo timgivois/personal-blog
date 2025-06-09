@@ -11,6 +11,14 @@ jest.mock('react-flexbox-grid', () => {
   return { Grid, Row, Col }
 })
 
+// Mock third-party analytics components used in the page
+jest.mock('@vercel/speed-insights/react', () => ({
+  SpeedInsights: () => null,
+}))
+jest.mock('@vercel/analytics/react', () => ({
+  Analytics: () => null,
+}))
+
 // Mock layout HOC to avoid importing styles and provider logic
 jest.mock('../../components/Layout', () => (Component) => Component)
 

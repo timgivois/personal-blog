@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Text, Link, useTheme, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -16,9 +16,29 @@ const Template = ({ data, switchTheme, theme }) => {
   const { mdx } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
+  const {
+    site: {
+      siteMetadata: { siteUrl },
+    },
+  } = useStaticQuery(graphql`
+    query TemplateSiteMeta {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+    }
+  `)
   return (
     <Grid fluid style={{ paddingTop: '70px' }}>
-      <Helmet title={frontmatter.title} defer={false} />
+      <Helmet defer={false}>
+        <title>{frontmatter.title}</title>
+        <meta name="description" content={frontmatter.excerpt} />
+        <meta property="og:title" content={frontmatter.title} />
+        <meta property="og:description" content={frontmatter.excerpt} />
+        <meta property="og:image" content={`${siteUrl}${frontmatter.image}`} />
+        <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+      </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={11} lg={10}>
