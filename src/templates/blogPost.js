@@ -13,7 +13,7 @@ import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 const Template = ({ data, switchTheme, theme }) => {
-  const { mdx } = data // data.mdx holds your post data
+  const { mdx, related } = data // data.mdx holds your post data
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
   const siteUrl = 'https://timgivois.me'
@@ -95,6 +95,21 @@ const Template = ({ data, switchTheme, theme }) => {
         </Col>
       </Row>
 
+      <Row center="xs" style={{ marginTop: '40px' }}>
+        <Col xs={11} lg={10}>
+          <Row start="xs">
+            <Text h2>More posts</Text>
+          </Row>
+          {related.edges.map((edge) => (
+            <Row key={edge.node.frontmatter.path}>
+              <Link underline pure href={edge.node.frontmatter.path}>
+                {edge.node.frontmatter.title}
+              </Link>
+            </Row>
+          ))}
+        </Col>
+      </Row>
+
       {
         // <div className="blog-post-footer">
         //   {
@@ -125,6 +140,20 @@ export const pageQuery = graphql`
         image
         excerpt
         time
+      }
+    }
+    related: allMdx(
+      limit: 3
+      filter: { frontmatter: { path: { ne: $path } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+          }
+        }
       }
     }
   }
