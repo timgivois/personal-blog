@@ -17,6 +17,24 @@ const Template = ({ data, switchTheme, theme }) => {
   const { frontmatter, body } = mdx
   const { palette } = useTheme()
   const siteUrl = 'https://timgivois.me'
+  const imageUrl = frontmatter.image.startsWith('http')
+    ? frontmatter.image
+    : `${siteUrl}${frontmatter.image}`
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: frontmatter.title,
+    description: frontmatter.excerpt,
+    image: imageUrl,
+    author: { '@type': 'Person', name: 'Tim Givois' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Tim Givois',
+      logo: { '@type': 'ImageObject', url: `${siteUrl}/tim-image.png` },
+    },
+    datePublished: frontmatter.date,
+    url: `${siteUrl}${frontmatter.path}`,
+  }
   return (
     <Grid fluid style={{ paddingTop: '70px' }}>
       <Helmet defer={false}>
@@ -26,6 +44,7 @@ const Template = ({ data, switchTheme, theme }) => {
         <meta property="og:description" content={frontmatter.excerpt} />
         <meta property="og:image" content={`${siteUrl}${frontmatter.image}`} />
         <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
