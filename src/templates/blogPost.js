@@ -1,12 +1,12 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, useTheme, Code, Display } from '@geist-ui/react'
+import { Text, Link, Card, useTheme, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
-import { Avatar } from '../components'
+import { Avatar, Space } from '../components'
 
 import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
@@ -102,8 +102,39 @@ const Template = ({ data, switchTheme, theme }) => {
           </Row>
           {related.edges.map((edge) => (
             <Row key={edge.node.frontmatter.path}>
-              <Link underline pure href={edge.node.frontmatter.path}>
-                {edge.node.frontmatter.title}
+              <Link
+                href={edge.node.frontmatter.path}
+                pure
+                style={{ width: '100%' }}
+              >
+                <Space margins={[1, 0, 1, 0]} fullWidth>
+                  <Card shadow style={{ width: '100%' }}>
+                    <Row center="xs" middle="xs">
+                      <Col xs={12} md={5}>
+                        <img
+                          src={edge.node.frontmatter.image}
+                          alt={edge.node.frontmatter.title}
+                          style={{
+                            margin: 'auto',
+                            height: '100%',
+                            width: '100%',
+                            maxHeight: '80%',
+                            maxWidth: '80%',
+                            objectFit: 'scale-down',
+                          }}
+                        />
+                      </Col>
+                      <Col xs={12} md={7} center="xs" start="md">
+                        <Row start="md" center="xs">
+                          <Text h4>{edge.node.frontmatter.title}</Text>
+                        </Row>
+                        <Row start="md" center="xs">
+                          <Text small>{edge.node.frontmatter.excerpt}</Text>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Space>
               </Link>
             </Row>
           ))}
@@ -152,6 +183,8 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            excerpt
+            image
           }
         }
       }
