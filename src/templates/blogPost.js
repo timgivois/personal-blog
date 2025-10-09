@@ -1,15 +1,17 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, Card, Code, Display } from '@geist-ui/react'
+import { Text, Link, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXProvider } from '@mdx-js/react'
+import { ArrowLeft } from '@geist-ui/icons'
 
-import { Avatar, Space } from '../components'
+import { Avatar, RelatedPostsCarousel } from '../components'
 
 import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
+import paths from '../utils/paths'
 
 const Template = ({ data, switchTheme, children }) => {
   const { mdx, related } = data // data.mdx holds your post data
@@ -37,7 +39,7 @@ const Template = ({ data, switchTheme, children }) => {
     url: `${siteUrl}${frontmatter.path}`,
   }
   return (
-    <Grid fluid style={{ paddingTop: '70px' }}>
+    <Grid fluid style={{ paddingTop: '60px' }}>
       <Helmet defer={false}>
         <title>{frontmatter.title}</title>
         <meta name="description" content={frontmatter.excerpt} />
@@ -49,52 +51,69 @@ const Template = ({ data, switchTheme, children }) => {
       </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
-        <Col xs={11} lg={10}>
+        <Col xs={11} md={10} lg={8}>
+          <Row start="xs" style={{ marginBottom: '20px' }}>
+            <Link
+              href={paths.ROOT}
+              pure
+              style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
+              <ArrowLeft size={20} />
+              <Text small>Back to home</Text>
+            </Link>
+          </Row>
           <Row center="xs">
             <img
-              alt="Tim Givois"
-              height="100%"
+              alt={frontmatter.title}
               width="100%"
-              style={{ maxHeight: '400px', objectFit: 'scale-down' }}
+              style={{
+                maxHeight: '300px',
+                width: '100%',
+                objectFit: 'contain',
+                borderRadius: '8px',
+                marginBottom: '20px',
+              }}
               src={frontmatter.image}
             />
           </Row>
         </Col>
       </Row>
       <Row center="xs">
-        <Col xs={11} lg={10}>
+        <Col xs={11} md={10} lg={8}>
           <Row start="xs">
-            <Text h1>{frontmatter.title}</Text>
+            <Text h2 style={{ marginBottom: '10px' }}>
+              {frontmatter.title}
+            </Text>
           </Row>
           <Row start="xs">
-            <Text h4>{frontmatter.excerpt}</Text>
+            <Text
+              style={{
+                fontSize: '1.1rem',
+                color: '#666',
+                marginBottom: '15px',
+              }}
+            >
+              {frontmatter.excerpt}
+            </Text>
           </Row>
         </Col>
       </Row>
-      <Row style={{ margin: '20px 0' }} center="xs">
-        <Col xs={11} lg={10}>
-          <Row start="xs">
-            <Col style={{ minWidth: '70px' }} xs={1}>
+      <Row style={{ margin: '15px 0 30px 0' }} center="xs">
+        <Col xs={11} md={10} lg={8}>
+          <Row start="xs" middle="xs" style={{ gap: '15px' }}>
+            <Link href={paths.CONTACT} pure>
+              <Avatar
+                src={profileImg}
+                className="avatar-small"
+                style={{ cursor: 'pointer' }}
+              />
+            </Link>
+            <Col style={{ paddingLeft: 0 }}>
               <Row>
-                <Avatar src={profileImg} className="avatar-small" />
+                <Text style={{ margin: 0, fontWeight: '500' }}>Tim Givois</Text>
               </Row>
-            </Col>
-            <Col xs={8}>
-              <Row>
-                <Text
-                  style={{
-                    margin: 0,
-                  }}
-                >
-                  Tim Givois
-                </Text>
-              </Row>
-              <Row>
-                <Text
-                  style={{
-                    margin: 0,
-                  }}
-                >
+              <Row style={{ marginTop: '4px' }}>
+                <Text small style={{ margin: 0, color: '#666' }}>
                   {frontmatter.date} • {frontmatter.time}
                 </Text>
               </Row>
@@ -104,9 +123,9 @@ const Template = ({ data, switchTheme, children }) => {
       </Row>
 
       <Row center="xs">
-        <Col xs={11} lg={10}>
+        <Col xs={11} md={10} lg={8}>
           <Row start="xs">
-            <Col xs={12} style={{ textAlign: 'justify' }}>
+            <Col xs={12} style={{ textAlign: 'justify', lineHeight: '1.8' }}>
               <MDXProvider components={{ Code, Display, Link }}>
                 {children}
               </MDXProvider>
@@ -115,49 +134,14 @@ const Template = ({ data, switchTheme, children }) => {
         </Col>
       </Row>
 
-      <Row center="xs" style={{ marginTop: '40px' }}>
-        <Col xs={11} lg={10}>
+      <Row center="xs" style={{ marginTop: '50px', marginBottom: '40px' }}>
+        <Col xs={11} md={10} lg={8}>
           <Row start="xs">
-            <Text h2>More posts</Text>
+            <Text h3 style={{ marginBottom: '20px' }}>
+              More posts
+            </Text>
           </Row>
-          {related.edges.map((edge) => (
-            <Row key={edge.node.frontmatter.path}>
-              <Link
-                href={edge.node.frontmatter.path}
-                pure
-                style={{ width: '100%' }}
-              >
-                <Space margins={[1, 0, 1, 0]} fullWidth>
-                  <Card shadow style={{ width: '100%' }}>
-                    <Row center="xs" middle="xs">
-                      <Col xs={12} md={5}>
-                        <img
-                          src={edge.node.frontmatter.image}
-                          alt={edge.node.frontmatter.title}
-                          style={{
-                            margin: 'auto',
-                            height: '100%',
-                            width: '100%',
-                            maxHeight: '80%',
-                            maxWidth: '80%',
-                            objectFit: 'scale-down',
-                          }}
-                        />
-                      </Col>
-                      <Col xs={12} md={7} center="xs" start="md">
-                        <Row start="md" center="xs">
-                          <Text h4>{edge.node.frontmatter.title}</Text>
-                        </Row>
-                        <Row start="md" center="xs">
-                          <Text small>{edge.node.frontmatter.excerpt}</Text>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </Card>
-                </Space>
-              </Link>
-            </Row>
-          ))}
+          <RelatedPostsCarousel posts={related.edges} />
         </Col>
       </Row>
 

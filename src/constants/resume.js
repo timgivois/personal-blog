@@ -39,7 +39,8 @@ export default {
     {
       company: 'Wizeline',
       companyUrl: 'https://wizeline.com',
-      logoUrl: 'https://logo.clearbit.com/wizeline.com',
+      logoUrl:
+        'https://www.wizeline.ai/wp-content/uploads/2025/02/wozelinered.svg',
       role: 'Senior Software Engineer, Services',
       period: '2017 \u2013 2019',
       duration: '3 years',

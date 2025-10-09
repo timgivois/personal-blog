@@ -6,23 +6,23 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Tim Givois Personal Blog',
+    title: 'Personal Blog',
     description: 'This is my cool blog.',
-    siteUrl: 'https://timgivois.me'
+    siteUrl: 'https://timgivois.me',
   },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-161191405-1",
+        trackingId: 'UA-161191405-1',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name:'pages',
-        path: `${__dirname}/src/pages`
-      }
+        name: 'pages',
+        path: `${__dirname}/src/pages`,
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -38,7 +38,6 @@ module.exports = {
               maxWidth: 590,
             },
           },
-
         ],
       },
     },
@@ -46,15 +45,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-offline`,
       options: {
-        precachePages: [`${__dirname}/static/`],
+        precachePages: [`/`, `/contact/`, `/*`],
       },
     },
     {
       resolve: `gatsby-plugin-git-lastmod`,
       options: {
-        include: [`${__dirname}/src/**/*.mdx`, `${__dirname}/src/**/*.md`]
-      }
+        include: [`${__dirname}/src/**/*.mdx`, `${__dirname}/src/**/*.md`],
+      },
     },
-    `gatsby-plugin-sitemap`
-  ]
+    `gatsby-plugin-sitemap`,
+  ],
 }

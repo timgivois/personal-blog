@@ -1,0 +1,782 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact page matches snapshot 1`] = `
+<div>
+  <div>
+    <div>
+      <div
+        class="jsx-2942312965 card sc-bRKDuR jnvOHb"
+      >
+        <div
+          class="jsx-355899491 content "
+        >
+          <div>
+            <span
+              class="jsx-1545067541 avatar "
+            >
+              <span
+                class="jsx-1545067541 avatar-text"
+              />
+            </span>
+          </div>
+          <div>
+            <h2
+              class="jsx-1181318970 "
+            >
+              Timothee Givois Mendez
+            </h2>
+          </div>
+          <div>
+            <h4
+              class="jsx-2019007676 "
+            >
+              Senior Software Engineer
+            </h4>
+          </div>
+          <div>
+            <div
+              data-testid="social-icon"
+              data-url="https://twitter.com/timgivois"
+              style="height: 35px; width: 35px;"
+            >
+              Social Icon
+            </div>
+            <div
+              data-testid="social-icon"
+              data-url="https://github.com/timgivois"
+              style="height: 35px; width: 35px;"
+            >
+              Social Icon
+            </div>
+            <div
+              data-testid="social-icon"
+              data-url="https://linkedin.com/in/timgivois"
+              style="height: 35px; width: 35px;"
+            >
+              Social Icon
+            </div>
+            <div
+              data-testid="social-icon"
+              data-url="https://stackoverflow.com/users/6553617/tim-givois"
+              style="height: 35px; width: 35px;"
+            >
+              Social Icon
+            </div>
+          </div>
+          <div
+            class="jsx-954493461 divider "
+            role="separator"
+          />
+          <div
+            class="sc-hvigdm caMVCR"
+          >
+            <div>
+              <h4
+                class="jsx-2019007676 "
+              >
+                Contact
+              </h4>
+            </div>
+            <div>
+              <div
+                style="margin-bottom: 8px; text-align: center;"
+              >
+                <small
+                  class="jsx-1231261695 "
+                >
+                  Email:
+                   
+                  <a
+                    class="jsx-3929194897 link  "
+                    href="mailto:tim.givois.mendez@gmail.com"
+                  >
+                    tim.givois.mendez@gmail.com
+                  </a>
+                </small>
+              </div>
+            </div>
+            <div>
+              <div
+                style="margin-bottom: 8px; text-align: center;"
+              >
+                <small
+                  class="jsx-1231261695 "
+                >
+                  Website:
+                   
+                  <a
+                    class="jsx-3929194897 link  "
+                    href="https://timgivois.me"
+                  >
+                    https://timgivois.me
+                  </a>
+                </small>
+              </div>
+            </div>
+          </div>
+          <div
+            class="jsx-954493461 divider "
+            role="separator"
+          />
+          <div
+            class="sc-hvigdm caMVCR"
+          >
+            <h4
+              class="jsx-2019007676 "
+            >
+              Summary
+            </h4>
+            <p
+              class="jsx-2596564080 "
+            >
+              Senior Software Engineer with 10 years of experience building frontend and backend systems. Proven ability to lead cross-functional teams, launch 0-to-1 products, and modernize legacy platforms.
+            </p>
+          </div>
+          <div
+            class="jsx-954493461 divider "
+            role="separator"
+          />
+          <div
+            class="sc-hvigdm caMVCR"
+          >
+            <h4
+              class="jsx-2019007676 "
+            >
+              Experience
+            </h4>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://airbnb.com"
+                  >
+                    <img
+                      alt="Airbnb"
+                      src="https://logo.clearbit.com/airbnb.com"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Senior Software Engineer, Marketing Technology
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Airbnb
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2021 – Present
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      4 years
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Led 0-to-1 product development of renewed marketing tools improving user engagement and driving ~$XXM in conversions in year one.
+                    </small>
+                  </li>
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Designed and implemented a global localization system for marketing campaigns; used by 60% of launches.
+                    </small>
+                  </li>
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Introduced frontend instrumentation and automated regression detection to improve visibility into performance, reliability, and user behavior.
+                    </small>
+                  </li>
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Mentored 4 engineers and aligned cross-functional stakeholders across teams.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://carta.com"
+                  >
+                    <img
+                      alt="Carta"
+                      src="https://logo.clearbit.com/carta.com"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Software Engineer, Valuations and Compensation
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Carta
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2020 – 2021
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      2 years
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Led backend and frontend implementation of new compensation product, acquiring $X M in ARR within 3 months.
+                    </small>
+                  </li>
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Migrated core valuation workflows to React, improving UI responsiveness and reducing valuation request time by 50%.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://wizeline.com"
+                  >
+                    <img
+                      alt="Wizeline"
+                      src="https://www.wizeline.ai/wp-content/uploads/2025/02/wozelinered.svg"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Senior Software Engineer, Services
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Wizeline
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2017 – 2019
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      3 years
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Built scalable web applications using TypeScript, React, and GraphQL for multiple client projects.
+                    </small>
+                  </li>
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Recruited and mentored junior engineers and interns, contributing to a stronger engineering culture.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://rappi.com"
+                  >
+                    <img
+                      alt="Rappi"
+                      src="https://logo.clearbit.com/rappi.com"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Backend Engineer, Payments
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Rappi
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2017
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      1 year
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Reduced payment fraud rate from 18% to 5% using data-driven fraud detection systems.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://sertech.com"
+                  >
+                    <img
+                      alt="Sertech Consulting Group"
+                      src="https://logo.clearbit.com/sertech.com"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Backend Engineer, Data
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Sertech Consulting Group
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2015 – 2017
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      3 years
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Developed 10+ microservices and built a data pipeline processing 1M+ daily records.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://intelimetrica.com"
+                  >
+                    <img
+                      alt="Intelimetrica"
+                      src="https://logo.clearbit.com/intelimetrica.com"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Junior Software Engineer, Data
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      Intelimetrica
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                      style="margin-bottom: 5px;"
+                    >
+                      2014 – 2015
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      1 year
+                    </small>
+                  </div>
+                </div>
+                <ul
+                  style="margin-left: 20px; text-align: left; margin-top: 15px;"
+                >
+                  <li>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Built a cloud-based data pipeline (500k+ records/day) using Python and AWS services.
+                    </small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            class="jsx-954493461 divider "
+            role="separator"
+          />
+          <div
+            class="sc-hvigdm caMVCR"
+          >
+            <h4
+              class="jsx-2019007676 "
+            >
+              Education
+            </h4>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://itam.mx"
+                  >
+                    <img
+                      alt="Mexico Autonomous Institute of Technology (ITAM)"
+                      src="https://logo.clearbit.com/itam.mx"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                    >
+                      Mexico Autonomous Institute of Technology (ITAM)
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      M.Sc. in Computer Science. GPA: 9/10
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Aug. 2016 – Dec. 2018
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="jsx-2942312965 card "
+              style="margin-bottom: 15px; padding: 10px;"
+            >
+              <div
+                class="jsx-355899491 content "
+              >
+                <div>
+                  <a
+                    class="jsx-2023000637 link  "
+                    href="https://tec.mx"
+                  >
+                    <img
+                      alt="Monterrey Institute of Technology and Higher Education (ITESM)"
+                      src="https://logo.clearbit.com/tec.mx"
+                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                    />
+                  </a>
+                  <div
+                    style="text-align: left;"
+                  >
+                    <h5
+                      class="jsx-1136534845 "
+                    >
+                      Monterrey Institute of Technology and Higher Education (ITESM)
+                    </h5>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      B.S. in Electronic and Computer Engineering. GPA: 92/100
+                    </small>
+                    <small
+                      class="jsx-1231261695 "
+                    >
+                      Jan. 2011 – Dec. 2015
+                    </small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="jsx-954493461 divider "
+            role="separator"
+          />
+          <div
+            class="sc-hvigdm caMVCR"
+          >
+            <h4
+              class="jsx-2019007676 "
+            >
+              Skills
+            </h4>
+            <div>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Python
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Flask
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Django
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                JavaScript
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Node.js
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                React
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                GraphQL
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                PHP
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Laravel
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Java
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                MySQL
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                PostgreSQL
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                AuroraDB
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                MongoDB
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Redis
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                DynamoDB
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                AWS
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Kubernetes
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Docker
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Git
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Jest
+              </span>
+              <span
+                class="jsx-3220321788 "
+                style="margin: 0px 5px 5px 0px;"
+              >
+                Styled-components
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
