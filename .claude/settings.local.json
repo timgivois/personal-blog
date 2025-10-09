@@ -13,7 +13,9 @@
       "Bash(timeout 30 yarn develop)",
       "Bash(yarn develop)",
       "Bash(yarn build)",
-      "Bash(yarn clean)"
+      "Bash(yarn clean)",
+      "Bash(yarn test:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

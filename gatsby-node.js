@@ -1,10 +1,10 @@
 const path = require('path')
 
-exports.createPages = ({ graphql, actions, reporter }) => {
+exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve('src/templates/blogPost.js');
 
-  return graphql(`
+  const result = await graphql(`
     query loadPagesQuery ($limit: Int!) {
       allMdx(
         limit: $limit,
@@ -12,6 +12,10 @@ exports.createPages = ({ graphql, actions, reporter }) => {
       ) {
         edges {
           node {
+            id
+            internal {
+              contentFilePath
+            }
             frontmatter {
               path
             }
@@ -19,23 +23,25 @@ exports.createPages = ({ graphql, actions, reporter }) => {
         }
       }
     }
-  `, { limit: 1000 }).then(result => {
-    const posts = result.data.allMdx.edges;
-    if (result.errors) {
-      reporter.panicOnBuild(`Error while running GraphQL query.`)
-      return
-    }
+  `, { limit: 1000 })
 
-    posts.forEach(({node}, index) => {
-      createPage({
-        path: `${node.frontmatter.path}`,
-        component: blogPostTemplate,
-        context: {
-          pathSlug: `${node.frontmatter.path}`,
-          prev: index === 0 ? null : posts[index-1].node,
-          next: index === (posts.length - 1) ? null: posts[index + 1].node,
-        },
-      })
+  if (result.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    return
+  }
+
+  const posts = result.data.allMdx.edges;
+
+  posts.forEach(({node}, index) => {
+    createPage({
+      path: `${node.frontmatter.path}`,
+      component: `${blogPostTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
+      context: {
+        id: node.id,
+        postPath: `${node.frontmatter.path}`,
+        prev: index === 0 ? null : posts[index-1].node,
+        next: index === (posts.length - 1) ? null: posts[index + 1].node,
+      },
     })
   })
 }

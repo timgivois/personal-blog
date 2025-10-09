@@ -104,6 +104,13 @@ yarn serve       # Serve production build locally
   - Note: gatsby-plugin-git-lastmod shows warnings about 'include' option (expected)
   - gatsby-plugin-feed-mdx was removed (deprecated)
 
+- **gatsby-node.js**: Custom page creation for blog posts
+  - ⚠️ **CRITICAL**: Must use `?__contentFilePath` query parameter for MDX v5
+  - Component path format: `${template}?__contentFilePath=${node.internal.contentFilePath}`
+  - This ensures MDX content is passed to template as `children` prop
+  - Must query `internal.contentFilePath` in GraphQL for each MDX node
+  - Export component as named constant (not inline HOC) for proper identification
+
 - **gatsby-browser.js & gatsby-ssr.js**: Provide global MDX components
   - Must be kept in sync
   - Exports `wrapRootElement` with MDXProvider
@@ -134,6 +141,49 @@ yarn serve       # Serve production build locally
 2. If build fails, run `yarn clean` before `yarn build`
 3. Check `.cache/` and `public/` are properly generated after build
 4. GraphQL queries can be tested at http://localhost:8000/___graphql during development
+
+## Common Issues and Solutions
+
+### Empty Blog Post Bodies
+**Problem**: Blog posts render but show no content (empty body)
+
+**Solution**: Verify gatsby-node.js uses correct MDX v5 format:
+```javascript
+// ✅ Correct - includes contentFilePath
+createPage({
+  path: node.frontmatter.path,
+  component: `${template}?__contentFilePath=${node.internal.contentFilePath}`,
+  context: { id: node.id, postPath: node.frontmatter.path }
+})
+
+// ❌ Wrong - missing contentFilePath parameter
+createPage({
+  path: node.frontmatter.path,
+  component: template,
+  context: { postPath: node.frontmatter.path }
+})
+```
+
+### "Post not found" Error
+**Problem**: Blog posts show "Post not found" message
+
+**Solution**: Check context variable names match GraphQL query:
+- Context must not use reserved Gatsby field names like `path`
+- Use custom names like `postPath` instead
+- Ensure GraphQL query variable matches: `query BlogPostByPath($postPath: String!)`
+
+### Component Export Issues with MDX
+**Problem**: Build error "Unable to determine default export name"
+
+**Solution**: Export as named constant instead of inline HOC:
+```javascript
+// ✅ Correct
+const BlogPost = withStyle(Template)
+export default BlogPost
+
+// ❌ Wrong
+export default withStyle(Template)
+```
 
 ## Performance Notes
 - Uses gatsby-plugin-sharp for image optimization
