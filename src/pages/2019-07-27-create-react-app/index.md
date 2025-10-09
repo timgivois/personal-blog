@@ -369,7 +369,3 @@ describe('App', () => {
 ```
 
 Now, we can start to actually create our react app. We now control and understand all the configs that are in the project.
-
-## Where can you learn more about SEO for personal blogs?
-
-For further reading on optimizing blogs, review [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and [Ahrefs' SEO best practices](https://ahrefs.com/blog/seo-best-practices/).
