@@ -74,7 +74,3 @@ Signals tie your state updates directly to DOM updates. Even large component tre
 - `useSignalEffect(fn)` runs side effects whenever a signal changes.
 
 Give Signals a try on your next Preact project and see how they feel!
-
-## Where can you learn more about SEO for personal blogs?
-
-Check out [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and the article on [SEO best practices](https://ahrefs.com/blog/seo-best-practices/) from Ahrefs for practical optimization tips.

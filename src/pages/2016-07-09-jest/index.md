@@ -245,7 +245,3 @@ describe('the user populates the input', () => {
 ```
 
 We are now ready to test our React application. Code with more concrete examples can be found [here](https://github.com/timgivois/jest-talk).
-
-## Where can you learn more about SEO for personal blogs?
-
-See [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and [Ahrefs' SEO best practices](https://ahrefs.com/blog/seo-best-practices/) for tips that help your posts rank better.

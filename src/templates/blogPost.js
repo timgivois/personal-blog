@@ -1,18 +1,18 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, useTheme, Code, Display } from '@geist-ui/react'
+import { Text, Link, Card, useTheme, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXProvider } from '@mdx-js/react'
 
-import { Avatar } from '../components'
+import { Avatar, Space } from '../components'
 
 import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
 const Template = ({ data, switchTheme, theme, children }) => {
-  const { mdx } = data // data.mdx holds your post data
+  const { mdx, related } = data // data.mdx holds your post data
   if (!mdx) {
     return <div>Post not found</div>
   }
@@ -116,6 +116,52 @@ const Template = ({ data, switchTheme, theme, children }) => {
         </Col>
       </Row>
 
+      <Row center="xs" style={{ marginTop: '40px' }}>
+        <Col xs={11} lg={10}>
+          <Row start="xs">
+            <Text h2>More posts</Text>
+          </Row>
+          {related.edges.map((edge) => (
+            <Row key={edge.node.frontmatter.path}>
+              <Link
+                href={edge.node.frontmatter.path}
+                pure
+                style={{ width: '100%' }}
+              >
+                <Space margins={[1, 0, 1, 0]} fullWidth>
+                  <Card shadow style={{ width: '100%' }}>
+                    <Row center="xs" middle="xs">
+                      <Col xs={12} md={5}>
+                        <img
+                          src={edge.node.frontmatter.image}
+                          alt={edge.node.frontmatter.title}
+                          style={{
+                            margin: 'auto',
+                            height: '100%',
+                            width: '100%',
+                            maxHeight: '80%',
+                            maxWidth: '80%',
+                            objectFit: 'scale-down',
+                          }}
+                        />
+                      </Col>
+                      <Col xs={12} md={7} center="xs" start="md">
+                        <Row start="md" center="xs">
+                          <Text h4>{edge.node.frontmatter.title}</Text>
+                        </Row>
+                        <Row start="md" center="xs">
+                          <Text small>{edge.node.frontmatter.excerpt}</Text>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </Card>
+                </Space>
+              </Link>
+            </Row>
+          ))}
+        </Col>
+      </Row>
+
       {
         // <div className="blog-post-footer">
         //   {
@@ -145,6 +191,22 @@ export const pageQuery = graphql`
         image
         excerpt
         time
+      }
+    }
+    related: allMdx(
+      limit: 3
+      filter: { frontmatter: { path: { ne: $path } } }
+      sort: { order: DESC, fields: [frontmatter___date] }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            path
+            title
+            excerpt
+            image
+          }
+        }
       }
     }
   }
