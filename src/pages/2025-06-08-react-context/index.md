@@ -69,7 +69,3 @@ These caveats imply that frequent context updates can cause many components to r
 ### When should you avoid using Context?
 
 Context is powerful, but it can be overused. For rapidly changing values, lifting state up or using dedicated state management libraries may give better performance.
-
-## Where can you learn more about SEO for personal blogs?
-
-For tips on making your posts easier to discover, see [Google's SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide) and [Ahrefs' SEO best practices](https://ahrefs.com/blog/seo-best-practices/).
