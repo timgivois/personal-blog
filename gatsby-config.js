@@ -43,13 +43,12 @@ module.exports = {
       },
     },
     'gatsby-plugin-styled-components',
-    { 
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         precachePages: [`${__dirname}/static/`],
       },
     },
-    `gatsby-plugin-feed-mdx`,
     {
       resolve: `gatsby-plugin-git-lastmod`,
       options: {

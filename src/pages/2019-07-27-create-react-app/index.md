@@ -21,8 +21,8 @@ By configuring everything yourself you get a deeper sense of how each tool fits 
 
 ## What do you need before starting?
 
-- <Code>Node</Code>, you can download and install it from here. Go for the LTS (Long Terms Support) version if you don’t have installed it yet. If you already have a different node version. I advise you to use tools like nvmrc, so you can manage node versions (and use LTS for this tutorial).
-- <Code>npm</Code> is the default package manager, you can use it for the tutorial, just change yarn for npm. If you want to install yarn, you can do it by running yarn add in your terminal.
+- `Node`, you can download and install it from here. Go for the LTS (Long Terms Support) version if you don't have installed it yet. If you already have a different node version. I advise you to use tools like nvmrc, so you can manage node versions (and use LTS for this tutorial).
+- `npm` is the default package manager, you can use it for the tutorial, just change yarn for npm. If you want to install yarn, you can do it by running yarn add in your terminal.
 
 ### How do you create the project and add dependencies?
 
@@ -30,8 +30,10 @@ The first thing, is creating our package.json file. We can do that with npm init
 
 <Code darkBash>yarn init</Code>
 
-Yarn will ask some questions before creating the file. We can hit enter for using the default values, or type what we want to change. I’m setting this project as private, as I won’t publish it to production. It’s better to change that flag to yes when we want to publish as we’ll see most of npm’s warnings about unpublished dependencies.
-<Code darkBash>yarn init
+Yarn will ask some questions before creating the file. We can hit enter for using the default values, or type what we want to change. I'm setting this project as private, as I won't publish it to production. It's better to change that flag to yes when we want to publish as we'll see most of npm's warnings about unpublished dependencies.
+
+```bash
+yarn init
 
 question name (react_template):
 question version (1.0.0):
@@ -41,8 +43,7 @@ question repository url (https://github.com/timgivois/react_template):
 question author: Tim Givois
 question license (MIT):
 question private: y
-
-</Code>
+```
 
 We’ll first add Babel 7 to the project, and the presets that we’ll need for ES6 and JSX.
 
