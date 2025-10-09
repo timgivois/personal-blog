@@ -4,32 +4,41 @@ import { Row, Col } from 'react-flexbox-grid'
 import { SocialIcon } from 'react-social-icons'
 
 export const Wrapper = styled(Row)`
-  min-height: 65%;
+  min-height: auto;
+  padding: 32px 16px 16px;
+  row-gap: 32px;
 
   @media (min-width: 991px) {
-    padding: 20px 35px 0 35px;
-  }
-
-  @media (max-width: 991px) {
-    padding: 20px 10px 0 10px;
+    padding: 56px 40px 24px;
+    column-gap: 48px;
   }
 `
 
 export const StyledSocialMediaIconsReact = (props) => {
   const Container = styled.div`
-    padding: 0 5px;
+    display: flex;
+    align-items: center;
   `
 
   return (
     <Container>
-      <SocialIcon {...props} />
+      <SocialIcon
+        bgColor="transparent"
+        fgColor="var(--geist-foreground)"
+        style={{ opacity: 0.65 }}
+        {...props}
+      />
     </Container>
   )
 }
 
 export const Description = styled(Col)`
-  @media screen and (min-width: 600px) {
-    border-left: 1px solid;
-    padding-left: 45px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    text-align: left;
   }
 `

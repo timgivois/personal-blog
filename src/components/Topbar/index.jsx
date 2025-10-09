@@ -1,5 +1,5 @@
 import React from 'react'
-import { Row, Col } from 'react-flexbox-grid'
+import { Col } from 'react-flexbox-grid'
 import { Text, Link } from '@geist-ui/react'
 
 import profileImg from '../../../static/tim-image.png'
@@ -15,77 +15,52 @@ const Topbar = ({ switchTheme, isMainPage }) => {
   return (
     <>
       {isMainPage ? (
-        <Wrapper middle="md">
-          <Col xs={12} lg={3}>
-            <Row center="xs">
+        <Wrapper middle="md" center="xs">
+          <Col xs={12} lg={4}>
+            <div className="topbar__profile">
               <Avatar src={profileImg} />
-            </Row>
-            <Row center="xs" align="center">
-              <Text>Tim Givois – Software Engineer</Text>
-            </Row>
-            <Row center="xs" align="center">
-              <StyledSocialMediaIconsReact
-                borderColor="rgba(0,0,0,0.25)"
-                borderWidth="0"
-                borderStyle="solid"
-                icon="twitter"
-                iconColor="rgba(255,255,255,1)"
-                backgroundColor="rgba(28,186,223,1)"
-                iconSize="4"
-                roundness="50%"
-                url="https://twitter.com/timgivois"
-                size="25"
-              />
-              •
-              <StyledSocialMediaIconsReact
-                borderColor="rgba(0,0,0,0.25)"
-                borderWidth="0"
-                borderStyle="solid"
-                icon="github"
-                iconColor="rgba(255,255,255,1)"
-                backgroundColor="rgba(0,0,0,1)"
-                iconSize="4"
-                roundness="50%"
-                url="https://github.com/timgivois"
-                size="25"
-              />
-              •
-              <StyledSocialMediaIconsReact
-                borderColor="rgba(0,0,0,0.25)"
-                borderWidth="0"
-                borderStyle="solid"
-                icon="linkedin"
-                iconColor="rgba(255,255,255,1)"
-                backgroundColor="#0e76a8"
-                iconSize="4"
-                roundness="50%"
-                url="https://linkedin.com/in/timgivois"
-                size="25"
-              />
-            </Row>
+              <div className="topbar__profile-text">
+                <Text h2 style={{ margin: 0 }}>
+                  Tim Givois
+                </Text>
+                <Text type="secondary" small>
+                  Software engineer focused on shipping thoughtful web
+                  experiences.
+                </Text>
+              </div>
+              <div className="topbar__socials">
+                <StyledSocialMediaIconsReact
+                  url="https://twitter.com/timgivois"
+                  network="twitter"
+                  size="26"
+                />
+                <StyledSocialMediaIconsReact
+                  url="https://github.com/timgivois"
+                  network="github"
+                  size="26"
+                />
+                <StyledSocialMediaIconsReact
+                  url="https://linkedin.com/in/timgivois"
+                  network="linkedin"
+                  size="26"
+                />
+              </div>
+            </div>
           </Col>
-          <Description
-            center="xs"
-            start="md"
-            xs={10}
-            xsOffset={1}
-            md={9}
-            mdOffset={0}
-          >
-            <Row center="xs" start="lg">
-              <Text h2>Hey! Welcome to my blog.</Text>
-            </Row>
-            <Row center="xs">
-              <Text>
-                <Link href={paths.ROOT} pure underline>
-                  About
-                </Link>{' '}
-                |{' '}
-                <Link href={paths.CONTACT} pure underline>
-                  Contact
-                </Link>
-              </Text>
-            </Row>
+          <Description xs={12} lg={8}>
+            <Text h3 style={{ margin: 0 }}>
+              Sharing notes on building resilient platforms, useful tools, and
+              the lessons learned along the way.
+            </Text>
+            <div className="topbar__links">
+              <Link href={paths.ROOT} pure underline>
+                About
+              </Link>
+              <span aria-hidden="true">/</span>
+              <Link href={paths.CONTACT} pure underline>
+                Contact
+              </Link>
+            </div>
           </Description>
         </Wrapper>
       ) : null}

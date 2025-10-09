@@ -8,8 +8,8 @@
 }
 
 .avatar {
-  height: 180px !important;
-  width: 180px !important;
+  height: 140px !important;
+  width: 140px !important;
 }
 
 .avatar.avatar-small {
@@ -17,7 +17,46 @@
   width: 100% !important;
 }
 
-li {
-  position: relative !important;
-  margin-right: 0.5em !important;
+.topbar__profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+.topbar__profile-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  max-width: 320px;
+}
+
+.topbar__socials {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.topbar__links {
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--accents-5);
+}
+
+.topbar__links span {
+  color: var(--accents-3);
+}
+
+@media (min-width: 768px) {
+  .topbar__profile {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .topbar__links {
+    justify-content: flex-start;
+  }
 }

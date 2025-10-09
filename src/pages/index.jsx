@@ -1,6 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { Text, Link, Card, Tag } from '@geist-ui/react'
+import { Text, Link, Tag } from '@geist-ui/react'
 import { Grid, Col, Row } from 'react-flexbox-grid'
 import uniqueId from 'lodash/uniqueId'
 import { Helmet } from 'react-helmet'
@@ -27,62 +27,79 @@ const Landing = ({ data, switchTheme }) => {
       <Topbar isMainPage switchTheme={switchTheme} />
       <SpeedInsights />
       <Analytics />
-      <Row style={{ marginTop: '10px' }}>
+      <Row style={{ marginTop: '24px' }}>
         <Col xs={12}>
           <Row center="xs">
-            <Col xs={10} lg={7}>
-              <Row>
-                <Text h2>Posts</Text>
-              </Row>
-
-              {edges.map((edge) => (
-                <Row key={uniqueId()}>
+            <Col xs={11} lg={7}>
+              <Text h2 style={{ marginBottom: '16px' }}>
+                Posts
+              </Text>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '24px',
+                }}
+              >
+                {edges.map((edge) => (
                   <Link
+                    key={uniqueId()}
                     href={edge.node.frontmatter.path}
                     pure
                     style={{ width: '100%' }}
                   >
                     <Space margins={[0, 0, 5, 0]} fullWidth>
-                      <Card shadow>
-                        <Row center="xs" middle="xs">
-                          <Col xs={12} md={5}>
-                            <img
-                              src={edge.node.frontmatter.image}
-                              alt={edge.node.frontmatter.title}
-                              style={{
-                                margin: 'auto',
-                                height: '100%',
-                                width: '100%',
-                                maxHeight: '80%',
-                                maxWidth: '80%',
-                                objectFit: 'scale-down',
-                              }}
-                            />
-                          </Col>
-                          <Col xs={12} md={7} center="xs" start="md">
-                            <Row start="md" center="xs">
-                              <Text h3>{edge.node.frontmatter.title}</Text>
-                            </Row>
-                            <Row start="md" center="xs">
-                              {(edge.node.frontmatter.tags || []).map((tag) => (
-                                <Tag
-                                  style={{ margin: '0 5px' }}
-                                  key={uniqueId()}
-                                >
-                                  {tag}
-                                </Tag>
-                              ))}
-                            </Row>
-                            <Row start="md" center="xs">
-                              <Text>{edge.node.frontmatter.excerpt}</Text>
-                            </Row>
-                          </Col>
-                        </Row>
-                      </Card>
+                      <article
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'column',
+                          gap: '16px',
+                          padding: '20px',
+                          borderRadius: '14px',
+                          border: '1px solid var(--accents-2)',
+                          transition: 'border-color 0.2s ease',
+                        }}
+                      >
+                        <img
+                          src={edge.node.frontmatter.image}
+                          alt={edge.node.frontmatter.title}
+                          style={{
+                            width: '100%',
+                            maxHeight: '220px',
+                            objectFit: 'cover',
+                            borderRadius: '10px',
+                          }}
+                        />
+                        <div
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '12px',
+                          }}
+                        >
+                          <Text h3 style={{ margin: 0 }}>
+                            {edge.node.frontmatter.title}
+                          </Text>
+                          <div
+                            style={{
+                              display: 'flex',
+                              flexWrap: 'wrap',
+                              gap: '6px',
+                            }}
+                          >
+                            {(edge.node.frontmatter.tags || []).map((tag) => (
+                              <Tag key={uniqueId()}>{tag}</Tag>
+                            ))}
+                          </div>
+                          <Text type="secondary">
+                            {edge.node.frontmatter.excerpt}
+                          </Text>
+                        </div>
+                      </article>
                     </Space>
                   </Link>
-                </Row>
-              ))}
+                ))}
+              </div>
             </Col>
           </Row>
         </Col>
