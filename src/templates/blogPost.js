@@ -1,9 +1,8 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, Card, useTheme, Code, Display } from '@geist-ui/react'
+import { Text, Link, Card, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
 import { Avatar, Space } from '../components'
@@ -12,10 +11,12 @@ import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
-const Template = ({ data, switchTheme, theme }) => {
+const Template = ({ data, switchTheme, children }) => {
   const { mdx, related } = data // data.mdx holds your post data
-  const { frontmatter, body } = mdx
-  const { palette } = useTheme()
+  if (!mdx) {
+    return <div>Post not found</div>
+  }
+  const { frontmatter } = mdx
   const siteUrl = 'https://timgivois.me'
   const imageUrl = frontmatter.image.startsWith('http')
     ? frontmatter.image
@@ -107,7 +108,7 @@ const Template = ({ data, switchTheme, theme }) => {
           <Row start="xs">
             <Col xs={12} style={{ textAlign: 'justify' }}>
               <MDXProvider components={{ Code, Display, Link }}>
-                <MDXRenderer>{body}</MDXRenderer>
+                {children}
               </MDXProvider>
             </Col>
           </Row>
@@ -180,9 +181,8 @@ const Template = ({ data, switchTheme, theme }) => {
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    mdx(frontmatter: { path: { eq: $path } }) {
-      body
+  query BlogPostByPath($postPath: String!) {
+    mdx(frontmatter: { path: { eq: $postPath } }) {
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
@@ -194,7 +194,7 @@ export const pageQuery = graphql`
     }
     related: allMdx(
       limit: 3
-      filter: { frontmatter: { path: { ne: $path } } }
+      filter: { frontmatter: { path: { ne: $postPath } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -211,4 +211,5 @@ export const pageQuery = graphql`
   }
 `
 
-export default withStyle(Template)
+const BlogPost = withStyle(Template)
+export default BlogPost

@@ -8,7 +8,7 @@ image: 'https://images.weserv.nl/?url=raw.githubusercontent.com/preactjs/preact-
 time: '7 min.'
 ---
 
-Preact offers an optional library called **Signals** for fine-grained reactivity. Signals let you update only the components that depend on a value rather than re-rendering entire component trees. The official guide has a great introduction on the concept at <Link underline href="https://preactjs.com/guide/v10/signals/">preactjs.com</Link>.
+Preact offers an optional library called **Signals** for fine-grained reactivity. Signals let you update only the components that depend on a value rather than re-rendering entire component trees. The official guide has a great introduction on the concept at [preactjs.com](https://preactjs.com/guide/v10/signals/).
 
 Signals bring a reactive programming model to Preact. Instead of diffing the entire virtual DOM, updates are scoped to just the pieces that read a signal. This can make interactive widgets feel smoother and reduces wasted renders when values change frequently.
 
@@ -53,7 +53,7 @@ export default function Counter() {
 
 ## Why should you consider Preact Signals?
 
-Signals tie your state updates directly to DOM updates. Even large component trees stay snappy because only the parts that use a signal will update. It's a small library and integrates nicely with Preact's tiny footprint. The blog post <Link underline href="https://www.builder.io/blog/signals">useSignal() is the Future of Web Frameworks</Link> dives deeper into why developers enjoy this model.
+Signals tie your state updates directly to DOM updates. Even large component trees stay snappy because only the parts that use a signal will update. It's a small library and integrates nicely with Preact's tiny footprint. The blog post [useSignal() is the Future of Web Frameworks](https://www.builder.io/blog/signals) dives deeper into why developers enjoy this model.
 
 ### When is Preact Signals a good choice?
 

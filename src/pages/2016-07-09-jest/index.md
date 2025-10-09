@@ -39,7 +39,7 @@ Jest is a testing framework created by Facebook. Facebook uses it to test JavaSc
 
 ### How do Jest matchers work?
 
-Matchers are the most basic unit for testing in Jest. They are used to assert that an expected object is equal, close to, greater, or less than, or contains any other logical connection to another output object. We can create different constructions with these logical connections. For more reference, check Jest <Link underline href="https://jestjs.io/docs/en/expect">documentation</Link>.
+Matchers are the most basic unit for testing in Jest. They are used to assert that an expected object is equal, close to, greater, or less than, or contains any other logical connection to another output object. We can create different constructions with these logical connections. For more reference, check Jest [documentation](https://jestjs.io/docs/en/expect).
 
 ```JavaScript
 test(‘object assignment’, () => {
@@ -244,4 +244,4 @@ describe('the user populates the input', () => {
 })
 ```
 
-We are now ready to test our React application. Code with more concrete examples can be found <Link underline href="https://github.com/timgivois/jest-talk">here</Link>.
+We are now ready to test our React application. Code with more concrete examples can be found [here](https://github.com/timgivois/jest-talk).

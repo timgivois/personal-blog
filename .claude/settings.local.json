@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn install)",
+      "Bash(yarn explain peer-requirements p25d150)",
+      "Bash(yarn explain:*)",
+      "Bash(yarn info @vercel/analytics versions --json)",
+      "Bash(yarn why @vercel/analytics)",
+      "Bash(yarn info @vercel/analytics@1.3.1 peerDependencies)",
+      "Bash(yarn npm info @vercel/analytics@1.3.1 --json)",
+      "Bash(yarn npm info:*)",
+      "Bash(yarn test)",
+      "Bash(timeout 30 yarn develop)",
+      "Bash(yarn develop)",
+      "Bash(yarn build)",
+      "Bash(yarn clean)",
+      "Bash(yarn test:*)",
+      "Bash(cat:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

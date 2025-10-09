@@ -1,4 +1,4 @@
-# Personal Blog - AI Agent Development Guide
+# Personal Blog - Claude Development Guide
 
 ## Project Overview
 This is a Gatsby-based personal blog using React 18, MDX v2 for blog posts, and styled with @geist-ui/react components.
