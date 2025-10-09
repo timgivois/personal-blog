@@ -11,7 +11,9 @@
       "Bash(yarn npm info:*)",
       "Bash(yarn test)",
       "Bash(timeout 30 yarn develop)",
-      "Bash(yarn develop)"
+      "Bash(yarn develop)",
+      "Bash(yarn build)",
+      "Bash(yarn clean)"
     ],
     "deny": [],
     "ask": []

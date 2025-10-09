@@ -3,7 +3,6 @@ import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
 import { Text, Link, useTheme, Code, Display } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
-import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { MDXProvider } from '@mdx-js/react'
 
 import { Avatar } from '../components'
@@ -12,9 +11,12 @@ import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
 import withStyle from '../components/Layout'
 
-const Template = ({ data, switchTheme, theme }) => {
+const Template = ({ data, switchTheme, theme, children }) => {
   const { mdx } = data // data.mdx holds your post data
-  const { frontmatter, body } = mdx
+  if (!mdx) {
+    return <div>Post not found</div>
+  }
+  const { frontmatter } = mdx
   const { palette } = useTheme()
   const siteUrl = 'https://timgivois.me'
   const imageUrl = frontmatter.image.startsWith('http')
@@ -107,7 +109,7 @@ const Template = ({ data, switchTheme, theme }) => {
           <Row start="xs">
             <Col xs={12} style={{ textAlign: 'justify' }}>
               <MDXProvider components={{ Code, Display, Link }}>
-                <MDXRenderer>{body}</MDXRenderer>
+                {children}
               </MDXProvider>
             </Col>
           </Row>
@@ -136,7 +138,6 @@ const Template = ({ data, switchTheme, theme }) => {
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     mdx(frontmatter: { path: { eq: $path } }) {
-      body
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
