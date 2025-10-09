@@ -1,0 +1,462 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogPost Template Snapshot Tests matches snapshot when post not found 1`] = `
+<div>
+  Post not found
+</div>
+`;
+
+exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post data 1`] = `
+<div
+  style="padding-top: 60px;"
+>
+  <div
+    data-testid="helmet"
+  >
+    <title>
+      Test Blog Post
+    </title>
+    <meta
+      content="This is a test excerpt"
+      name="description"
+    />
+    <meta
+      content="Test Blog Post"
+      property="og:title"
+    />
+    <meta
+      content="This is a test excerpt"
+      property="og:description"
+    />
+    <meta
+      content="https://timgivois.mehttps://example.com/test-image.png"
+      property="og:image"
+    />
+    <link
+      href="https://timgivois.me/test-post"
+      rel="canonical"
+    />
+    <script
+      type="application/ld+json"
+    >
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":"https://example.com/test-image.png","author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
+    </script>
+  </div>
+  <div
+    data-testid="topbar"
+  >
+    Topbar
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div
+        style="margin-bottom: 20px;"
+      >
+        <a
+          class="jsx-2023000637 link  "
+          href="/"
+          style="display: flex; align-items: center; gap: 8px;"
+        >
+          <svg
+            fill="none"
+            height="20"
+            shape-rendering="geometricPrecision"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            style="color: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M19 12H5M12 19l-7-7 7-7"
+            />
+          </svg>
+          <small
+            class="jsx-1231261695 "
+          >
+            Back to home
+          </small>
+        </a>
+      </div>
+      <div
+        center="xs"
+      >
+        <img
+          alt="Test Blog Post"
+          src="https://example.com/test-image.png"
+          style="max-height: 300px; width: 100%; object-fit: contain; border-radius: 8px; margin-bottom: 20px;"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <h2
+          class="jsx-1181318970 "
+          style="margin-bottom: 10px;"
+        >
+          Test Blog Post
+        </h2>
+      </div>
+      <div>
+        <p
+          class="jsx-2596564080 "
+          style="font-size: 1.1rem; color: rgb(102, 102, 102); margin-bottom: 15px;"
+        >
+          This is a test excerpt
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+    style="margin: 15px 0px 30px 0px;"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div
+        middle="xs"
+        style="gap: 15px;"
+      >
+        <a
+          class="jsx-2023000637 link  "
+          href="/contact"
+        >
+          <img
+            alt="Avatar"
+            class="avatar-small"
+            src=""
+          />
+        </a>
+        <div
+          style="padding-left: 0px;"
+        >
+          <div>
+            <p
+              class="jsx-2596564080 "
+              style="margin: 0px; font-weight: 500;"
+            >
+              Tim Givois
+            </p>
+          </div>
+          <div
+            style="margin-top: 4px;"
+          >
+            <small
+              class="jsx-1231261695 "
+              style="margin: 0px; color: rgb(102, 102, 102);"
+            >
+              January 15, 2025
+               • 
+              5 min.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <div
+          style="text-align: justify; line-height: 1.8;"
+          xs="12"
+        >
+          <div>
+            <p>
+              Test content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+    style="margin-top: 50px; margin-bottom: 40px;"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <h3
+          class="jsx-510830267 "
+          style="margin-bottom: 20px;"
+        >
+          More posts
+        </h3>
+      </div>
+      <div
+        data-testid="related-posts-carousel"
+      >
+        <div>
+          <img
+            alt="Related Post 1"
+            src="https://example.com/related1.png"
+          />
+          <div>
+            Related Post 1
+          </div>
+          <div>
+            First related post
+          </div>
+        </div>
+        <div>
+          <img
+            alt="Related Post 2"
+            src="https://example.com/related2.png"
+          />
+          <div>
+            Related Post 2
+          </div>
+          <div>
+            Second related post
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts 1`] = `
+<div
+  style="padding-top: 60px;"
+>
+  <div
+    data-testid="helmet"
+  >
+    <title>
+      Test Blog Post
+    </title>
+    <meta
+      content="This is a test excerpt"
+      name="description"
+    />
+    <meta
+      content="Test Blog Post"
+      property="og:title"
+    />
+    <meta
+      content="This is a test excerpt"
+      property="og:description"
+    />
+    <meta
+      content="https://timgivois.mehttps://example.com/test-image.png"
+      property="og:image"
+    />
+    <link
+      href="https://timgivois.me/test-post"
+      rel="canonical"
+    />
+    <script
+      type="application/ld+json"
+    >
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":"https://example.com/test-image.png","author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
+    </script>
+  </div>
+  <div
+    data-testid="topbar"
+  >
+    Topbar
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div
+        style="margin-bottom: 20px;"
+      >
+        <a
+          class="jsx-2023000637 link  "
+          href="/"
+          style="display: flex; align-items: center; gap: 8px;"
+        >
+          <svg
+            fill="none"
+            height="20"
+            shape-rendering="geometricPrecision"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            style="color: currentColor;"
+            viewBox="0 0 24 24"
+            width="20"
+          >
+            <path
+              d="M19 12H5M12 19l-7-7 7-7"
+            />
+          </svg>
+          <small
+            class="jsx-1231261695 "
+          >
+            Back to home
+          </small>
+        </a>
+      </div>
+      <div
+        center="xs"
+      >
+        <img
+          alt="Test Blog Post"
+          src="https://example.com/test-image.png"
+          style="max-height: 300px; width: 100%; object-fit: contain; border-radius: 8px; margin-bottom: 20px;"
+          width="100%"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <h2
+          class="jsx-1181318970 "
+          style="margin-bottom: 10px;"
+        >
+          Test Blog Post
+        </h2>
+      </div>
+      <div>
+        <p
+          class="jsx-2596564080 "
+          style="font-size: 1.1rem; color: rgb(102, 102, 102); margin-bottom: 15px;"
+        >
+          This is a test excerpt
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+    style="margin: 15px 0px 30px 0px;"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div
+        middle="xs"
+        style="gap: 15px;"
+      >
+        <a
+          class="jsx-2023000637 link  "
+          href="/contact"
+        >
+          <img
+            alt="Avatar"
+            class="avatar-small"
+            src=""
+          />
+        </a>
+        <div
+          style="padding-left: 0px;"
+        >
+          <div>
+            <p
+              class="jsx-2596564080 "
+              style="margin: 0px; font-weight: 500;"
+            >
+              Tim Givois
+            </p>
+          </div>
+          <div
+            style="margin-top: 4px;"
+          >
+            <small
+              class="jsx-1231261695 "
+              style="margin: 0px; color: rgb(102, 102, 102);"
+            >
+              January 15, 2025
+               • 
+              5 min.
+            </small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <div
+          style="text-align: justify; line-height: 1.8;"
+          xs="12"
+        >
+          <div>
+            <p>
+              Test content
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    center="xs"
+    style="margin-top: 50px; margin-bottom: 40px;"
+  >
+    <div
+      lg="8"
+      md="10"
+      xs="11"
+    >
+      <div>
+        <h3
+          class="jsx-510830267 "
+          style="margin-bottom: 20px;"
+        >
+          More posts
+        </h3>
+      </div>
+      <div
+        data-testid="related-posts-carousel"
+      />
+    </div>
+  </div>
+</div>
+`;

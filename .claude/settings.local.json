@@ -15,7 +15,9 @@
       "Bash(yarn build)",
       "Bash(yarn clean)",
       "Bash(yarn test:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(yarn add:*)",
+      "Bash(yarn format)"
     ],
     "deny": [],
     "ask": []

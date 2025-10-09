@@ -6,7 +6,7 @@ const Space = ({ margins, children, fullWidth }) => {
   return (
     <div
       style={{
-        margin: margins.map(margin => `${margin * UNIT}px`).join(' '),
+        margin: margins.map((margin) => `${margin * UNIT}px`).join(' '),
         width: fullWidth ? '100%' : 'inherit',
       }}
     >

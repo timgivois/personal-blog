@@ -1,7 +1,8 @@
 import React from 'react'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-import { Text, Card, Link, Avatar, Divider } from '@geist-ui/react'
+import { Text, Card, Link, Avatar, Divider, Tag } from '@geist-ui/react'
 import styled from 'styled-components'
+import { SocialIcon } from 'react-social-icons'
 
 import withStyle from '../components/Layout'
 import { SpeedInsights } from '@vercel/speed-insights/react'
@@ -18,53 +19,70 @@ const Section = styled.div`
   margin: 20px 0;
 `
 
-const SkillCard = styled(Card)`
-  margin: 5px;
-  padding: 5px;
-`
-
 const Contact = ({ switchTheme }) => {
   return (
     <Grid fluid>
       <SpeedInsights />
       <Analytics />
-      <Row start="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
-        <Col xs={11} md={8} lg={6}>
+      <Row center="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>
+        <Col xs={12} sm={10} md={8} lg={6}>
           <ResumeCard shadow>
-            <Row start="xs">
+            <Row center="xs">
               <Avatar src={profilePic} size="60px" />
             </Row>
-            <Row start="xs">
+            <Row center="xs">
               <Text h2>{resume.name}</Text>
             </Row>
-            <Row start="xs">
+            <Row center="xs">
               <Text h4>{resume.title}</Text>
+            </Row>
+            <Row center="xs" style={{ marginTop: '10px', gap: '5px' }}>
+              <SocialIcon
+                url="https://twitter.com/timgivois"
+                style={{ height: 35, width: 35 }}
+              />
+              <SocialIcon
+                url="https://github.com/timgivois"
+                style={{ height: 35, width: 35 }}
+              />
+              <SocialIcon
+                url="https://linkedin.com/in/timgivois"
+                style={{ height: 35, width: 35 }}
+              />
+              <SocialIcon
+                url="https://stackoverflow.com/users/6553617/tim-givois"
+                style={{ height: 35, width: 35 }}
+              />
             </Row>
             <Divider />
             <Section>
-              <Text h4>Contact</Text>
-              <div style={{ marginBottom: '8px' }}>
-                <Text small>
-                  Email:{' '}
-                  <Link href={`mailto:${resume.contact.email}`} pure underline>
-                    {resume.contact.email}
-                  </Link>
-                </Text>
-              </div>
-              <div style={{ marginBottom: '8px' }}>
-                <Text small>Phone: {resume.contact.phone}</Text>
-              </div>
-              <div style={{ marginBottom: '8px' }}>
-                <Text small>Location: {resume.contact.location}</Text>
-              </div>
-              <div style={{ marginBottom: '8px' }}>
-                <Text small>
-                  Website:{' '}
-                  <Link href={resume.contact.website} pure underline>
-                    {resume.contact.website}
-                  </Link>
-                </Text>
-              </div>
+              <Row center="xs">
+                <Text h4>Contact</Text>
+              </Row>
+              <Row center="xs">
+                <div style={{ marginBottom: '8px', textAlign: 'center' }}>
+                  <Text small>
+                    Email:{' '}
+                    <Link
+                      href={`mailto:${resume.contact.email}`}
+                      pure
+                      underline
+                    >
+                      {resume.contact.email}
+                    </Link>
+                  </Text>
+                </div>
+              </Row>
+              <Row center="xs">
+                <div style={{ marginBottom: '8px', textAlign: 'center' }}>
+                  <Text small>
+                    Website:{' '}
+                    <Link href={resume.contact.website} pure underline>
+                      {resume.contact.website}
+                    </Link>
+                  </Text>
+                </div>
+              </Row>
             </Section>
             <Divider />
             <Section>
@@ -85,17 +103,37 @@ const Contact = ({ switchTheme }) => {
                       <img
                         alt={exp.company}
                         src={exp.logoUrl}
-                        style={{ height: '60px', marginRight: '10px' }}
+                        style={{
+                          height: '60px',
+                          width: '60px',
+                          objectFit: 'contain',
+                          marginRight: '10px',
+                        }}
                       />
                     </Link>
-                    <Text h5>
-                      {exp.role} - {exp.company}
-                    </Text>
+                    <div style={{ textAlign: 'left' }}>
+                      <Text h5 style={{ marginBottom: '5px' }}>
+                        {exp.role}
+                      </Text>
+                      <Text small style={{ marginBottom: '5px' }}>
+                        {exp.period}
+                      </Text>
+                      <Text small style={{ marginBottom: '5px', marginLeft: '5px' }}>({exp.duration})</Text>
+                      <div>
+                      <Text small style={{ marginBottom: '5px' }}>
+                        {exp.company}
+                      </Text>
+
+                      </div>
+                    </div>
                   </Row>
-                  <Text small>
-                    {exp.period} ({exp.duration})
-                  </Text>
-                  <ul style={{ marginLeft: '20px' }}>
+                  <ul
+                    style={{
+                      marginLeft: '20px',
+                      textAlign: 'left',
+                      marginTop: '15px',
+                    }}
+                  >
                     {exp.details.map((d, i) => (
                       <li key={i}>
                         <Text small>{d}</Text>
@@ -120,14 +158,21 @@ const Contact = ({ switchTheme }) => {
                         <img
                           alt={ed.institution}
                           src={ed.logoUrl}
-                          style={{ height: '60px', marginRight: '10px' }}
+                          style={{
+                            height: '60px',
+                            width: '60px',
+                            objectFit: 'contain',
+                            marginRight: '10px',
+                          }}
                         />
                       </Link>
                     )}
-                    <Text h5>{ed.institution}</Text>
+                    <div style={{ textAlign: 'left' }}>
+                      <Text h5>{ed.institution}</Text>
+                      <Text small>{ed.degree}</Text>
+                      <Text small>{ed.period}</Text>
+                    </div>
                   </Row>
-                  <Text small>{ed.degree}</Text>
-                  <Text small>{ed.period}</Text>
                 </Card>
               ))}
             </Section>
@@ -136,9 +181,13 @@ const Contact = ({ switchTheme }) => {
               <Text h4>Skills</Text>
               <Row start="xs">
                 {resume.skills.map((skill, index) => (
-                  <SkillCard key={index} shadow>
-                    <Text small>{skill}</Text>
-                  </SkillCard>
+                  <Tag
+                    key={index}
+                    type="lite"
+                    style={{ margin: '0 5px 5px 0' }}
+                  >
+                    {skill}
+                  </Tag>
                 ))}
               </Row>
             </Section>

@@ -37,6 +37,21 @@ jest.mock('../../components', () => ({
     <img src={src} alt="Avatar" className={className} />
   ),
   Space: ({ children }) => <div>{children}</div>,
+  RelatedPostsCarousel: ({ posts }) => (
+    <div data-testid="related-posts-carousel">
+      {posts &&
+        posts.map((edge, index) => (
+          <div key={index}>
+            <img
+              src={edge.node.frontmatter.image}
+              alt={edge.node.frontmatter.title}
+            />
+            <div>{edge.node.frontmatter.title}</div>
+            <div>{edge.node.frontmatter.excerpt}</div>
+          </div>
+        ))}
+    </div>
+  ),
 }))
 
 describe('BlogPost Template', () => {
@@ -84,6 +99,59 @@ describe('BlogPost Template', () => {
     jest.clearAllMocks()
   })
 
+  describe('Snapshot Tests', () => {
+    it('matches snapshot with full blog post data', () => {
+      const { container } = render(
+        <BlogPost
+          data={mockData}
+          switchTheme={mockSwitchTheme}
+          theme={mockTheme}
+        >
+          <p>Test content</p>
+        </BlogPost>
+      )
+      expect(container.firstChild).toMatchSnapshot()
+    })
+
+    it('matches snapshot with no related posts', () => {
+      const dataWithoutRelated = {
+        ...mockData,
+        related: {
+          edges: [],
+        },
+      }
+      const { container } = render(
+        <BlogPost
+          data={dataWithoutRelated}
+          switchTheme={mockSwitchTheme}
+          theme={mockTheme}
+        >
+          <p>Test content</p>
+        </BlogPost>
+      )
+      expect(container.firstChild).toMatchSnapshot()
+    })
+
+    it('matches snapshot when post not found', () => {
+      const nullData = {
+        mdx: null,
+        related: {
+          edges: [],
+        },
+      }
+      const { container } = render(
+        <BlogPost
+          data={nullData}
+          switchTheme={mockSwitchTheme}
+          theme={mockTheme}
+        >
+          <p>Test content</p>
+        </BlogPost>
+      )
+      expect(container.firstChild).toMatchSnapshot()
+    })
+  })
+
   describe('when mdx data exists', () => {
     it('renders the blog post title', () => {
       render(
@@ -96,7 +164,9 @@ describe('BlogPost Template', () => {
         </BlogPost>
       )
 
-      expect(screen.getByRole('heading', { name: 'Test Blog Post', level: 1 })).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: 'Test Blog Post', level: 2 })
+      ).toBeInTheDocument()
     })
 
     it('renders the blog post excerpt', () => {
@@ -139,11 +209,10 @@ describe('BlogPost Template', () => {
         </BlogPost>
       )
 
-      const images = screen.getAllByAltText('Tim Givois')
-      const featuredImage = images.find(
-        (img) => img.getAttribute('src') === mockData.mdx.frontmatter.image
+      const featuredImage = screen.getByAltText('Test Blog Post')
+      expect(featuredImage.getAttribute('src')).toBe(
+        mockData.mdx.frontmatter.image
       )
-      expect(featuredImage).toBeInTheDocument()
     })
 
     it('renders the author name', () => {
@@ -274,11 +343,10 @@ describe('BlogPost Template', () => {
           </BlogPost>
         )
 
-        const images = screen.getAllByAltText('Tim Givois')
-        const featuredImage = images.find((img) =>
-          img.getAttribute('src').includes('/static/local-image.png')
+        const featuredImage = screen.getByAltText('Test Blog Post')
+        expect(featuredImage.getAttribute('src')).toContain(
+          '/static/local-image.png'
         )
-        expect(featuredImage).toBeInTheDocument()
       })
     })
   })
@@ -347,8 +415,12 @@ describe('BlogPost Template', () => {
         </BlogPost>
       )
 
-      expect(screen.getByRole('heading', { name: 'Test Blog Post', level: 1 })).toBeInTheDocument()
-      expect(screen.getByRole('heading', { name: 'More posts', level: 2 })).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: 'Test Blog Post', level: 2 })
+      ).toBeInTheDocument()
+      expect(
+        screen.getByRole('heading', { name: 'More posts', level: 3 })
+      ).toBeInTheDocument()
     })
   })
 })

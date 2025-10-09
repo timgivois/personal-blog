@@ -22,9 +22,23 @@ jest.mock('@vercel/analytics/react', () => ({
 // Mock layout HOC to avoid importing styles and provider logic
 jest.mock('../../components/Layout', () => (Component) => Component)
 
+// Mock react-social-icons
+jest.mock('react-social-icons', () => ({
+  SocialIcon: ({ url, style }) => (
+    <div data-testid="social-icon" data-url={url} style={style}>
+      Social Icon
+    </div>
+  ),
+}))
+
 import Contact from '../contact.jsx'
 
 describe('Contact page', () => {
+  it('matches snapshot', () => {
+    const { container } = render(<Contact />)
+    expect(container.firstChild).toMatchSnapshot()
+  })
+
   it('renders basic contact info', () => {
     render(<Contact />)
     expect(screen.getByText(/Timothee Givois Mendez/i)).toBeInTheDocument()
