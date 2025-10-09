@@ -5,6 +5,8 @@ html,
   height: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
+  background-color: #000;
+  color: #fff;
 }
 
 p,
