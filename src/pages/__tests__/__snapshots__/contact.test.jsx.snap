@@ -175,19 +175,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Airbnb
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2021 – Present
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       4 years
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Airbnb
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -255,19 +260,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Carta
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2020 – 2021
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       2 years
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Carta
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -321,19 +331,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Wizeline
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2017 – 2019
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       3 years
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Wizeline
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -387,19 +402,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Rappi
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2017
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       1 year
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Rappi
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -446,19 +466,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Sertech Consulting Group
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2015 – 2017
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       3 years
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Sertech Consulting Group
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -505,19 +530,24 @@ exports[`Contact page matches snapshot 1`] = `
                       class="jsx-1231261695 "
                       style="margin-bottom: 5px;"
                     >
-                      Intelimetrica
-                    </small>
-                    <small
-                      class="jsx-1231261695 "
-                      style="margin-bottom: 5px;"
-                    >
                       2014 – 2015
                     </small>
                     <small
                       class="jsx-1231261695 "
+                      style="margin-bottom: 5px; margin-left: 5px;"
                     >
+                      (
                       1 year
+                      )
                     </small>
+                    <div>
+                      <small
+                        class="jsx-1231261695 "
+                        style="margin-bottom: 5px;"
+                      >
+                        Intelimetrica
+                      </small>
+                    </div>
                   </div>
                 </div>
                 <ul
