@@ -12,6 +12,25 @@ export const wrapRootElement = ({ element }) => (
   <MDXProvider components={components}>{element}</MDXProvider>
 )
 
+const fontLinks = [
+  <link
+    key="preconnect-fonts-googleapis"
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  />,
+  <link
+    key="preconnect-fonts-gstatic"
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossOrigin="anonymous"
+  />,
+  <link
+    key="stylesheet-roboto"
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+  />,
+]
+
 export const onRenderBody = ({ setHeadComponents }) => {
-  setHeadComponents([CssBaseline.flush()])
+  setHeadComponents([...fontLinks, CssBaseline.flush()])
 }

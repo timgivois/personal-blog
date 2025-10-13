@@ -28,10 +28,6 @@ const withStyle = (Component) => (props) => {
   return (
     <GeistProvider themeType={theme}>
       <CssBaseline />
-      <style>
-        @import
-        url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-      </style>
       <Component {...props} switchTheme={switchTheme} theme={theme} />
       <footer>
         <BarWrapper type={theme}>
