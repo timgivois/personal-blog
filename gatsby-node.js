@@ -61,3 +61,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     })
   }
 }
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  createTypes(`
+    type MdxFrontmatter {
+      imageWidth: Int
+      imageHeight: Int
+    }
+  `)
+}

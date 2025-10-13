@@ -29,7 +29,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       property="og:description"
     />
     <meta
-      content="https://timgivois.mehttps://example.com/test-image.png"
+      content="https://example.com/test-image.png"
       property="og:image"
     />
     <link
@@ -39,7 +39,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
     <script
       type="application/ld+json"
     >
-      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":"https://example.com/test-image.png","author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":{"@type":"ImageObject","url":"https://example.com/test-image.png","width":1200,"height":630},"author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
     </script>
   </div>
   <div
@@ -89,12 +89,20 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       <div
         center="xs"
       >
-        <img
-          alt="Test Blog Post"
-          src="https://example.com/test-image.png"
-          style="max-height: 300px; width: 100%; object-fit: contain; border-radius: 8px; margin-bottom: 20px;"
-          width="100%"
-        />
+        <div
+          style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; background-color: rgb(245, 245, 245);"
+        >
+          <div
+            style="width: 100%; padding-bottom: 52.5%;"
+          />
+          <img
+            alt="Test Blog Post"
+            height="630"
+            src="https://example.com/test-image.png"
+            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: contain;"
+            width="1200"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -269,7 +277,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       property="og:description"
     />
     <meta
-      content="https://timgivois.mehttps://example.com/test-image.png"
+      content="https://example.com/test-image.png"
       property="og:image"
     />
     <link
@@ -279,7 +287,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
     <script
       type="application/ld+json"
     >
-      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":"https://example.com/test-image.png","author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
+      {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":{"@type":"ImageObject","url":"https://example.com/test-image.png","width":1200,"height":630},"author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://timgivois.me/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://timgivois.me/test-post"}
     </script>
   </div>
   <div
@@ -329,12 +337,20 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       <div
         center="xs"
       >
-        <img
-          alt="Test Blog Post"
-          src="https://example.com/test-image.png"
-          style="max-height: 300px; width: 100%; object-fit: contain; border-radius: 8px; margin-bottom: 20px;"
-          width="100%"
-        />
+        <div
+          style="position: relative; width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; background-color: rgb(245, 245, 245);"
+        >
+          <div
+            style="width: 100%; padding-bottom: 52.5%;"
+          />
+          <img
+            alt="Test Blog Post"
+            height="630"
+            src="https://example.com/test-image.png"
+            style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: contain;"
+            width="1200"
+          />
+        </div>
       </div>
     </div>
   </div>
