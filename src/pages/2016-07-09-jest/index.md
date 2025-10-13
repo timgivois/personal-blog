@@ -16,7 +16,7 @@ A solid testing strategy saves time in the long run. By catching issues early, y
 
 In Agile frameworks, automated testing can be grouped into a testing pyramid. A testing pyramid illustrates when we should use one testing method versus another. The pyramid shows that many unit-snapshot tests can be used to validate one integration test, and many integration tests can be used to validate one manual test. At the peak of the pyramid, we have an end-to-end test: manual testing of the whole application. The idea of choosing what type of tests should be used is important, as we may be testing the same thing in two or three different levels of the pyramid.
 
-<img width='100%' src='./test_pyramid.png' alt='test pyramid' />
+![test pyramid](./test_pyramid.png)
 
 Manual testing is slow and unsustainable. This type of testing works for our front-end applications because it mimics how the user will interact with our application. The problem with this testing is that it is expensive to maintain (any minor UI change may break the tests, because these tests are normally done with Selenium, a web browser emulator) and the time to develop one of this tests may be high. It’s important to note that we don’t usually use this type of testing in front-end applications due to high costs.
 
@@ -143,7 +143,7 @@ describe('City Database', () => {
 
 The most complex part of writing unit tests for long-term projects is the maintenance. As project evolves, code evolves and naturally, tests evolve. Certain functions or components may change the output deliberately and tests may need to adapt their assertions. As illustrated in the image, this adaptation often has repetitive tasks. 2. Snapshot testing is a way to automate this process and create unit tests that can easily be overwritten and managed through time. The main benefit of snapshot testing is that we can quickly create tests for black boxes without much configuration, and adapt them to changes easily.
 
-<img src="./cycle.png" width='100%' alt='cycle'/>
+![cycle](./cycle.png)
 
 Imagine a function that filters a list of objects when given a keyword. One of the tests could be written as follows:
 
@@ -189,7 +189,7 @@ Everything we’ve discussed so far doesn’t have a direct connection with Reac
 1. Given a set of inputs (state & props), assert what a component should output (render).
 2. Given a user action, assert how the component behaves. The component might make a state update or call a prop-function passed down from a parent.
 
-<img src='./tests.png' width='100%' />
+![tests](./tests.png)
 
 That is great, but if you think it twice, what would be the output of the presentational component that we’ll be testing or snapshotting? It would be the React Tree generated. Enzyme is the tool we’ll use to easily render without problems React Trees that could even be isolated (not rendering child components, for example).
 
