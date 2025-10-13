@@ -4,6 +4,10 @@
 
 This is a Gatsby-based personal blog using React 18, MDX v2 for blog posts, and styled with @geist-ui/react components.
 
+## Repository Rules
+
+- 🚫 **Do not add or commit binary files.** Keep all contributions text-only so the project remains lightweight and easy to review.
+
 ## Tech Stack
 
 - **Gatsby**: v5.15.0 (Static Site Generator)
