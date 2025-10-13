@@ -19,6 +19,16 @@ const Template = ({ data, switchTheme, children }) => {
     return <div>Post not found</div>
   }
   const { frontmatter } = mdx
+  const parseDimension = (value) => {
+    const parsed = Number(value)
+    return Number.isFinite(parsed) && parsed > 0 ? parsed : null
+  }
+  const DEFAULT_HERO_DIMENSIONS = { width: 1200, height: 630 }
+  const heroWidth =
+    parseDimension(frontmatter.imageWidth) ?? DEFAULT_HERO_DIMENSIONS.width
+  const heroHeight =
+    parseDimension(frontmatter.imageHeight) ?? DEFAULT_HERO_DIMENSIONS.height
+  const aspectRatioPadding = `${(heroHeight / heroWidth) * 100}%`
   const siteUrl = 'https://timgivois.me'
   const imageUrl = frontmatter.image.startsWith('http')
     ? frontmatter.image
@@ -28,7 +38,12 @@ const Template = ({ data, switchTheme, children }) => {
     '@type': 'BlogPosting',
     headline: frontmatter.title,
     description: frontmatter.excerpt,
-    image: imageUrl,
+    image: {
+      '@type': 'ImageObject',
+      url: imageUrl,
+      width: heroWidth,
+      height: heroHeight,
+    },
     author: { '@type': 'Person', name: 'Tim Givois' },
     publisher: {
       '@type': 'Organization',
@@ -45,7 +60,7 @@ const Template = ({ data, switchTheme, children }) => {
         <meta name="description" content={frontmatter.excerpt} />
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.excerpt} />
-        <meta property="og:image" content={`${siteUrl}${frontmatter.image}`} />
+        <meta property="og:image" content={imageUrl} />
         <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
@@ -63,18 +78,34 @@ const Template = ({ data, switchTheme, children }) => {
             </Link>
           </Row>
           <Row center="xs">
-            <img
-              alt={frontmatter.title}
-              width="100%"
+            <div
               style={{
-                maxHeight: '300px',
+                position: 'relative',
                 width: '100%',
-                objectFit: 'contain',
                 borderRadius: '8px',
+                overflow: 'hidden',
                 marginBottom: '20px',
+                backgroundColor: '#f5f5f5',
               }}
-              src={frontmatter.image}
-            />
+            >
+              <div
+                style={{ width: '100%', paddingBottom: aspectRatioPadding }}
+              />
+              <img
+                alt={frontmatter.title}
+                src={frontmatter.image}
+                width={heroWidth}
+                height={heroHeight}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+            </div>
           </Row>
         </Col>
       </Row>
@@ -172,6 +203,8 @@ export const pageQuery = graphql`
         path
         title
         image
+        imageWidth
+        imageHeight
         excerpt
         time
       }
@@ -188,6 +221,8 @@ export const pageQuery = graphql`
             title
             excerpt
             image
+            imageWidth
+            imageHeight
           }
         }
       }
