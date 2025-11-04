@@ -1,12 +1,18 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, Code, Display } from '@geist-ui/react'
+import { Text, Link, Code, Display, Tag } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXProvider } from '@mdx-js/react'
 import { ArrowLeft } from '@geist-ui/icons'
 
-import { Avatar, RelatedPostsCarousel } from '../components'
+import {
+  Avatar,
+  RelatedPostsCarousel,
+  Breadcrumbs,
+  ArticleNavigator,
+  ScrollProgress,
+} from '../components'
 
 import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
@@ -14,11 +20,15 @@ import withStyle from '../components/Layout'
 import paths from '../utils/paths'
 
 const Template = ({ data, switchTheme, children }) => {
-  const { mdx, related } = data // data.mdx holds your post data
+  const contentRef = React.useRef(null)
+  const { mdx, related, site } = data // data.mdx holds your post data
   if (!mdx) {
     return <div>Post not found</div>
   }
   const { frontmatter } = mdx
+  const siteUrl = site?.siteMetadata?.siteUrl ?? ''
+  const articleUrl = `${siteUrl}${frontmatter.path}`
+  const tags = frontmatter.tags || []
   const parseDimension = (value) => {
     const parsed = Number(value)
     return Number.isFinite(parsed) && parsed > 0 ? parsed : null
@@ -29,7 +39,6 @@ const Template = ({ data, switchTheme, children }) => {
   const heroHeight =
     parseDimension(frontmatter.imageHeight) ?? DEFAULT_HERO_DIMENSIONS.height
   const aspectRatioPadding = `${(heroHeight / heroWidth) * 100}%`
-  const siteUrl = 'https://timgivois.me'
   const imageUrl = frontmatter.image.startsWith('http')
     ? frontmatter.image
     : `${siteUrl}${frontmatter.image}`
@@ -51,7 +60,7 @@ const Template = ({ data, switchTheme, children }) => {
       logo: { '@type': 'ImageObject', url: `${siteUrl}/tim-image.png` },
     },
     datePublished: frontmatter.date,
-    url: `${siteUrl}${frontmatter.path}`,
+    url: articleUrl,
   }
   return (
     <Grid fluid style={{ paddingTop: '60px' }}>
@@ -61,13 +70,38 @@ const Template = ({ data, switchTheme, children }) => {
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.excerpt} />
         <meta property="og:image" content={imageUrl} />
-        <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+        <link rel="canonical" href={articleUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <style type="text/css">{`
+          .article-sidebar {
+            display: none;
+          }
+          .mobile-breadcrumbs {
+            display: block;
+          }
+          @media (min-width: 960px) {
+            .article-sidebar {
+              display: block;
+            }
+            .mobile-breadcrumbs {
+              display: none;
+            }
+          }
+          /* Smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+          /* Remove list item markers and ::before content in sidebar navigation */
+          .article-sidebar nav ul li::before {
+            content: none !important;
+            display: none !important;
+          }
+        `}</style>
       </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={11} md={10} lg={8}>
-          <Row start="xs" style={{ marginBottom: '20px' }}>
+          <Row start="xs" style={{ marginTop: '20px', marginBottom: '20px' }}>
             <Link
               href={paths.ROOT}
               pure
@@ -131,7 +165,7 @@ const Template = ({ data, switchTheme, children }) => {
       </Row>
       <Row style={{ margin: '15px 0 30px 0' }} center="xs">
         <Col xs={11} md={10} lg={8}>
-          <Row start="xs" middle="xs" style={{ gap: '15px' }}>
+          <Row start="xs" middle="xs" style={{ gap: '15px', flexWrap: 'wrap' }}>
             <Link href={paths.CONTACT} pure>
               <Avatar
                 src={profileImg}
@@ -149,19 +183,86 @@ const Template = ({ data, switchTheme, children }) => {
                 </Text>
               </Row>
             </Col>
+            {tags.length ? (
+              <Row style={{ gap: '8px', flexWrap: 'wrap' }}>
+                {tags.map((tag) => (
+                  <Tag key={tag} type="lite">
+                    #{tag}
+                  </Tag>
+                ))}
+              </Row>
+            ) : null}
           </Row>
         </Col>
       </Row>
 
       <Row center="xs">
-        <Col xs={11} md={10} lg={8}>
-          <Row start="xs">
-            <Col xs={12} style={{ textAlign: 'justify', lineHeight: '1.8' }}>
-              <MDXProvider components={{ Code, Display, Link }}>
-                {children}
-              </MDXProvider>
-            </Col>
-          </Row>
+        <Col xs={11} md={11} lg={10}>
+          <div
+            style={{
+              display: 'flex',
+              gap: '40px',
+              alignItems: 'flex-start',
+              position: 'relative',
+            }}
+          >
+            {/* Sidebar - hidden on mobile, visible on larger screens */}
+            <aside
+              className="article-sidebar"
+              style={{
+                width: '240px',
+                position: 'sticky',
+                top: '80px',
+                alignSelf: 'flex-start',
+              }}
+            >
+              <ArticleNavigator
+                contentRef={contentRef}
+                toc={mdx.tableOfContents}
+              />
+            </aside>
+
+            {/* Vertical Progress Bar */}
+            <div
+              className="article-sidebar"
+              style={{
+                width: '4px',
+                alignSelf: 'stretch',
+                position: 'sticky',
+                top: '80px',
+                height: 'calc(100vh - 100px)',
+              }}
+            >
+              <ScrollProgress />
+            </div>
+
+            {/* Main Content */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              {/* Breadcrumbs - visible on mobile only */}
+              <div
+                className="mobile-breadcrumbs"
+                style={{ marginBottom: '20px' }}
+              >
+                <Breadcrumbs
+                  articleTitle={frontmatter.title}
+                  articlePath={frontmatter.path}
+                  siteUrl={siteUrl}
+                />
+              </div>
+              <article
+                ref={contentRef}
+                style={{
+                  scrollMarginTop: '80px',
+                  textAlign: 'justify',
+                  lineHeight: '1.8',
+                }}
+              >
+                <MDXProvider components={{ Code, Display, Link }}>
+                  {children}
+                </MDXProvider>
+              </article>
+            </div>
+          </div>
         </Col>
       </Row>
 
@@ -198,6 +299,7 @@ const Template = ({ data, switchTheme, children }) => {
 export const pageQuery = graphql`
   query BlogPostByPath($postPath: String!) {
     mdx(frontmatter: { path: { eq: $postPath } }) {
+      tableOfContents(maxDepth: 3)
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
@@ -207,6 +309,7 @@ export const pageQuery = graphql`
         imageHeight
         excerpt
         time
+        tags
       }
     }
     related: allMdx(
@@ -225,6 +328,11 @@ export const pageQuery = graphql`
             imageHeight
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }
