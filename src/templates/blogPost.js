@@ -315,7 +315,7 @@ export const pageQuery = graphql`
     related: allMdx(
       limit: 3
       filter: { frontmatter: { path: { ne: $postPath } } }
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { frontmatter: { date: DESC } }
     ) {
       edges {
         node {

@@ -14,7 +14,7 @@ In this post, we’ll explore how developers can craft better prompts for coding
 
 ## What Makes a Good Prompt?
 
-![good prompt](./chat-prompt.png)
+![good prompt](./chat_prompt.png)
 
 Not all prompts are created equal. The core reason many AI outputs miss the mark is **ambiguity in the question** – the model can’t read your mind. Effective prompts eliminate guesswork by providing structure, context, and [clarity](https://www.andriifurmanets.com/blogs/prompt-engineering-for-developers/). For developers, a good prompt clearly conveys **what you need, background info, specific requirements**, and sometimes **examples**. Here are the key elements:
 
@@ -72,7 +72,7 @@ In this prompt, we set a role (tutor), specified the audience (new developer, me
 
 Remember that examples and specificity greatly help. Developers have even started to create prompt libraries or templates for common tasks– essentially reusing well-crafted prompts for tasks like “add a new API endpoint” or “generate a test suite.” If you find a phrasing that works well, save it for future use!
 
-### Prompt Pitfalls and How to Fix Them
+## Prompt Pitfalls and How to Fix Them
 
 Even with best practices, it’s easy to fall into some common prompt pitfalls. Here are a few of the biggest mistakes developers make when prompting LLMs – and tips on how to avoid them:
 

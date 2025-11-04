@@ -73,7 +73,6 @@ const ArticleNavigator = ({ contentRef, toc }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log('Section in view:', entry.target.id)
             setActiveId(entry.target.id)
           }
         })
@@ -132,7 +131,7 @@ const ArticleNavigator = ({ contentRef, toc }) => {
                 pure
                 style={{
                   display: 'block',
-                  paddingLeft: isH3 ? '16px' : '0',
+                  paddingLeft: isH3 ? '20px' : '4px',
                   paddingTop: '8px',
                   paddingBottom: '8px',
                   borderLeft: isActive
@@ -145,7 +144,6 @@ const ArticleNavigator = ({ contentRef, toc }) => {
                     ? 'rgba(0, 0, 0, 0.05)'
                     : 'transparent',
                   borderRadius: '4px',
-                  transform: isActive ? 'translateX(4px)' : 'translateX(0)',
                 }}
               >
                 <Text
