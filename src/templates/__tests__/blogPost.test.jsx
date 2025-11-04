@@ -41,6 +41,7 @@ jest.mock('../../components', () => ({
     <nav data-testid="breadcrumbs">Breadcrumbs for {articleTitle}</nav>
   ),
   ArticleNavigator: () => <div data-testid="article-navigator">Navigator</div>,
+  ScrollProgress: () => <div data-testid="scroll-progress">Progress</div>,
   ShareActions: () => <div data-testid="share-actions">Share</div>,
   ContinueExploring: () => <div data-testid="continue-exploring">Continue</div>,
   RelatedPostsCarousel: ({ posts }) => (

@@ -118,12 +118,16 @@ const Contact = ({ switchTheme }) => {
                       <Text small style={{ marginBottom: '5px' }}>
                         {exp.period}
                       </Text>
-                      <Text small style={{ marginBottom: '5px', marginLeft: '5px' }}>({exp.duration})</Text>
-                      <div>
-                      <Text small style={{ marginBottom: '5px' }}>
-                        {exp.company}
+                      <Text
+                        small
+                        style={{ marginBottom: '5px', marginLeft: '5px' }}
+                      >
+                        ({exp.duration})
                       </Text>
-
+                      <div>
+                        <Text small style={{ marginBottom: '5px' }}>
+                          {exp.company}
+                        </Text>
                       </div>
                     </div>
                   </Row>

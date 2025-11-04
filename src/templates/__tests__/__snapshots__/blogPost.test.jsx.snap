@@ -41,6 +41,30 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
     >
       {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":{"@type":"ImageObject","url":"https://example.com/test-image.png","width":800,"height":400},"author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://example.com/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://example.com/test-post"}
     </script>
+    <style
+      type="text/css"
+    >
+      
+          .article-sidebar {
+            display: none;
+          }
+          .mobile-breadcrumbs {
+            display: block;
+          }
+          @media (min-width: 960px) {
+            .article-sidebar {
+              display: block;
+            }
+            .mobile-breadcrumbs {
+              display: none;
+            }
+          }
+          /* Smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+        
+    </style>
   </div>
   <div
     data-testid="topbar"
@@ -56,17 +80,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       xs="11"
     >
       <div
-        style="margin-top: 12px; margin-bottom: 8px;"
-      >
-        <nav
-          data-testid="breadcrumbs"
-        >
-          Breadcrumbs for 
-          Test Blog Post
-        </nav>
-      </div>
-      <div
-        style="margin-bottom: 20px;"
+        style="margin-top: 20px; margin-bottom: 20px;"
       >
         <a
           class="jsx-2023000637 link  "
@@ -212,28 +226,49 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
     center="xs"
   >
     <div
-      lg="8"
-      md="10"
+      lg="10"
+      md="11"
       xs="11"
     >
-      <div>
-        <div
-          xs="12"
+      <div
+        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+      >
+        <aside
+          class="article-sidebar"
+          style="width: 240px; position: sticky; top: 80px; align-self: flex-start;"
         >
           <div
             data-testid="article-navigator"
           >
             Navigator
           </div>
-        </div>
-      </div>
-      <div>
+        </aside>
         <div
-          style="text-align: justify; line-height: 1.8;"
-          xs="12"
+          class="article-sidebar"
+          style="width: 4px; align-self: stretch; position: sticky; top: 80px; height: calc(100vh - 100px);"
         >
+          <div
+            data-testid="scroll-progress"
+          >
+            Progress
+          </div>
+        </div>
+        <div
+          style="flex: 1; min-width: 0;"
+        >
+          <div
+            class="mobile-breadcrumbs"
+            style="margin-bottom: 20px;"
+          >
+            <nav
+              data-testid="breadcrumbs"
+            >
+              Breadcrumbs for 
+              Test Blog Post
+            </nav>
+          </div>
           <article
-            style="scroll-margin-top: 80px;"
+            style="scroll-margin-top: 80px; text-align: justify; line-height: 1.8;"
           >
             <div>
               <p>
@@ -254,16 +289,6 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       md="10"
       xs="11"
     >
-      <div
-        data-testid="share-actions"
-      >
-        Share
-      </div>
-      <div
-        data-testid="continue-exploring"
-      >
-        Continue
-      </div>
       <div>
         <h3
           class="jsx-510830267 "
@@ -340,6 +365,30 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
     >
       {"@context":"https://schema.org","@type":"BlogPosting","headline":"Test Blog Post","description":"This is a test excerpt","image":{"@type":"ImageObject","url":"https://example.com/test-image.png","width":800,"height":400},"author":{"@type":"Person","name":"Tim Givois"},"publisher":{"@type":"Organization","name":"Tim Givois","logo":{"@type":"ImageObject","url":"https://example.com/tim-image.png"}},"datePublished":"January 15, 2025","url":"https://example.com/test-post"}
     </script>
+    <style
+      type="text/css"
+    >
+      
+          .article-sidebar {
+            display: none;
+          }
+          .mobile-breadcrumbs {
+            display: block;
+          }
+          @media (min-width: 960px) {
+            .article-sidebar {
+              display: block;
+            }
+            .mobile-breadcrumbs {
+              display: none;
+            }
+          }
+          /* Smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+        
+    </style>
   </div>
   <div
     data-testid="topbar"
@@ -355,17 +404,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       xs="11"
     >
       <div
-        style="margin-top: 12px; margin-bottom: 8px;"
-      >
-        <nav
-          data-testid="breadcrumbs"
-        >
-          Breadcrumbs for 
-          Test Blog Post
-        </nav>
-      </div>
-      <div
-        style="margin-bottom: 20px;"
+        style="margin-top: 20px; margin-bottom: 20px;"
       >
         <a
           class="jsx-2023000637 link  "
@@ -511,28 +550,49 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
     center="xs"
   >
     <div
-      lg="8"
-      md="10"
+      lg="10"
+      md="11"
       xs="11"
     >
-      <div>
-        <div
-          xs="12"
+      <div
+        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+      >
+        <aside
+          class="article-sidebar"
+          style="width: 240px; position: sticky; top: 80px; align-self: flex-start;"
         >
           <div
             data-testid="article-navigator"
           >
             Navigator
           </div>
-        </div>
-      </div>
-      <div>
+        </aside>
         <div
-          style="text-align: justify; line-height: 1.8;"
-          xs="12"
+          class="article-sidebar"
+          style="width: 4px; align-self: stretch; position: sticky; top: 80px; height: calc(100vh - 100px);"
         >
+          <div
+            data-testid="scroll-progress"
+          >
+            Progress
+          </div>
+        </div>
+        <div
+          style="flex: 1; min-width: 0;"
+        >
+          <div
+            class="mobile-breadcrumbs"
+            style="margin-bottom: 20px;"
+          >
+            <nav
+              data-testid="breadcrumbs"
+            >
+              Breadcrumbs for 
+              Test Blog Post
+            </nav>
+          </div>
           <article
-            style="scroll-margin-top: 80px;"
+            style="scroll-margin-top: 80px; text-align: justify; line-height: 1.8;"
           >
             <div>
               <p>
@@ -553,16 +613,6 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       md="10"
       xs="11"
     >
-      <div
-        data-testid="share-actions"
-      >
-        Share
-      </div>
-      <div
-        data-testid="continue-exploring"
-      >
-        Continue
-      </div>
       <div>
         <h3
           class="jsx-510830267 "

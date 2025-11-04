@@ -11,8 +11,7 @@ import {
   RelatedPostsCarousel,
   Breadcrumbs,
   ArticleNavigator,
-  ShareActions,
-  ContinueExploring,
+  ScrollProgress,
 } from '../components'
 
 import profileImg from '../../static/tim-image.png'
@@ -73,18 +72,36 @@ const Template = ({ data, switchTheme, children }) => {
         <meta property="og:image" content={imageUrl} />
         <link rel="canonical" href={articleUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <style type="text/css">{`
+          .article-sidebar {
+            display: none;
+          }
+          .mobile-breadcrumbs {
+            display: block;
+          }
+          @media (min-width: 960px) {
+            .article-sidebar {
+              display: block;
+            }
+            .mobile-breadcrumbs {
+              display: none;
+            }
+          }
+          /* Smooth scrolling for anchor links */
+          html {
+            scroll-behavior: smooth;
+          }
+          /* Remove list item markers and ::before content in sidebar navigation */
+          .article-sidebar nav ul li::before {
+            content: none !important;
+            display: none !important;
+          }
+        `}</style>
       </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={11} md={10} lg={8}>
-          <Row style={{ marginTop: '12px', marginBottom: '8px' }}>
-            <Breadcrumbs
-              articleTitle={frontmatter.title}
-              articlePath={frontmatter.path}
-              siteUrl={siteUrl}
-            />
-          </Row>
-          <Row start="xs" style={{ marginBottom: '20px' }}>
+          <Row start="xs" style={{ marginTop: '20px', marginBottom: '20px' }}>
             <Link
               href={paths.ROOT}
               pure
@@ -180,38 +197,77 @@ const Template = ({ data, switchTheme, children }) => {
       </Row>
 
       <Row center="xs">
-        <Col xs={11} md={10} lg={8}>
-          <Row start="xs">
-            <Col xs={12}>
+        <Col xs={11} md={11} lg={10}>
+          <div
+            style={{
+              display: 'flex',
+              gap: '40px',
+              alignItems: 'flex-start',
+              position: 'relative',
+            }}
+          >
+            {/* Sidebar - hidden on mobile, visible on larger screens */}
+            <aside
+              className="article-sidebar"
+              style={{
+                width: '240px',
+                position: 'sticky',
+                top: '80px',
+                alignSelf: 'flex-start',
+              }}
+            >
               <ArticleNavigator
                 contentRef={contentRef}
                 toc={mdx.tableOfContents}
               />
-            </Col>
-          </Row>
-          <Row start="xs">
-            <Col xs={12} style={{ textAlign: 'justify', lineHeight: '1.8' }}>
-              <article ref={contentRef} style={{ scrollMarginTop: '80px' }}>
+            </aside>
+
+            {/* Vertical Progress Bar */}
+            <div
+              className="article-sidebar"
+              style={{
+                width: '4px',
+                alignSelf: 'stretch',
+                position: 'sticky',
+                top: '80px',
+                height: 'calc(100vh - 100px)',
+              }}
+            >
+              <ScrollProgress />
+            </div>
+
+            {/* Main Content */}
+            <div style={{ flex: 1, minWidth: 0 }}>
+              {/* Breadcrumbs - visible on mobile only */}
+              <div
+                className="mobile-breadcrumbs"
+                style={{ marginBottom: '20px' }}
+              >
+                <Breadcrumbs
+                  articleTitle={frontmatter.title}
+                  articlePath={frontmatter.path}
+                  siteUrl={siteUrl}
+                />
+              </div>
+              <article
+                ref={contentRef}
+                style={{
+                  scrollMarginTop: '80px',
+                  textAlign: 'justify',
+                  lineHeight: '1.8',
+                }}
+              >
                 <MDXProvider components={{ Code, Display, Link }}>
                   {children}
                 </MDXProvider>
               </article>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </Col>
       </Row>
 
       <Row center="xs" style={{ marginTop: '50px', marginBottom: '40px' }}>
         <Col xs={11} md={10} lg={8}>
-          <ShareActions
-            title={frontmatter.title}
-            url={articleUrl}
-            tags={tags}
-          />
-          <ContinueExploring
-            tags={tags}
-            featuredPosts={related.edges.map(({ node }) => node)}
-          />
           <Row start="xs">
             <Text h3 style={{ marginBottom: '20px' }}>
               More posts

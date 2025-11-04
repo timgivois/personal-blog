@@ -9,6 +9,7 @@ import {
   ArticleNavigator,
   ShareActions,
   ContinueExploring,
+  ScrollProgress,
 } from './blog'
 
 export {
@@ -22,4 +23,5 @@ export {
   ArticleNavigator,
   ShareActions,
   ContinueExploring,
+  ScrollProgress,
 }

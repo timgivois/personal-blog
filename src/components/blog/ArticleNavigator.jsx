@@ -73,6 +73,7 @@ const ArticleNavigator = ({ contentRef, toc }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            console.log('Section in view:', entry.target.id)
             setActiveId(entry.target.id)
           }
         })
@@ -111,53 +112,60 @@ const ArticleNavigator = ({ contentRef, toc }) => {
   }
 
   return (
-    <div style={{ marginBottom: '24px' }}>
-      <div
+    <nav aria-label="Table of contents">
+      <ul
         style={{
-          height: '4px',
-          borderRadius: '2px',
-          backgroundColor: '#eaeaea',
-          overflow: 'hidden',
+          listStyle: 'none',
+          padding: 0,
+          margin: 0,
+          display: 'flex',
+          flexDirection: 'column',
         }}
-        aria-hidden="true"
       >
-        <div
-          style={{
-            height: '100%',
-            width: `${progress}%`,
-            backgroundColor: '#000',
-            transition: 'width 0.2s ease-out',
-          }}
-        />
-      </div>
-      <Text
-        small
-        style={{ marginTop: '12px', marginBottom: '8px', color: '#666' }}
-      >
-        On this page
-      </Text>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-        {headings.map((heading) => (
-          <Link
-            key={heading.id}
-            href={`#${heading.id}`}
-            pure
-            style={{
-              padding: '4px 8px',
-              borderRadius: '16px',
-              backgroundColor:
-                heading.id === activeId
-                  ? 'rgba(0,0,0,0.08)'
-                  : 'rgba(0,0,0,0.04)',
-            }}
-          >
-            <Text small style={{ margin: 0 }}>
-              {heading.title}
-            </Text>
-          </Link>
-        ))}
-      </div>
-    </div>
+        {headings.map((heading) => {
+          const isActive = heading.id === activeId
+          const isH3 = heading.level === 3
+          return (
+            <li key={heading.id}>
+              <Link
+                href={`#${heading.id}`}
+                pure
+                style={{
+                  display: 'block',
+                  paddingLeft: isH3 ? '16px' : '0',
+                  paddingTop: '8px',
+                  paddingBottom: '8px',
+                  borderLeft: isActive
+                    ? '3px solid #000'
+                    : '3px solid transparent',
+                  paddingRight: '8px',
+                  transition: 'all 0.3s ease-in-out',
+                  color: isActive ? '#fff' : '#999',
+                  backgroundColor: isActive
+                    ? 'rgba(0, 0, 0, 0.05)'
+                    : 'transparent',
+                  borderRadius: '4px',
+                  transform: isActive ? 'translateX(4px)' : 'translateX(0)',
+                }}
+              >
+                <Text
+                  small
+                  style={{
+                    margin: 0,
+                    fontWeight: isActive ? '600' : '400',
+                    fontSize: isH3 ? '0.875rem' : '0.9375rem',
+                    lineHeight: '1.4',
+                    transition: 'all 0.3s ease-in-out',
+                  }}
+                >
+                  {heading.title}
+                </Text>
+              </Link>
+            </li>
+          )
+        })}
+      </ul>
+    </nav>
   )
 }
 

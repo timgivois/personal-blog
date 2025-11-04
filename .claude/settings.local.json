@@ -17,7 +17,14 @@
       "Bash(yarn test:*)",
       "Bash(cat:*)",
       "Bash(yarn add:*)",
-      "Bash(yarn format)"
+      "Bash(yarn format)",
+      "WebSearch",
+      "Bash(lsof:*)",
+      "Bash(xargs kill -9)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr edit:*)",
+      "Bash(gh pr comment 87 --body \"$(cat <<''EOF''\n## 🎉 Sticky Sidebar Navigation Implemented\n\n### What Changed\nTransformed the blog post navigation from horizontal pill-style to a **modern sticky left sidebar** with scroll-spy highlighting.\n\n### Visual Structure\n```\n┌─────────────────────────────────────────────────┐\n│ Desktop (≥960px)                                 │\n├──────────────┬──────────────────────────────────┤\n│  Sidebar     │  Main Content                    │\n│  (240px)     │  (flex: 1)                       │\n│  ┌────────┐  │                                  │\n│  │Breadcr.│  │  Article Title                   │\n│  └────────┘  │  Article Content...              │\n│              │                                  │\n│  On this pg  │  [Scrollable content]            │\n│  ✓ Section1  │                                  │\n│    Section2  │                                  │\n│      - H3    │                                  │\n│              │                                  │\n│  75% done    │                                  │\n└──────────────┴──────────────────────────────────┘\n```\n\n### Implementation Details\n\n**No external libraries needed!** Used:\n- ✅ CSS `position: sticky` - Native, widely supported\n- ✅ IntersectionObserver API - Modern scroll tracking\n- ✅ Flexbox layout - Clean responsive design\n- ✅ Media queries - Mobile-first approach\n\n### Key Features\n1. **Sticky positioning** at `top: 80px` (below header)\n2. **Scroll overflow** handling for long TOCs with custom scrollbar\n3. **H3 indentation** (16px) to show content hierarchy\n4. **Active section** highlighted with left border + bold text\n5. **Reading progress** percentage at bottom\n6. **Responsive**: Hides sidebar on mobile, shows breadcrumbs inline\n\n### Files Modified\n- `src/components/blog/ArticleNavigator.jsx` - Vertical list layout\n- `src/templates/blogPost.js` - Two-column flex layout + CSS\n\n🚀 Dev server running at http://localhost:8000/ for live preview!\nEOF\n)\")",
+      "Bash(gh pr comment:*)"
     ],
     "deny": [],
     "ask": []
