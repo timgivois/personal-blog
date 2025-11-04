@@ -4,7 +4,7 @@ date: '2025-11-03'
 title: 'Prompt Engineering for Developers: How to Ask Your LLM the Right Way'
 tags: ['AI', 'Prompt Engineering', 'Software']
 excerpt: 'Better prompts mean better code. Learn how to talk to your AI coding assistant effectively.'
-image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop'
+image: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=1200&h=630&fit=crop'
 time: '12 min.'
 ---
 
@@ -13,6 +13,8 @@ AI coding assistants like ChatGPT and GitHub Copilot are becoming standard tools
 In this post, we’ll explore how developers can craft better prompts for coding assistance. We’ll cover what makes a good prompt (clarity, context, constraints, and examples), give developer-specific prompt examples (like refactoring code or generating tests), highlight common prompt pitfalls (and how to avoid issues like ambiguity or AI hallucinations), and discuss integrating prompt engineering into your workflow (from code reviews to CI/CD). By the end, you’ll have practical techniques and resources to level up your “AI prompting” game and turn these tools into true pair programmers.
 
 ## What Makes a Good Prompt?
+
+![good prompt](./chat-prompt.png)
 
 Not all prompts are created equal. The core reason many AI outputs miss the mark is **ambiguity in the question** – the model can’t read your mind. Effective prompts eliminate guesswork by providing structure, context, and [clarity](https://www.andriifurmanets.com/blogs/prompt-engineering-for-developers/). For developers, a good prompt clearly conveys **what you need, background info, specific requirements**, and sometimes **examples**. Here are the key elements:
 
@@ -98,15 +100,3 @@ Integrating AI in these ways does require some experimentation and team buy-in. 
 Prompt engineering is an evolving skill, and as LLMs get more capable, the “rules” of prompting might change. Today’s best practices (be clear, provide context, iterate, etc.) will likely remain foundational, but we’ll also develop new techniques as we integrate AI deeper into development. The key is to treat prompt engineering as an ongoing learning process – much like programming itself.
 
 In summary, prompt engineering is now a part of the software development skill set. By writing better prompts, developers can greatly enhance what AI assistants produce – turning them from occasionally useful gadgets into reliable coding partners. As you apply the tips from this post, you’ll likely discover your own tricks too. Keep experimenting, keep refining, and share what you learn with your team. With the right prompt, an LLM can do amazing things – so keep asking the right way, and happy coding with your AI pair programmer!
-
-Mermaid Diagram: Anatomy of a Good Prompt
-
-To recap the elements of effective prompts, here’s a simple diagram illustrating how clarity, context, constraints, and examples contribute to a well-crafted prompt:
-
-graph LR
-A["**Good Prompt**"] -- Clarity --> B(Explicit request with no ambiguity)
-A -- Context --> C(Relevant background info provided)
-A -- Constraints --> D(Specific requirements or boundaries)
-A -- Examples --> E(Examples to guide output)
-
-Each of these components strengthens your prompt. Omit clarity and the AI might misunderstand your intent. Ignore context or constraints and it might produce an answer that doesn’t fit your project. But combine all four, and you give the AI a blueprint for success – resulting in outputs that are far more likely to hit the mark.
