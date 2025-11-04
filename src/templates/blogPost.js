@@ -1,12 +1,19 @@
 import React from 'react'
 import { Row, Col, Grid } from 'react-flexbox-grid'
 import { graphql } from 'gatsby'
-import { Text, Link, Code, Display } from '@geist-ui/react'
+import { Text, Link, Code, Display, Tag } from '@geist-ui/react'
 import { Helmet } from 'react-helmet'
 import { MDXProvider } from '@mdx-js/react'
 import { ArrowLeft } from '@geist-ui/icons'
 
-import { Avatar, RelatedPostsCarousel } from '../components'
+import {
+  Avatar,
+  RelatedPostsCarousel,
+  Breadcrumbs,
+  ArticleNavigator,
+  ShareActions,
+  ContinueExploring,
+} from '../components'
 
 import profileImg from '../../static/tim-image.png'
 import { Topbar } from '../components'
@@ -14,11 +21,15 @@ import withStyle from '../components/Layout'
 import paths from '../utils/paths'
 
 const Template = ({ data, switchTheme, children }) => {
-  const { mdx, related } = data // data.mdx holds your post data
+  const contentRef = React.useRef(null)
+  const { mdx, related, site } = data // data.mdx holds your post data
   if (!mdx) {
     return <div>Post not found</div>
   }
   const { frontmatter } = mdx
+  const siteUrl = site?.siteMetadata?.siteUrl ?? ''
+  const articleUrl = `${siteUrl}${frontmatter.path}`
+  const tags = frontmatter.tags || []
   const parseDimension = (value) => {
     const parsed = Number(value)
     return Number.isFinite(parsed) && parsed > 0 ? parsed : null
@@ -29,7 +40,6 @@ const Template = ({ data, switchTheme, children }) => {
   const heroHeight =
     parseDimension(frontmatter.imageHeight) ?? DEFAULT_HERO_DIMENSIONS.height
   const aspectRatioPadding = `${(heroHeight / heroWidth) * 100}%`
-  const siteUrl = 'https://timgivois.me'
   const imageUrl = frontmatter.image.startsWith('http')
     ? frontmatter.image
     : `${siteUrl}${frontmatter.image}`
@@ -51,7 +61,7 @@ const Template = ({ data, switchTheme, children }) => {
       logo: { '@type': 'ImageObject', url: `${siteUrl}/tim-image.png` },
     },
     datePublished: frontmatter.date,
-    url: `${siteUrl}${frontmatter.path}`,
+    url: articleUrl,
   }
   return (
     <Grid fluid style={{ paddingTop: '60px' }}>
@@ -61,12 +71,19 @@ const Template = ({ data, switchTheme, children }) => {
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.excerpt} />
         <meta property="og:image" content={imageUrl} />
-        <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+        <link rel="canonical" href={articleUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <Topbar switchTheme={switchTheme} />
       <Row center="xs">
         <Col xs={11} md={10} lg={8}>
+          <Row style={{ marginTop: '12px', marginBottom: '8px' }}>
+            <Breadcrumbs
+              articleTitle={frontmatter.title}
+              articlePath={frontmatter.path}
+              siteUrl={siteUrl}
+            />
+          </Row>
           <Row start="xs" style={{ marginBottom: '20px' }}>
             <Link
               href={paths.ROOT}
@@ -131,7 +148,7 @@ const Template = ({ data, switchTheme, children }) => {
       </Row>
       <Row style={{ margin: '15px 0 30px 0' }} center="xs">
         <Col xs={11} md={10} lg={8}>
-          <Row start="xs" middle="xs" style={{ gap: '15px' }}>
+          <Row start="xs" middle="xs" style={{ gap: '15px', flexWrap: 'wrap' }}>
             <Link href={paths.CONTACT} pure>
               <Avatar
                 src={profileImg}
@@ -149,6 +166,15 @@ const Template = ({ data, switchTheme, children }) => {
                 </Text>
               </Row>
             </Col>
+            {tags.length ? (
+              <Row style={{ gap: '8px', flexWrap: 'wrap' }}>
+                {tags.map((tag) => (
+                  <Tag key={tag} type="lite">
+                    #{tag}
+                  </Tag>
+                ))}
+              </Row>
+            ) : null}
           </Row>
         </Col>
       </Row>
@@ -156,10 +182,20 @@ const Template = ({ data, switchTheme, children }) => {
       <Row center="xs">
         <Col xs={11} md={10} lg={8}>
           <Row start="xs">
+            <Col xs={12}>
+              <ArticleNavigator
+                contentRef={contentRef}
+                toc={mdx.tableOfContents}
+              />
+            </Col>
+          </Row>
+          <Row start="xs">
             <Col xs={12} style={{ textAlign: 'justify', lineHeight: '1.8' }}>
-              <MDXProvider components={{ Code, Display, Link }}>
-                {children}
-              </MDXProvider>
+              <article ref={contentRef} style={{ scrollMarginTop: '80px' }}>
+                <MDXProvider components={{ Code, Display, Link }}>
+                  {children}
+                </MDXProvider>
+              </article>
             </Col>
           </Row>
         </Col>
@@ -167,6 +203,15 @@ const Template = ({ data, switchTheme, children }) => {
 
       <Row center="xs" style={{ marginTop: '50px', marginBottom: '40px' }}>
         <Col xs={11} md={10} lg={8}>
+          <ShareActions
+            title={frontmatter.title}
+            url={articleUrl}
+            tags={tags}
+          />
+          <ContinueExploring
+            tags={tags}
+            featuredPosts={related.edges.map(({ node }) => node)}
+          />
           <Row start="xs">
             <Text h3 style={{ marginBottom: '20px' }}>
               More posts
@@ -198,6 +243,7 @@ const Template = ({ data, switchTheme, children }) => {
 export const pageQuery = graphql`
   query BlogPostByPath($postPath: String!) {
     mdx(frontmatter: { path: { eq: $postPath } }) {
+      tableOfContents(maxDepth: 3)
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         path
@@ -207,6 +253,7 @@ export const pageQuery = graphql`
         imageHeight
         excerpt
         time
+        tags
       }
     }
     related: allMdx(
@@ -225,6 +272,11 @@ export const pageQuery = graphql`
             imageHeight
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
       }
     }
   }

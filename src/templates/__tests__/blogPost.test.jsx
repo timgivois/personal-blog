@@ -37,6 +37,12 @@ jest.mock('../../components', () => ({
     <img src={src} alt="Avatar" className={className} />
   ),
   Space: ({ children }) => <div>{children}</div>,
+  Breadcrumbs: ({ articleTitle }) => (
+    <nav data-testid="breadcrumbs">Breadcrumbs for {articleTitle}</nav>
+  ),
+  ArticleNavigator: () => <div data-testid="article-navigator">Navigator</div>,
+  ShareActions: () => <div data-testid="share-actions">Share</div>,
+  ContinueExploring: () => <div data-testid="continue-exploring">Continue</div>,
   RelatedPostsCarousel: ({ posts }) => (
     <div data-testid="related-posts-carousel">
       {posts &&
@@ -64,6 +70,9 @@ describe('BlogPost Template', () => {
         path: '/test-post',
         image: 'https://example.com/test-image.png',
         time: '5 min.',
+        tags: ['React', 'Testing'],
+        imageWidth: 800,
+        imageHeight: 400,
       },
     },
     related: {
@@ -89,6 +98,11 @@ describe('BlogPost Template', () => {
           },
         },
       ],
+    },
+    site: {
+      siteMetadata: {
+        siteUrl: 'https://example.com',
+      },
     },
   }
 
@@ -138,6 +152,7 @@ describe('BlogPost Template', () => {
         related: {
           edges: [],
         },
+        site: mockData.site,
       }
       const { container } = render(
         <BlogPost
