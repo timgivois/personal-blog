@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { GeistProvider, CssBaseline } from '@geist-ui/react'
+import { GeistProvider, CssBaseline, Link } from '@geist-ui/react'
 import { Col, Row } from 'react-flexbox-grid'
 
 import './layout.css'
 import 'react-toggle/style.css'
+import paths from '../../utils/paths'
 
 export const BarWrapper = styled(Row)`
   box-shadow: ${({ type }) =>
@@ -34,6 +35,18 @@ const withStyle = (Component) => (props) => {
           <Col xs={5} md={3}>
             <Row center="xs" end="md">
               <small>&copy; {d.getFullYear()} timgivois</small>
+            </Row>
+          </Col>
+          <Col xs={7} md={3}>
+            <Row center="xs" start="md">
+              <Link
+                href={paths.BLOG}
+                pure
+                underline
+                style={{ fontSize: '0.85rem' }}
+              >
+                Browse all posts
+              </Link>
             </Row>
           </Col>
         </BarWrapper>

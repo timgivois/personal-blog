@@ -103,12 +103,12 @@ const Template = ({ data, switchTheme, children }) => {
         <Col xs={11} md={10} lg={8}>
           <Row start="xs" style={{ marginTop: '20px', marginBottom: '20px' }}>
             <Link
-              href={paths.ROOT}
+              href={paths.BLOG}
               pure
               style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               <ArrowLeft size={20} />
-              <Text small>Back to home</Text>
+              <Text small>Back to blog</Text>
             </Link>
           </Row>
           <Row center="xs">

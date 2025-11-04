@@ -89,7 +89,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       >
         <a
           class="jsx-2023000637 link  "
-          href="/"
+          href="/blogs"
           style="display: flex; align-items: center; gap: 8px;"
         >
           <svg
@@ -111,7 +111,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
           <small
             class="jsx-1231261695 "
           >
-            Back to home
+            Back to blog
           </small>
         </a>
       </div>
@@ -185,7 +185,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
           />
         </a>
         <div
-          style="padding-left: 0px;"
+          style="padding-left: 0px; margin-right: 8px;"
         >
           <div>
             <p
@@ -209,18 +209,17 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
           </div>
         </div>
         <div
-          style="gap: 8px; flex-wrap: wrap;"
+          middle="xs"
+          style="gap: 10px; flex-wrap: wrap; flex-grow: 1;"
         >
           <span
             class="jsx-3220321788 "
           >
-            #
             React
           </span>
           <span
             class="jsx-3220321788 "
           >
-            #
             Testing
           </span>
         </div>
@@ -418,7 +417,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       >
         <a
           class="jsx-2023000637 link  "
-          href="/"
+          href="/blogs"
           style="display: flex; align-items: center; gap: 8px;"
         >
           <svg
@@ -440,7 +439,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
           <small
             class="jsx-1231261695 "
           >
-            Back to home
+            Back to blog
           </small>
         </a>
       </div>
@@ -514,7 +513,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
           />
         </a>
         <div
-          style="padding-left: 0px;"
+          style="padding-left: 0px; margin-right: 8px;"
         >
           <div>
             <p
@@ -538,18 +537,17 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
           </div>
         </div>
         <div
-          style="gap: 8px; flex-wrap: wrap;"
+          middle="xs"
+          style="gap: 10px; flex-wrap: wrap; flex-grow: 1;"
         >
           <span
             class="jsx-3220321788 "
           >
-            #
             React
           </span>
           <span
             class="jsx-3220321788 "
           >
-            #
             Testing
           </span>
         </div>

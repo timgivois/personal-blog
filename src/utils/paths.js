@@ -1,5 +1,7 @@
-export default {
+const paths = {
   ROOT: '/',
-  BLOG: '/',
+  BLOG: '/blogs',
   CONTACT: '/contact',
 }
+
+export default paths
