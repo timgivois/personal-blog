@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6dd5ed" />
+      <stop offset="100%" stop-color="#2193b0" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="32" />
+  <g opacity="0.35">
+    <circle cx="1040" cy="-40" r="320" fill="url(#accent)" />
+    <circle cx="120" cy="660" r="280" fill="url(#accent)" />
+  </g>
+  <g transform="translate(120 160)" fill="#e4f2ff">
+    <text font-family="'Inter', 'Segoe UI', sans-serif" font-weight="700" font-size="72" letter-spacing="0.02em">
+      Avery Thompson
+    </text>
+    <text y="88" font-family="'Inter', 'Segoe UI', sans-serif" font-size="36" fill="#9cbad8">
+      Staff Software Engineer & Technical Writer
+    </text>
+  </g>
+  <g transform="translate(120 320)" font-family="'Inter', 'Segoe UI', sans-serif" fill="#d0e4f9">
+    <text font-size="28">Architecting resilient platforms • Elevating developer experience</text>
+    <text y="56" font-size="24" fill="#9cbad8">avery.codes | @averycodes</text>
+  </g>
+  <g transform="translate(900 170)">
+    <circle cx="0" cy="0" r="120" fill="#0d1117" stroke="url(#accent)" stroke-width="8" />
+    <path
+      d="M30-40h80l-12 34H70c12-7.5 25.8-11.5 40.5-11.5 32.3 0 58.5 26.2 58.5 58.5 0 32.3-26.2 58.5-58.5 58.5-25.7 0-47.1-16.7-54.4-40.6H84c9.1 24.1 35.3 38.1 60.5 28.8 14.5-5.3 24.9-19.1 25.9-34.6 2-31-32.5-49.9-58.4-32.5l-16.5 11H44z"
+      fill="#e4f2ff"
+      transform="translate(-70 40) scale(0.9)"
+    />
+  </g>
+</svg>

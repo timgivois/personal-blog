@@ -61,9 +61,11 @@ describe('BlogPost Template', () => {
         title: 'Test Blog Post',
         excerpt: 'This is a test excerpt',
         date: 'January 15, 2025',
+        dateIso: '2025-01-15',
         path: '/test-post',
         image: 'https://example.com/test-image.png',
         time: '5 min.',
+        tags: ['Testing', 'Gatsby'],
       },
     },
     related: {
@@ -75,6 +77,7 @@ describe('BlogPost Template', () => {
               title: 'Related Post 1',
               excerpt: 'First related post',
               image: 'https://example.com/related1.png',
+              tags: ['Testing'],
             },
           },
         },
@@ -85,10 +88,25 @@ describe('BlogPost Template', () => {
               title: 'Related Post 2',
               excerpt: 'Second related post',
               image: 'https://example.com/related2.png',
+              tags: ['Gatsby'],
             },
           },
         },
       ],
+    },
+    site: {
+      siteMetadata: {
+        title: 'Avery Thompson — Engineering Lead & Storyteller',
+        author: 'Avery Thompson',
+        siteUrl: 'https://timgivois.me',
+        social: {
+          twitter: '@averycodes',
+          github: 'averythompson',
+          linkedin: 'averythompson',
+        },
+        defaultImage: '/social-card.svg',
+        keywords: ['software architecture', 'developer experience'],
+      },
     },
   }
 
@@ -226,7 +244,7 @@ describe('BlogPost Template', () => {
         </BlogPost>
       )
 
-      expect(screen.getByText('Tim Givois')).toBeInTheDocument()
+      expect(screen.getByText('Avery Thompson')).toBeInTheDocument()
     })
 
     it('renders the MDX children content', () => {

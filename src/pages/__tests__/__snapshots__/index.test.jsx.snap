@@ -6,11 +6,67 @@ exports[`Landing Page matches snapshot with blog posts 1`] = `
     data-testid="helmet"
   >
     <title>
-      Personal Blog
+      Avery Thompson — Engineering Lead & Storyteller
     </title>
     <meta
-      content="This is my cool blog."
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
       name="description"
+    />
+    <meta
+      content="Avery Thompson"
+      name="author"
+    />
+    <meta
+      content="software architecture, developer experience, technical leadership, gatsby blog, engineering management, web performance"
+      name="keywords"
+    />
+    <link
+      href="https://timgivois.me/"
+      rel="canonical"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller | Staff Software Engineer & Technical Writer"
+      property="og:title"
+    />
+    <meta
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
+      property="og:description"
+    />
+    <meta
+      content="website"
+      property="og:type"
+    />
+    <meta
+      content="https://timgivois.me/"
+      property="og:url"
+    />
+    <meta
+      content="https://timgivois.me/social-card.svg"
+      property="og:image"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller"
+      property="og:site_name"
+    />
+    <meta
+      content="summary_large_image"
+      name="twitter:card"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller | Staff Software Engineer & Technical Writer"
+      name="twitter:title"
+    />
+    <meta
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
+      name="twitter:description"
+    />
+    <meta
+      content="https://timgivois.me/social-card.svg"
+      name="twitter:image"
+    />
+    <meta
+      content="@averycodes"
+      name="twitter:creator"
     />
   </div>
   <div
@@ -190,11 +246,67 @@ exports[`Landing Page matches snapshot with no blog posts 1`] = `
     data-testid="helmet"
   >
     <title>
-      Personal Blog
+      Avery Thompson — Engineering Lead & Storyteller
     </title>
     <meta
-      content="This is my cool blog."
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
       name="description"
+    />
+    <meta
+      content="Avery Thompson"
+      name="author"
+    />
+    <meta
+      content="software architecture, developer experience, technical leadership, gatsby blog, engineering management, web performance"
+      name="keywords"
+    />
+    <link
+      href="https://timgivois.me/"
+      rel="canonical"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller | Staff Software Engineer & Technical Writer"
+      property="og:title"
+    />
+    <meta
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
+      property="og:description"
+    />
+    <meta
+      content="website"
+      property="og:type"
+    />
+    <meta
+      content="https://timgivois.me/"
+      property="og:url"
+    />
+    <meta
+      content="https://timgivois.me/social-card.svg"
+      property="og:image"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller"
+      property="og:site_name"
+    />
+    <meta
+      content="summary_large_image"
+      name="twitter:card"
+    />
+    <meta
+      content="Avery Thompson — Engineering Lead & Storyteller | Staff Software Engineer & Technical Writer"
+      name="twitter:title"
+    />
+    <meta
+      content="Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership."
+      name="twitter:description"
+    />
+    <meta
+      content="https://timgivois.me/social-card.svg"
+      name="twitter:image"
+    />
+    <meta
+      content="@averycodes"
+      name="twitter:creator"
     />
   </div>
   <div

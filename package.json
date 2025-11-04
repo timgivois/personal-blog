@@ -37,6 +37,7 @@
     "gatsby-awesome-pagination": "^0.3.8",
     "gatsby-plugin-git-lastmod": "^0.2.1",
     "gatsby-plugin-google-analytics": "^5.13.1",
+    "gatsby-plugin-manifest": "^5.15.0",
     "gatsby-plugin-mdx": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.3",
     "gatsby-plugin-react-helmet": "^6.13.1",

@@ -70,8 +70,26 @@ describe('Landing Page', () => {
     },
     site: {
       siteMetadata: {
-        title: 'Personal Blog',
-        description: 'This is my cool blog.',
+        title: 'Avery Thompson — Engineering Lead & Storyteller',
+        description:
+          'Avery Thompson is a staff software engineer and technical writer sharing deep dives on resilient architecture, developer experience, and inclusive engineering leadership.',
+        author: 'Avery Thompson',
+        role: 'Staff Software Engineer & Technical Writer',
+        siteUrl: 'https://timgivois.me',
+        keywords: [
+          'software architecture',
+          'developer experience',
+          'technical leadership',
+          'gatsby blog',
+          'engineering management',
+          'web performance',
+        ],
+        defaultImage: '/social-card.svg',
+        social: {
+          twitter: '@averycodes',
+          github: 'averythompson',
+          linkedin: 'averythompson',
+        },
       },
     },
   }

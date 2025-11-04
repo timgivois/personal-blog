@@ -14,15 +14,48 @@ const Landing = ({ data, switchTheme }) => {
   const { edges } = data.allMdx
   const {
     site: {
-      siteMetadata: { title, description },
+      siteMetadata: {
+        title,
+        description,
+        author = 'Avery Thompson',
+        role = 'Staff Software Engineer & Technical Writer',
+        siteUrl = 'https://timgivois.me',
+        keywords: siteKeywords = [],
+        social = {},
+        defaultImage,
+      },
     },
   } = data
+  const keywordContent = Array.isArray(siteKeywords)
+    ? siteKeywords.join(', ')
+    : siteKeywords
+  const normalizedSiteUrl = siteUrl.replace(/\/$/, '')
+  const socialCard = defaultImage
+    ? `${normalizedSiteUrl}${defaultImage}`
+    : `${normalizedSiteUrl}/tim-image.png`
+  const canonicalUrl = `${normalizedSiteUrl}/`
 
   return (
     <Grid fluid>
       <Helmet defer={false}>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta name="author" content={author} />
+        <meta name="keywords" content={keywordContent} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:title" content={`${title} | ${role}`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={socialCard} />
+        <meta property="og:site_name" content={title} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${title} | ${role}`} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={socialCard} />
+        {social.twitter ? (
+          <meta name="twitter:creator" content={social.twitter} />
+        ) : null}
       </Helmet>
       <Topbar isMainPage switchTheme={switchTheme} />
       <SpeedInsights />
@@ -113,6 +146,16 @@ export const query = graphql`
       siteMetadata {
         title
         description
+        author
+        role
+        siteUrl
+        keywords
+        defaultImage
+        social {
+          twitter
+          github
+          linkedin
+        }
       }
     }
   }

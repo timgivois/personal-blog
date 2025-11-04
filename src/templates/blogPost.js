@@ -14,11 +14,20 @@ import withStyle from '../components/Layout'
 import paths from '../utils/paths'
 
 const Template = ({ data, switchTheme, children }) => {
-  const { mdx, related } = data // data.mdx holds your post data
+  const { mdx, related, site } = data // data.mdx holds your post data
   if (!mdx) {
     return <div>Post not found</div>
   }
   const { frontmatter } = mdx
+  const siteMetadata = site?.siteMetadata ?? {}
+  const {
+    author: siteAuthor = 'Avery Thompson',
+    title: siteTitle = frontmatter.title,
+    siteUrl = 'https://timgivois.me',
+    social = {},
+    defaultImage,
+    keywords: siteKeywords = [],
+  } = siteMetadata
   const parseDimension = (value) => {
     const parsed = Number(value)
     return Number.isFinite(parsed) && parsed > 0 ? parsed : null
@@ -29,10 +38,30 @@ const Template = ({ data, switchTheme, children }) => {
   const heroHeight =
     parseDimension(frontmatter.imageHeight) ?? DEFAULT_HERO_DIMENSIONS.height
   const aspectRatioPadding = `${(heroHeight / heroWidth) * 100}%`
-  const siteUrl = 'https://timgivois.me'
-  const imageUrl = frontmatter.image.startsWith('http')
-    ? frontmatter.image
-    : `${siteUrl}${frontmatter.image}`
+  const normalizedSiteUrl = (siteUrl || '').replace(/\/$/, '')
+  const canonicalUrl = frontmatter.path
+    ? `${normalizedSiteUrl}${frontmatter.path}`
+    : normalizedSiteUrl
+  const imageUrl = frontmatter.image
+    ? frontmatter.image.startsWith('http')
+      ? frontmatter.image
+      : `${normalizedSiteUrl}${frontmatter.image}`
+    : `${normalizedSiteUrl}${defaultImage || '/tim-image.png'}`
+  const tags = Array.isArray(frontmatter.tags) ? frontmatter.tags : []
+  const keywordList = tags.length ? tags.join(', ') : siteKeywords.join(', ')
+  const twitterHandle = social.twitter || undefined
+  const socialProfiles = [
+    social.twitter
+      ? `https://twitter.com/${social.twitter.replace(/^@/, '')}`
+      : null,
+    social.github ? `https://github.com/${social.github}` : null,
+    social.linkedin ? `https://www.linkedin.com/in/${social.linkedin}` : null,
+  ].filter(Boolean)
+  const publishedIso = frontmatter.dateIso || frontmatter.date
+  const pageTitle =
+    siteTitle && siteTitle !== frontmatter.title
+      ? `${frontmatter.title} | ${siteTitle}`
+      : frontmatter.title
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -44,24 +73,52 @@ const Template = ({ data, switchTheme, children }) => {
       width: heroWidth,
       height: heroHeight,
     },
-    author: { '@type': 'Person', name: 'Tim Givois' },
+    author: {
+      '@type': 'Person',
+      name: siteAuthor,
+      sameAs: socialProfiles,
+    },
     publisher: {
       '@type': 'Organization',
-      name: 'Tim Givois',
-      logo: { '@type': 'ImageObject', url: `${siteUrl}/tim-image.png` },
+      name: siteTitle,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${normalizedSiteUrl}${defaultImage || '/tim-image.png'}`,
+      },
     },
-    datePublished: frontmatter.date,
-    url: `${siteUrl}${frontmatter.path}`,
+    datePublished: publishedIso,
+    url: canonicalUrl,
+    keywords: tags,
   }
   return (
     <Grid fluid style={{ paddingTop: '60px' }}>
       <Helmet defer={false}>
-        <title>{frontmatter.title}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={frontmatter.excerpt} />
+        <meta name="author" content={siteAuthor} />
+        {keywordList ? <meta name="keywords" content={keywordList} /> : null}
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={frontmatter.title} />
         <meta property="og:description" content={frontmatter.excerpt} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={imageUrl} />
-        <link rel="canonical" href={`${siteUrl}${frontmatter.path}`} />
+        <meta property="og:site_name" content={siteTitle} />
+        <meta property="article:author" content={siteAuthor} />
+        <meta property="article:published_time" content={publishedIso} />
+        {tags.map((tag) => (
+          <meta property="article:tag" content={tag} key={tag} />
+        ))}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={frontmatter.title} />
+        <meta name="twitter:description" content={frontmatter.excerpt} />
+        <meta name="twitter:image" content={imageUrl} />
+        {twitterHandle ? (
+          <meta name="twitter:creator" content={twitterHandle} />
+        ) : null}
+        {twitterHandle ? (
+          <meta name="twitter:site" content={twitterHandle} />
+        ) : null}
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       </Helmet>
       <Topbar switchTheme={switchTheme} />
@@ -141,7 +198,9 @@ const Template = ({ data, switchTheme, children }) => {
             </Link>
             <Col style={{ paddingLeft: 0 }}>
               <Row>
-                <Text style={{ margin: 0, fontWeight: '500' }}>Tim Givois</Text>
+                <Text style={{ margin: 0, fontWeight: '500' }}>
+                  {siteAuthor}
+                </Text>
               </Row>
               <Row style={{ marginTop: '4px' }}>
                 <Text small style={{ margin: 0, color: '#666' }}>
@@ -200,6 +259,7 @@ export const pageQuery = graphql`
     mdx(frontmatter: { path: { eq: $postPath } }) {
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        dateIso: date
         path
         title
         image
@@ -207,6 +267,7 @@ export const pageQuery = graphql`
         imageHeight
         excerpt
         time
+        tags
       }
     }
     related: allMdx(
@@ -223,8 +284,24 @@ export const pageQuery = graphql`
             image
             imageWidth
             imageHeight
+            date
+            tags
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
+        author
+        siteUrl
+        social {
+          twitter
+          github
+          linkedin
+        }
+        defaultImage
+        keywords
       }
     }
   }

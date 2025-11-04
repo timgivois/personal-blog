@@ -65,5 +65,15 @@ public
 yarn-error.log
 .pnp/
 .pnp.js
+.pnp.cjs
+.pnp.loader.mjs
+# Yarn Berry directories
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 # Yarn Integrity file
 .yarn-integrity
+.yarn/install-state.gz

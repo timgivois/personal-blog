@@ -8804,6 +8804,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-manifest@npm:^5.15.0":
+  version: 5.15.0
+  resolution: "gatsby-plugin-manifest@npm:5.15.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.20.13"
+    gatsby-core-utils: "npm:^4.15.0"
+    gatsby-plugin-utils: "npm:^4.15.0"
+    semver: "npm:^7.5.3"
+    sharp: "npm:^0.32.6"
+  peerDependencies:
+    gatsby: ^5.0.0-next
+  checksum: 10c0/35b4db4754d143ca4d1ab11962b6bd0873c98b56e01ba43de03904647141dfbbd654d482b82ee70fec6b27c6f1832f1cd6b7c961e78e1acd879de52fdcc1f5c0
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-mdx@npm:^5.13.1":
   version: 5.15.0
   resolution: "gatsby-plugin-mdx@npm:5.15.0"
@@ -16702,6 +16717,7 @@ __metadata:
     gatsby-awesome-pagination: "npm:^0.3.8"
     gatsby-plugin-git-lastmod: "npm:^0.2.1"
     gatsby-plugin-google-analytics: "npm:^5.13.1"
+    gatsby-plugin-manifest: "npm:^5.15.0"
     gatsby-plugin-mdx: "npm:^5.13.1"
     gatsby-plugin-offline: "npm:^6.13.3"
     gatsby-plugin-react-helmet: "npm:^6.13.1"
