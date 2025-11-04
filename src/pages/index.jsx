@@ -96,7 +96,7 @@ const Landing = ({ data, switchTheme }) => {
 
 export const query = graphql`
   query HomePageQuery {
-    allMdx(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       edges {
         node {
           frontmatter {

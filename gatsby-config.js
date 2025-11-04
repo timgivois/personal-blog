@@ -48,12 +48,7 @@ module.exports = {
         precachePages: [`/`, `/contact/`, `/*`],
       },
     },
-    {
-      resolve: `gatsby-plugin-git-lastmod`,
-      options: {
-        include: [`${__dirname}/src/**/*.mdx`, `${__dirname}/src/**/*.md`],
-      },
-    },
+    `gatsby-plugin-git-lastmod`,
     `gatsby-plugin-sitemap`,
   ],
 }

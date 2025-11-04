@@ -7,10 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       query loadPagesQuery($limit: Int!) {
-        allMdx(
-          limit: $limit
-          sort: { order: ASC, fields: [frontmatter___date] }
-        ) {
+        allMdx(limit: $limit, sort: { frontmatter: { date: ASC } }) {
           edges {
             node {
               id

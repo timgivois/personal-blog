@@ -4,14 +4,9 @@ const ScrollProgress = () => {
   const [scrollProgress, setScrollProgress] = React.useState(0)
 
   React.useEffect(() => {
-    console.log('ScrollProgress component mounted')
-
     if (typeof window === 'undefined') {
-      console.log('Window is undefined, skipping scroll listener')
       return undefined
     }
-
-    console.log('Setting up scroll listener')
 
     const updateScrollProgress = () => {
       const windowHeight = window.innerHeight
@@ -21,22 +16,13 @@ const ScrollProgress = () => {
       const totalScrollableHeight = documentHeight - windowHeight
       const progress = (scrollTop / totalScrollableHeight) * 100
 
-      const finalProgress = Math.min(100, Math.max(0, progress))
-      console.log('Scroll Progress:', {
-        scrollTop,
-        documentHeight,
-        windowHeight,
-        progress: finalProgress,
-      })
-      setScrollProgress(finalProgress)
+      setScrollProgress(Math.min(100, Math.max(0, progress)))
     }
 
     window.addEventListener('scroll', updateScrollProgress, { passive: true })
-    console.log('Scroll listener added to window')
     updateScrollProgress() // Initial calculation
 
     return () => {
-      console.log('Removing scroll listener')
       window.removeEventListener('scroll', updateScrollProgress)
     }
   }, [])
