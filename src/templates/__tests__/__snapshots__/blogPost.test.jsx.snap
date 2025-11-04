@@ -63,6 +63,11 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
           html {
             scroll-behavior: smooth;
           }
+          /* Remove list item markers and ::before content in sidebar navigation */
+          .article-sidebar nav ul li::before {
+            content: none !important;
+            display: none !important;
+          }
         
     </style>
   </div>
@@ -386,6 +391,11 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
           /* Smooth scrolling for anchor links */
           html {
             scroll-behavior: smooth;
+          }
+          /* Remove list item markers and ::before content in sidebar navigation */
+          .article-sidebar nav ul li::before {
+            content: none !important;
+            display: none !important;
           }
         
     </style>
