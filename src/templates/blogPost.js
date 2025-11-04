@@ -173,7 +173,7 @@ const Template = ({ data, switchTheme, children }) => {
                 style={{ cursor: 'pointer' }}
               />
             </Link>
-            <Col style={{ paddingLeft: 0 }}>
+            <Col style={{ paddingLeft: 0, marginRight: '8px' }}>
               <Row>
                 <Text style={{ margin: 0, fontWeight: '500' }}>Tim Givois</Text>
               </Row>
@@ -184,10 +184,14 @@ const Template = ({ data, switchTheme, children }) => {
               </Row>
             </Col>
             {tags.length ? (
-              <Row style={{ gap: '8px', flexWrap: 'wrap' }}>
+              <Row
+                start="md"
+                middle="xs"
+                style={{ gap: '10px', flexWrap: 'wrap', flexGrow: 1 }}
+              >
                 {tags.map((tag) => (
                   <Tag key={tag} type="lite">
-                    #{tag}
+                    {tag}
                   </Tag>
                 ))}
               </Row>
