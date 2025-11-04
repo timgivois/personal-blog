@@ -111,7 +111,7 @@ const ArticleNavigator = ({ contentRef, toc }) => {
   }
 
   return (
-    <nav aria-label="Table of contents">
+    <nav aria-label={`Table of contents (${progress}% viewed)`}>
       <ul
         style={{
           listStyle: 'none',

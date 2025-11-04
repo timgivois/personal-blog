@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { useStaticQuery } from 'gatsby'
 
 // Mock Gatsby's useStaticQuery and graphql
@@ -43,27 +43,25 @@ import Landing from '../index'
 describe('Landing Page', () => {
   const mockData = {
     allMdx: {
-      edges: [
+      nodes: [
         {
-          node: {
-            frontmatter: {
-              title: 'Test Post 1',
-              path: '/test-post-1',
-              excerpt: 'First test post excerpt',
-              tags: ['React', 'JavaScript'],
-              image: 'https://example.com/image1.png',
-            },
+          id: 'post-1',
+          frontmatter: {
+            title: 'Test Post 1',
+            path: '/test-post-1',
+            excerpt: 'First test post excerpt',
+            tags: ['React', 'JavaScript'],
+            image: 'https://example.com/image1.png',
           },
         },
         {
-          node: {
-            frontmatter: {
-              title: 'Test Post 2',
-              path: '/test-post-2',
-              excerpt: 'Second test post excerpt',
-              tags: ['TypeScript'],
-              image: 'https://example.com/image2.png',
-            },
+          id: 'post-2',
+          frontmatter: {
+            title: 'Test Post 2',
+            path: '/test-post-2',
+            excerpt: 'Second test post excerpt',
+            tags: ['TypeScript'],
+            image: 'https://example.com/image2.png',
           },
         },
       ],
@@ -78,23 +76,37 @@ describe('Landing Page', () => {
 
   const mockSwitchTheme = jest.fn()
 
-  it('matches snapshot with blog posts', () => {
-    const { container } = render(
-      <Landing data={mockData} switchTheme={mockSwitchTheme} />
-    )
-    expect(container.firstChild).toMatchSnapshot()
+  it('renders hero copy and CTA', () => {
+    render(<Landing data={mockData} switchTheme={mockSwitchTheme} />)
+
+    expect(screen.getByText('Stories from the workshop')).toBeInTheDocument()
+    expect(screen.getByText('Read all posts')).toBeInTheDocument()
+    expect(
+      screen.getByText(
+        /Deep dives into engineering experiments, product strategy/i
+      )
+    ).toBeInTheDocument()
   })
 
-  it('matches snapshot with no blog posts', () => {
+  it('displays the latest posts when provided', () => {
+    render(<Landing data={mockData} switchTheme={mockSwitchTheme} />)
+
+    expect(screen.getByText('Latest highlights')).toBeInTheDocument()
+    expect(screen.getByText('Test Post 1')).toBeInTheDocument()
+    expect(screen.getByText('Test Post 2')).toBeInTheDocument()
+  })
+
+  it('still renders the CTA when there are no posts', () => {
     const emptyData = {
       ...mockData,
       allMdx: {
-        edges: [],
+        nodes: [],
       },
     }
-    const { container } = render(
-      <Landing data={emptyData} switchTheme={mockSwitchTheme} />
-    )
-    expect(container.firstChild).toMatchSnapshot()
+
+    render(<Landing data={emptyData} switchTheme={mockSwitchTheme} />)
+
+    expect(screen.getByText('Stories from the workshop')).toBeInTheDocument()
+    expect(screen.getByText('Read all posts')).toBeInTheDocument()
   })
 })
