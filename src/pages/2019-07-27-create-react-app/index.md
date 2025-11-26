@@ -1,9 +1,10 @@
 ---
 path: '/react-from-scratch'
 date: '2019-07-27'
-title: 'Create a react project from scratch'
+title: 'Create a React Project from Scratch (Without CRA)'
+description: 'Step-by-step setup of a modern React app without create-react-app, covering Babel, Webpack, testing, and linting.'
 tags: ['React', 'Software']
-excerpt: 'Follow along as we build a modern React project step by step without create-react-app. Learn how to configure Babel, Webpack, testing, and linting from scratch.'
+excerpt: 'Build a modern React project without create-react-app by configuring Babel, Webpack, testing, and linting yourself.'
 image: '/react.png'
 time: '5 min.'
 ---

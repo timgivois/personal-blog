@@ -66,6 +66,7 @@ describe('BlogPost Template', () => {
     mdx: {
       frontmatter: {
         title: 'Test Blog Post',
+        description: 'Meta blurb about the blog post',
         excerpt: 'This is a test excerpt',
         date: 'January 15, 2025',
         path: '/test-post',
@@ -196,7 +197,9 @@ describe('BlogPost Template', () => {
         </BlogPost>
       )
 
-      expect(screen.getByText('This is a test excerpt')).toBeInTheDocument()
+      expect(
+        screen.getByText('Meta blurb about the blog post')
+      ).toBeInTheDocument()
     })
 
     it('renders the post date and reading time', () => {
