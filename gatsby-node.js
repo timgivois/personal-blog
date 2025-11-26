@@ -47,13 +47,25 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   createRedirect({
     fromPath: '/sitemap',
-    toPath: '/sitemap.xml',
+    toPath: '/sitemap-index.xml',
     isPermanent: true,
   })
 
   createRedirect({
     fromPath: '/sitemap/',
-    toPath: '/sitemap.xml',
+    toPath: '/sitemap-index.xml',
+    isPermanent: true,
+  })
+
+  createRedirect({
+    fromPath: '/sitemap.xml',
+    toPath: '/sitemap-index.xml',
+    isPermanent: true,
+  })
+
+  createRedirect({
+    fromPath: '/sitemap.xml/',
+    toPath: '/sitemap-index.xml',
     isPermanent: true,
   })
 }
