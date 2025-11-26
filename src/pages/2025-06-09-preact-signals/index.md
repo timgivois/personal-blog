@@ -1,9 +1,10 @@
 ---
 path: '/preact-signals'
 date: '2025-06-09'
-title: 'Using Preact Signals'
+title: 'Using Preact Signals for Fine-Grained Reactivity'
+description: 'Discover when Preact Signals can replace props for granular updates, plus setup tips and patterns for interactive UIs.'
 tags: ['Preact', 'JavaScript']
-excerpt: "Discover when Preact Signals can replace props for fine-grained reactivity. We'll cover setup, usage patterns, and when simpler state management is enough."
+excerpt: 'See when Preact Signals can replace props for fine-grained reactivity, with setup steps and patterns for interactive UIs.'
 image: 'https://images.weserv.nl/?url=raw.githubusercontent.com/preactjs/preact-www/master/src/assets/branding/symbol.png&h=400'
 time: '7 min.'
 ---

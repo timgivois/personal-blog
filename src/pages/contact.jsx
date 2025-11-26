@@ -1,12 +1,15 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import { Text, Card, Link, Avatar, Divider, Tag } from '@geist-ui/react'
 import styled from 'styled-components'
 import { SocialIcon } from 'react-social-icons'
+import { Helmet } from 'react-helmet'
 
 import withStyle from '../components/Layout'
 import { SpeedInsights } from '@vercel/speed-insights/react'
 import { Analytics } from '@vercel/analytics/react'
+import paths from '../utils/paths'
 
 import profilePic from '../../static/tim-image.png'
 import resume from '../constants/resume'
@@ -20,8 +23,33 @@ const Section = styled.div`
 `
 
 const Contact = ({ switchTheme }) => {
+  const { site } = useStaticQuery(graphql`
+    query ContactPageMetadata {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+        }
+      }
+    }
+  `)
+
+  const siteMetadata = site?.siteMetadata ?? {}
+  const canonical = siteMetadata.siteUrl
+    ? `${siteMetadata.siteUrl.replace(/\/$/, '')}${paths.CONTACT}`
+    : undefined
+
   return (
     <Grid fluid>
+      <Helmet defer={false}>
+        <title>{`${siteMetadata.title} | Contact`}</title>
+        <meta
+          name="description"
+          content="Reach out to Tim Givois for collaborations, consulting, or questions about engineering leadership and product strategy."
+        />
+        {canonical ? <link rel="canonical" href={canonical} /> : null}
+      </Helmet>
       <SpeedInsights />
       <Analytics />
       <Row center="xs" style={{ marginTop: '30px', marginBottom: '30px' }}>

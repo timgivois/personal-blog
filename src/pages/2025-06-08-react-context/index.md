@@ -1,9 +1,10 @@
 ---
 path: '/react-context-guide'
 date: '2025-06-08'
-title: 'Understanding React Context'
+title: 'React Context Guide: Share State Without Prop Drilling'
+description: 'Learn how React Context shares state across your component tree with setup steps, provider patterns, and pitfalls to avoid.'
 tags: ['React', 'JavaScript']
-excerpt: "Learn how React Context shares state across your component tree without messy prop drilling. We'll set up contexts, provide values, and avoid common pitfalls."
+excerpt: 'Use React Context to share state across your component tree without messy prop drilling, with setup steps and pitfalls to avoid.'
 image: '/react.png'
 time: '5 min.'
 ---

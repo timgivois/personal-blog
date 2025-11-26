@@ -2,8 +2,9 @@
 path: '/prompt-engineering-for-developers'
 date: '2025-11-03'
 title: 'Prompt Engineering for Developers: How to Ask Your LLM the Right Way'
+description: 'Actionable prompting strategies for coding assistants so your AI outputs cleaner, production-ready code.'
 tags: ['AI', 'Prompt Engineering', 'Software']
-excerpt: 'Better prompts mean better code. Learn how to talk to your AI coding assistant effectively.'
+excerpt: 'Better prompts mean better code—learn practical ways to talk to your AI coding assistant effectively.'
 image: 'https://images.unsplash.com/photo-1677756119517-756a188d2d94?w=1200&h=630&fit=crop'
 time: '12 min.'
 ---

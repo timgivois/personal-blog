@@ -29,6 +29,7 @@ const Template = ({ data, switchTheme, children }) => {
   const siteUrl = site?.siteMetadata?.siteUrl ?? ''
   const articleUrl = `${siteUrl}${frontmatter.path}`
   const tags = frontmatter.tags || []
+  const metaDescription = frontmatter.description ?? frontmatter.excerpt
   const parseDimension = (value) => {
     const parsed = Number(value)
     return Number.isFinite(parsed) && parsed > 0 ? parsed : null
@@ -46,7 +47,7 @@ const Template = ({ data, switchTheme, children }) => {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: frontmatter.title,
-    description: frontmatter.excerpt,
+    description: metaDescription,
     image: {
       '@type': 'ImageObject',
       url: imageUrl,
@@ -66,9 +67,9 @@ const Template = ({ data, switchTheme, children }) => {
     <Grid fluid style={{ paddingTop: '60px' }}>
       <Helmet defer={false}>
         <title>{frontmatter.title}</title>
-        <meta name="description" content={frontmatter.excerpt} />
+        <meta name="description" content={metaDescription} />
         <meta property="og:title" content={frontmatter.title} />
-        <meta property="og:description" content={frontmatter.excerpt} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:image" content={imageUrl} />
         <link rel="canonical" href={articleUrl} />
         <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
@@ -158,7 +159,7 @@ const Template = ({ data, switchTheme, children }) => {
                 marginBottom: '15px',
               }}
             >
-              {frontmatter.excerpt}
+              {metaDescription}
             </Text>
           </Row>
         </Col>
@@ -308,6 +309,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        description
         image
         imageWidth
         imageHeight
@@ -326,6 +328,7 @@ export const pageQuery = graphql`
           frontmatter {
             path
             title
+            description
             excerpt
             image
             imageWidth

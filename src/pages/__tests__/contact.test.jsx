@@ -1,6 +1,20 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 
+jest.mock('gatsby', () => ({
+  graphql: jest.fn(),
+  useStaticQuery: () => ({
+    site: {
+      siteMetadata: {
+        title: 'Tim Givois Personal Blog',
+        description:
+          'Engineering experiments, product strategy, and leadership notes.',
+        siteUrl: 'https://timgivois.com',
+      },
+    },
+  }),
+}))
+
 // react-flexbox-grid includes CSS which Jest can't parse, so mock it with
 // simple components for testing.
 jest.mock('react-flexbox-grid', () => {

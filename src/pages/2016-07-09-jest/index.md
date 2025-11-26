@@ -1,9 +1,10 @@
 ---
 path: '/using-jest-and-enzyme'
 date: '2018-07-09'
-title: 'Using Jest and Enzyme for testing React Apps'
+title: 'Using Jest and Enzyme for Testing React Apps'
+description: 'Practical guide to testing React components with Jest and Enzyme using snapshots, integration checks, and best practices.'
 tags: ['React', 'Jest', 'Software']
-excerpt: 'Learn how to create reliable tests for your React components with Jest and Enzyme. This guide walks through snapshots, integration tests, and best practices.'
+excerpt: 'Create reliable tests for your React components with Jest and Enzyme using snapshots, integration tests, and best practices.'
 image: '/jest.png'
 time: '8 min.'
 ---

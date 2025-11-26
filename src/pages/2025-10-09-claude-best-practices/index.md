@@ -1,9 +1,10 @@
 ---
 path: '/claude-best-practices'
 date: '2025-10-09'
-title: 'Claude AI: Best Practices and Tips for Effective Use'
+title: 'Claude AI Best Practices and Prompting Tips'
+description: 'Use Claude AI effectively with proven prompt patterns, safety tips, and workflow ideas for coding and productivity.'
 tags: ['AI', 'Claude', 'Productivity', 'Software']
-excerpt: 'Discover how to use Claude AI effectively with proven best practices, prompt engineering techniques, and practical tips for getting the most out of this powerful AI assistant.'
+excerpt: 'Use Claude AI effectively with prompt engineering techniques, safety tips, and practical workflows for coding and productivity.'
 image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=630&fit=crop'
 time: '10 min.'
 ---
