@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
-  const sitemapRedirects = ['/sitemap', '/sitemap/', '/sitemap.xml/']
+  const sitemapRedirects = ['/sitemap', '/sitemap/']
 
   sitemapRedirects.forEach((fromPath) => {
     createRedirect({
