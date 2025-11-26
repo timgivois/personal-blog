@@ -1,7 +1,8 @@
 const path = require('path')
+const { writeFile } = require('fs').promises
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const blogPostTemplate = path.resolve('src/templates/blogPost.js')
 
   const result = await graphql(
@@ -44,6 +45,16 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+
+  const sitemapRedirects = ['/sitemap', '/sitemap/']
+
+  sitemapRedirects.forEach((fromPath) => {
+    createRedirect({
+      fromPath,
+      toPath: '/sitemap.xml',
+      isPermanent: true,
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -67,4 +78,56 @@ exports.createSchemaCustomization = ({ actions }) => {
       imageHeight: Int
     }
   `)
+}
+
+exports.onPostBuild = async ({ graphql, reporter }) => {
+  const result = await graphql(`
+    query SitemapQuery {
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+      allSitePage(
+        filter: {
+          path: {
+            nin: [
+              "/dev-404-page/"
+              "/404.html"
+              "/404/"
+              "/offline-plugin-app-shell-fallback/"
+            ]
+          }
+        }
+        sort: { path: ASC }
+      ) {
+        nodes {
+          path
+        }
+      }
+    }
+  `)
+
+  if (result.errors) {
+    reporter.panicOnBuild('Error while generating sitemap XML', result.errors)
+    return
+  }
+
+  const siteUrl = result.data.site.siteMetadata.siteUrl.replace(/\/$/, '')
+  const pages = result.data.allSitePage.nodes
+  const lastmod = new Date().toISOString()
+
+  const urlEntries = pages
+    .map((page) => {
+      const url = `${siteUrl}${page.path}`
+      return `  <url>\n    <loc>${url}</loc>\n    <lastmod>${lastmod}</lastmod>\n  </url>`
+    })
+    .join('\n')
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urlEntries}\n</urlset>`
+
+  const sitemapPath = path.join('public', 'sitemap.xml')
+
+  await writeFile(sitemapPath, sitemap)
+  reporter.info(`Sitemap XML written to ${sitemapPath}`)
 }
