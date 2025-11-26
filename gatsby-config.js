@@ -49,6 +49,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-git-lastmod`,
-    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: '/sitemap.xml',
+      },
+    },
   ],
 }

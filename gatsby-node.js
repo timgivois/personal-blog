@@ -1,7 +1,7 @@
 const path = require('path')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions
+  const { createPage, createRedirect } = actions
   const blogPostTemplate = path.resolve('src/templates/blogPost.js')
 
   const result = await graphql(
@@ -43,6 +43,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         next: index === posts.length - 1 ? null : posts[index + 1].node,
       },
     })
+  })
+
+  createRedirect({
+    fromPath: '/sitemap',
+    toPath: '/sitemap.xml',
+    isPermanent: true,
+  })
+
+  createRedirect({
+    fromPath: '/sitemap/',
+    toPath: '/sitemap.xml',
+    isPermanent: true,
   })
 }
 
