@@ -5,7 +5,7 @@ title: 'CI/CD Guardrails for AI Agents: Running Fast Without Breaking Things'
 description: 'Learn how continuous integration and automated testing serve as essential guardrails for AI-generated code, enabling rapid development while maintaining system reliability.'
 tags: ['AI', 'CI/CD', 'DevOps', 'Testing']
 excerpt: 'AI agents can write code at unprecedented speeds—but how do you ensure quality? CI/CD pipelines are your safety net.'
-image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1200&h=630&fit=crop'
+image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=630&fit=crop'
 time: '6 min.'
 ---
 
