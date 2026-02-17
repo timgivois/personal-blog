@@ -174,11 +174,11 @@ jobs:
 
 This pipeline runs three layers of tests in parallel, dramatically increasing confidence that AI-generated code works correctly. If an AI hallucinates an API call or introduces a subtle UI bug, one of these test layers will catch it.
 
-## What are the best practices for AI + CI/CD workflows?
+## Best Practices: Building a Reliable AI + CI/CD Workflow
 
 Based on experience working with AI-assisted development and robust CI/CD pipelines, here are key practices for making this combination work.
 
-### How do you fail fast and fail loud?
+### 1. Fail Fast, Fail Loud
 
 Configure your CI to fail the build immediately when tests break, and make failures highly visible. Use branch protection rules to prevent merging when CI fails.
 
@@ -186,7 +186,7 @@ You can set this up in your repository settings under Branches, then Branch prot
 
 When AI generates buggy code, you want to know immediately, not after it's been merged and deployed.
 
-### What AI-specific guardrails should you add?
+### 2. Add AI-Specific Guardrails
 
 Beyond standard tests, add checks specifically designed to catch AI mistakes. Security scanning is important. Use tools like `npm audit` or Snyk to catch vulnerable dependencies AI might suggest.
 
@@ -207,9 +207,9 @@ Performance budgets matter. Set thresholds for bundle size, memory usage, or res
   run: npm run build && npx bundlesize
 ```
 
-### Should you require test coverage?
+### 3. Require Test Coverage
 
-Yes. When AI generates new code, it should also generate tests. You can prompt for this explicitly. Enforce minimum coverage thresholds in CI.
+When AI generates new code, it should also generate tests. You can prompt for this explicitly. Enforce minimum coverage thresholds in CI.
 
 ```yaml
 - name: Test with coverage
@@ -218,11 +218,11 @@ Yes. When AI generates new code, it should also generate tests. You can prompt f
 
 If an AI adds a feature without tests, the coverage check fails, forcing you to either write tests yourself or prompt the AI to generate them.
 
-### What are preview deployments good for?
+### 4. Use Preview Deployments
 
 Tools like Vercel, Netlify, or Heroku Review Apps automatically deploy each PR to a temporary URL. This lets you manually verify AI-generated features in a real environment before merging. You can see this in action on [my blog's PRs](https://github.com/timgivois/personal-blog/pulls). Vercel automatically deploys every PR for visual review.
 
-### How can you iterate with AI on test failures?
+### 5. Iterate with AI on Test Failures
 
 Here's a powerful workflow. When CI fails on AI-generated code, feed the error message back to the AI. For example:
 
