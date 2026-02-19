@@ -81,6 +81,70 @@ src/
 
 Blog posts live in `src/pages/<slug>/index.md` with frontmatter fields: `path`, `date`, `title`, `tags`, `excerpt`, `image`, and `time`.
 
+## Writing a New Blog Post
+
+1. Create a directory under `src/pages/` named after your slug (e.g. `src/pages/2026-03-my-post/`).
+2. Add an `index.md` file with the required frontmatter:
+
+```markdown
+---
+path: '/my-post'
+date: 'YYYY-MM-DD'
+title: 'Post Title'
+tags: ['Tag1', 'Tag2']
+excerpt: 'One-sentence summary shown in the blog listing.'
+image: 'https://example.com/cover-image.png'
+time: '5 min.'
+---
+
+Your content here. Supports standard Markdown and the global JSX components below.
+```
+
+3. **MDX v2 rules** — the project is strict about JSX in prose:
+   - Use `[text](url)` links, not `<a>` tags
+   - Use fenced code blocks (` ``` `) for all multi-line code
+   - Global components available everywhere: `<Code>`, `<Link>`, `<Display>`
+4. Run `yarn develop` and navigate to your post URL to preview it locally.
+
+## Developing with Claude Code
+
+This repo is set up for agentic development with [Claude Code](https://claude.ai/code). The `AGENTS.md` file at the repo root contains detailed guidance for AI agents (architecture notes, MDX v2 gotchas, critical config details). Read it before making non-trivial changes.
+
+### Recommended workflow
+
+```sh
+# After any code change:
+yarn format   # Format with Prettier
+yarn test     # Run Jest tests
+yarn build    # Verify production build passes
+```
+
+All three commands must succeed before opening a PR. CI enforces the same checks.
+
+### Key gotchas for AI agents and contributors
+
+| Area | What to know |
+|------|-------------|
+| **MDX pages** | Use `?__contentFilePath=` in `gatsby-node.js` — required for MDX v2 to pass content as `children` |
+| **gatsby-browser.js / gatsby-ssr.js** | Always keep these in sync — both must export `wrapRootElement` with `MDXProvider` |
+| **Blog post template** | Uses `children` prop, **not** `MDXRenderer` |
+| **Context keys** | Don't use Gatsby reserved names (e.g. `path`) as page context variables — use `postPath` instead |
+| **Component exports** | Export templates as a named `const` before `export default`, not as an inline HOC |
+| **Binary files** | Do **not** commit binary files (images, fonts, etc.) to the repo |
+| **Cache issues** | If the build behaves unexpectedly, run `yarn clean` before `yarn build` |
+
+### GraphQL playground
+
+While `yarn develop` is running, explore and test queries at:
+
+```
+http://localhost:8000/___graphql
+```
+
+## Contributing
+
+Open a PR against `master`. CI runs `yarn build` on Node 20 and 22 — both must pass. Vercel deploys a preview for every PR.
+
 ## License
 
 MIT
