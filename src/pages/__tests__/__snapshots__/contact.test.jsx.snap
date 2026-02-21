@@ -155,15 +155,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://airbnb.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Airbnb"
-                      src="https://logo.clearbit.com/airbnb.com"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://www.google.com/s2/favicons?sz=128&domain_url=airbnb.com"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -240,15 +241,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://carta.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Carta"
-                      src="https://logo.clearbit.com/carta.com"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="/carta-logo-blue.svg"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -311,15 +313,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://wizeline.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Wizeline"
                       src="https://www.wizeline.ai/wp-content/uploads/2025/02/wozelinered.svg"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -382,15 +385,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://rappi.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Rappi"
-                      src="https://logo.clearbit.com/rappi.com"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://www.google.com/s2/favicons?sz=128&domain_url=rappi.com"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -446,15 +450,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://sertech.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Sertech Consulting Group"
-                      src="https://logo.clearbit.com/sertech.com"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://sertech.mx/wp-content/themes/sertech/assets/assets_home/img/logo_header.png"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -510,15 +515,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://intelimetrica.com"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Intelimetrica"
-                      src="https://logo.clearbit.com/intelimetrica.com"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://www.google.com/s2/favicons?sz=128&domain_url=intelimetrica.com"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -587,15 +593,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://itam.mx"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Mexico Autonomous Institute of Technology (ITAM)"
-                      src="https://logo.clearbit.com/itam.mx"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://www.google.com/s2/favicons?sz=128&domain_url=itam.mx"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
@@ -627,15 +634,16 @@ exports[`Contact page matches snapshot 1`] = `
                   <a
                     class="jsx-2023000637 link  "
                     href="https://tec.mx"
+                    style="flex-shrink: 0; margin-right: 10px;"
                   >
                     <img
                       alt="Monterrey Institute of Technology and Higher Education (ITESM)"
-                      src="https://logo.clearbit.com/tec.mx"
-                      style="height: 60px; width: 60px; object-fit: contain; margin-right: 10px;"
+                      src="https://www.google.com/s2/favicons?sz=128&domain_url=tec.mx"
+                      style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
                   <div
-                    style="text-align: left;"
+                    style="text-align: left; flex: 1 1 220px; min-width: 0;"
                   >
                     <h5
                       class="jsx-1136534845 "
