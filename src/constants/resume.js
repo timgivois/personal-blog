@@ -13,7 +13,8 @@ export default {
     {
       company: 'Airbnb',
       companyUrl: 'https://airbnb.com',
-      logoUrl: 'https://logo.clearbit.com/airbnb.com',
+      logoUrl:
+        'https://www.google.com/s2/favicons?sz=128&domain_url=airbnb.com',
       role: 'Senior Software Engineer, Marketing Technology',
       period: '2021 \u2013 Present',
       duration: '4 years',
@@ -27,7 +28,7 @@ export default {
     {
       company: 'Carta',
       companyUrl: 'https://carta.com',
-      logoUrl: 'https://logo.clearbit.com/carta.com',
+      logoUrl: '/carta-logo-blue.svg',
       role: 'Software Engineer, Valuations and Compensation',
       period: '2020 \u2013 2021',
       duration: '2 years',
@@ -52,7 +53,7 @@ export default {
     {
       company: 'Rappi',
       companyUrl: 'https://rappi.com',
-      logoUrl: 'https://logo.clearbit.com/rappi.com',
+      logoUrl: 'https://www.google.com/s2/favicons?sz=128&domain_url=rappi.com',
       role: 'Backend Engineer, Payments',
       period: '2017',
       duration: '1 year',
@@ -63,7 +64,8 @@ export default {
     {
       company: 'Sertech Consulting Group',
       companyUrl: 'https://sertech.com',
-      logoUrl: 'https://logo.clearbit.com/sertech.com',
+      logoUrl:
+        'https://sertech.mx/wp-content/themes/sertech/assets/assets_home/img/logo_header.png',
       role: 'Backend Engineer, Data',
       period: '2015 \u2013 2017',
       duration: '3 years',
@@ -74,7 +76,8 @@ export default {
     {
       company: 'Intelimetrica',
       companyUrl: 'https://intelimetrica.com',
-      logoUrl: 'https://logo.clearbit.com/intelimetrica.com',
+      logoUrl:
+        'https://www.google.com/s2/favicons?sz=128&domain_url=intelimetrica.com',
       role: 'Junior Software Engineer, Data',
       period: '2014 \u2013 2015',
       duration: '1 year',
@@ -86,7 +89,7 @@ export default {
   education: [
     {
       institution: 'Mexico Autonomous Institute of Technology (ITAM)',
-      logoUrl: 'https://logo.clearbit.com/itam.mx',
+      logoUrl: 'https://www.google.com/s2/favicons?sz=128&domain_url=itam.mx',
       institutionUrl: 'https://itam.mx',
       degree: 'M.Sc. in Computer Science. GPA: 9/10',
       period: 'Aug. 2016 \u2013 Dec. 2018',
@@ -94,7 +97,7 @@ export default {
     {
       institution:
         'Monterrey Institute of Technology and Higher Education (ITESM)',
-      logoUrl: 'https://logo.clearbit.com/tec.mx',
+      logoUrl: 'https://www.google.com/s2/favicons?sz=128&domain_url=tec.mx',
       institutionUrl: 'https://tec.mx',
       degree: 'B.S. in Electronic and Computer Engineering. GPA: 92/100',
       period: 'Jan. 2011 \u2013 Dec. 2015',
