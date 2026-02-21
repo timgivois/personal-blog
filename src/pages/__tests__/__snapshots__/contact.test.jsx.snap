@@ -245,7 +245,7 @@ exports[`Contact page matches snapshot 1`] = `
                   >
                     <img
                       alt="Carta"
-                      src="/carta-logo-blue.svg"
+                      src="https://carta.com/logo.svg"
                       style="height: 60px; width: 60px; max-width: 100%; object-fit: contain;"
                     />
                   </a>
