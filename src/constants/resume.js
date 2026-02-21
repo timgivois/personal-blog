@@ -28,7 +28,7 @@ export default {
     {
       company: 'Carta',
       companyUrl: 'https://carta.com',
-      logoUrl: 'https://www.google.com/s2/favicons?sz=128&domain_url=carta.com',
+      logoUrl: '/carta-logo-blue.svg',
       role: 'Software Engineer, Valuations and Compensation',
       period: '2020 \u2013 2021',
       duration: '2 years',

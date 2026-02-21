@@ -126,20 +126,34 @@ const Contact = ({ switchTheme }) => {
                   shadow
                   style={{ marginBottom: '15px', padding: '10px' }}
                 >
-                  <Row middle="xs" start="xs">
-                    <Link href={exp.companyUrl} pure>
+                  <Row
+                    middle="xs"
+                    start="xs"
+                    style={{ flexWrap: 'wrap', rowGap: '10px' }}
+                  >
+                    <Link
+                      href={exp.companyUrl}
+                      pure
+                      style={{ flexShrink: 0, marginRight: '10px' }}
+                    >
                       <img
                         alt={exp.company}
                         src={exp.logoUrl}
                         style={{
                           height: '60px',
                           width: '60px',
+                          maxWidth: '100%',
                           objectFit: 'contain',
-                          marginRight: '10px',
                         }}
                       />
                     </Link>
-                    <div style={{ textAlign: 'left' }}>
+                    <div
+                      style={{
+                        textAlign: 'left',
+                        flex: '1 1 220px',
+                        minWidth: 0,
+                      }}
+                    >
                       <Text h5 style={{ marginBottom: '5px' }}>
                         {exp.role}
                       </Text>
@@ -184,22 +198,36 @@ const Contact = ({ switchTheme }) => {
                   shadow
                   style={{ marginBottom: '15px', padding: '10px' }}
                 >
-                  <Row middle="xs" start="xs">
+                  <Row
+                    middle="xs"
+                    start="xs"
+                    style={{ flexWrap: 'wrap', rowGap: '10px' }}
+                  >
                     {ed.logoUrl && (
-                      <Link href={ed.institutionUrl} pure>
+                      <Link
+                        href={ed.institutionUrl}
+                        pure
+                        style={{ flexShrink: 0, marginRight: '10px' }}
+                      >
                         <img
                           alt={ed.institution}
                           src={ed.logoUrl}
                           style={{
                             height: '60px',
                             width: '60px',
+                            maxWidth: '100%',
                             objectFit: 'contain',
-                            marginRight: '10px',
                           }}
                         />
                       </Link>
                     )}
-                    <div style={{ textAlign: 'left' }}>
+                    <div
+                      style={{
+                        textAlign: 'left',
+                        flex: '1 1 220px',
+                        minWidth: 0,
+                      }}
+                    >
                       <Text h5>{ed.institution}</Text>
                       <Text small>{ed.degree}</Text>
                       <Text small>{ed.period}</Text>
