@@ -4,6 +4,10 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const fs = require('fs')
+
+const hasGit = fs.existsSync('.git')
+
 module.exports = {
   siteMetadata: {
     title: 'Personal Blog',
@@ -48,7 +52,9 @@ module.exports = {
         precachePages: [`/`, `/contact/`, `/*`],
       },
     },
-    `gatsby-plugin-git-lastmod`,
+
+    ...(hasGit ? [`gatsby-plugin-git-lastmod`] : []),
+
     `gatsby-plugin-sitemap`,
   ],
 }
