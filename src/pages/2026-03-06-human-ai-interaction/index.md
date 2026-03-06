@@ -5,7 +5,7 @@ title: 'The Bottleneck Is Not the Model. It Is the Interaction.'
 description: 'The next big shift in AI is not raw intelligence. Research from Stanford, McKinsey, and Deloitte points to human-AI interaction design as the defining frontier of 2026.'
 tags: ['AI', 'Productivity', 'Claude', 'Future']
 excerpt: 'Capability is no longer the ceiling. How we design the space between humans and AI systems is what separates transformative tools from expensive noise.'
-image: './human-ai-interaction.png'
+image: 'https://thumbs.dreamstime.com/b/human-ai-collaboration-touch-interaction-illustration-vector-hand-robot-interacting-interface-laptop-screen-395164804.jpg'
 time: '5 min.'
 ---
 
@@ -33,7 +33,7 @@ I think the organizations that figure this out in the next 12 to 24 months are g
 
 Stanford's prediction for 2026 is that the hype era gives way to an evaluation era. Questions shift from "can AI do this?" to "does it actually produce better outcomes?" I think that is right. And I think teams that have been treating interaction design as a real discipline will look very different from those that were just waiting for a smarter model.
 
-What do you see as the biggest unlock in human-AI interaction over the next year or two? Curious where other people think the leverage actually is.
+If this is the kind of thing you think about, stick around. AI and technology are what I keep coming back to — how it actually works, what it means for the people building with it, and where things are heading. I write about it here as often as I have something worth saying.
 
 ---
 
