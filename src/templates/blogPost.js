@@ -210,7 +210,7 @@ const Template = ({ data, switchTheme, children }) => {
             style={{
               display: 'flex',
               gap: '40px',
-              alignItems: 'flex-start',
+              alignItems: 'center',
               position: 'relative',
             }}
           >

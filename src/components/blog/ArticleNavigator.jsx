@@ -119,7 +119,7 @@ const ArticleNavigator = ({ contentRef, toc }) => {
           margin: 0,
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-start',
+          alignItems: 'center',
         }}
       >
         {headings.map((heading) => {

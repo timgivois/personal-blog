@@ -235,7 +235,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       xs="11"
     >
       <div
-        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+        style="display: flex; gap: 40px; align-items: center; position: relative;"
       >
         <aside
           class="article-sidebar"
@@ -563,7 +563,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       xs="11"
     >
       <div
-        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+        style="display: flex; gap: 40px; align-items: center; position: relative;"
       >
         <aside
           class="article-sidebar"
