@@ -111,7 +111,7 @@ const CardMeta = styled.div`
 
 const CardExcerpt = styled(Text)`
   && {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.88);
     line-height: 1.6;
     margin: 0;
   }
