@@ -9,8 +9,6 @@ image: 'https://thumbs.dreamstime.com/b/human-ai-collaboration-touch-interaction
 time: '5 min.'
 ---
 
-## The Next Bottleneck Is Interaction, Not Intelligence
-
 Everyone is still betting on smarter models. More parameters, better benchmarks, faster inference. I get it. That is a legible bet. But I think it is the wrong one for the next two years.
 
 The ceiling most teams are hitting right now is not intelligence. It is the interaction.
