@@ -119,6 +119,7 @@ const ArticleNavigator = ({ contentRef, toc }) => {
           margin: 0,
           display: 'flex',
           flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         {headings.map((heading) => {
@@ -131,13 +132,13 @@ const ArticleNavigator = ({ contentRef, toc }) => {
                 pure
                 style={{
                   display: 'block',
-                  paddingLeft: isH3 ? '20px' : '4px',
-                  paddingTop: '8px',
-                  paddingBottom: '8px',
+                  paddingLeft: isH3 ? '16px' : '0',
+                  paddingTop: '0',
+                  paddingBottom: '0',
                   borderLeft: isActive
                     ? '3px solid #000'
                     : '3px solid transparent',
-                  paddingRight: '8px',
+                  paddingRight: '0',
                   transition: 'all 0.3s ease-in-out',
                   color: isActive ? '#fff' : '#999',
                   backgroundColor: isActive

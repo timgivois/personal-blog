@@ -43,7 +43,7 @@ const Landing = ({ data, switchTheme }) => {
                     maxWidth: '560px',
                     marginBottom: '24px',
                     lineHeight: 1.6,
-                    color: '#666',
+                    color: 'rgba(255, 255, 255, 0.88)',
                   }}
                 >
                   Deep dives into engineering experiments, product strategy, and

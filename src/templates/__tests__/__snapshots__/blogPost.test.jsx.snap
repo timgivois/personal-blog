@@ -8,7 +8,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot when post not found 1
 
 exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post data 1`] = `
 <div
-  style="padding-top: 60px;"
+  style="padding-top: 5px;"
 >
   <div
     data-testid="helmet"
@@ -154,7 +154,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       <div>
         <p
           class="jsx-2596564080 "
-          style="font-size: 1.1rem; color: rgb(102, 102, 102); margin-bottom: 15px;"
+          style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.88); margin-bottom: 15px;"
         >
           Meta blurb about the blog post
         </p>
@@ -200,7 +200,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
           >
             <small
               class="jsx-1231261695 "
-              style="margin: 0px; color: rgb(102, 102, 102);"
+              style="margin: 0px; color: rgba(255, 255, 255, 0.88);"
             >
               January 15, 2025
                • 
@@ -235,7 +235,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
       xs="11"
     >
       <div
-        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+        style="display: flex; gap: 40px; align-items: center; position: relative;"
       >
         <aside
           class="article-sidebar"
@@ -336,7 +336,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
 
 exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts 1`] = `
 <div
-  style="padding-top: 60px;"
+  style="padding-top: 5px;"
 >
   <div
     data-testid="helmet"
@@ -482,7 +482,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       <div>
         <p
           class="jsx-2596564080 "
-          style="font-size: 1.1rem; color: rgb(102, 102, 102); margin-bottom: 15px;"
+          style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.88); margin-bottom: 15px;"
         >
           Meta blurb about the blog post
         </p>
@@ -528,7 +528,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
           >
             <small
               class="jsx-1231261695 "
-              style="margin: 0px; color: rgb(102, 102, 102);"
+              style="margin: 0px; color: rgba(255, 255, 255, 0.88);"
             >
               January 15, 2025
                • 
@@ -563,7 +563,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts
       xs="11"
     >
       <div
-        style="display: flex; gap: 40px; align-items: flex-start; position: relative;"
+        style="display: flex; gap: 40px; align-items: center; position: relative;"
       >
         <aside
           class="article-sidebar"
