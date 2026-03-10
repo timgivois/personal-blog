@@ -155,7 +155,7 @@ const Template = ({ data, switchTheme, children }) => {
             <Text
               style={{
                 fontSize: '1.1rem',
-                color: '#666',
+                color: 'rgba(255, 255, 255, 0.88)',
                 marginBottom: '15px',
               }}
             >
@@ -179,7 +179,10 @@ const Template = ({ data, switchTheme, children }) => {
                 <Text style={{ margin: 0, fontWeight: '500' }}>Tim Givois</Text>
               </Row>
               <Row style={{ marginTop: '4px' }}>
-                <Text small style={{ margin: 0, color: '#666' }}>
+                <Text
+                  small
+                  style={{ margin: 0, color: 'rgba(255, 255, 255, 0.88)' }}
+                >
                   {frontmatter.date} • {frontmatter.time}
                 </Text>
               </Row>
