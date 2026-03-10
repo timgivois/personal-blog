@@ -19,6 +19,8 @@ GitHub reports that developers using AI tools are [55% more productive](https://
 
 This is where CI/CD pipelines become absolutely essential. When human developers were the bottleneck, continuous integration caught our occasional mistakes. Now that AI can generate code at 10x speed, CI/CD transforms from a nice-to-have into a mandatory safety net.
 
+## The Bottleneck Has Shifted
+
 Think of it this way. AI agents give you a race car, and CI/CD is your seatbelt, airbag, and crash testing facility rolled into one. You want to go fast, but you need guardrails that automatically catch issues before they reach production. In this post, we'll explore why AI needs guardrails, how to set up effective CI/CD pipelines, and how to build a workflow that lets you move quickly while maintaining system reliability.
 
 ## Why do AI agents need guardrails?
@@ -63,9 +65,9 @@ name: Test CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: ['main', 'master']
   pull_request:
-    branches: [ "main", "master" ]
+    branches: ['main', 'master']
 
 jobs:
   build:
@@ -76,22 +78,22 @@ jobs:
         node-version: [20.x, 22.x]
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Run tests
-      run: npm test
+      - name: Run tests
+        run: npm test
 
-    - name: Run linter
-      run: npm run lint
+      - name: Run linter
+        run: npm run lint
 ```
 
 This workflow does several important things. It triggers automatically on every push and PR to your main branches. It tests across multiple Node versions using a matrix strategy, catching compatibility issues. It caches dependencies to speed up subsequent runs. And it runs both tests and linters, ensuring code quality and style consistency.
@@ -139,9 +141,9 @@ jobs:
   unit_tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: npm install
-    - run: npm test
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm test
 
   integration_tests:
     runs-on: ubuntu-latest
@@ -154,22 +156,22 @@ jobs:
           --health-cmd pg_isready
           --health-interval 10s
     steps:
-    - uses: actions/checkout@v4
-    - run: npm install
-    - run: npm run test:integration
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm run test:integration
 
   e2e_tests:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - run: npm install
-    - run: npx playwright install --with-deps
-    - run: npm run test:e2e
-    - uses: actions/upload-artifact@v4
-      if: failure()
-      with:
-        name: playwright-screenshots
-        path: test-results/
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npx playwright install --with-deps
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-screenshots
+          path: test-results/
 ```
 
 This pipeline runs three layers of tests in parallel, dramatically increasing confidence that AI-generated code works correctly. If an AI hallucinates an API call or introduces a subtle UI bug, one of these test layers will catch it.
