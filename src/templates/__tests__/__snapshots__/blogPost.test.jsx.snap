@@ -8,7 +8,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot when post not found 1
 
 exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post data 1`] = `
 <div
-  style="padding-top: 60px;"
+  style="padding-top: 5px;"
 >
   <div
     data-testid="helmet"
@@ -336,7 +336,7 @@ exports[`BlogPost Template Snapshot Tests matches snapshot with full blog post d
 
 exports[`BlogPost Template Snapshot Tests matches snapshot with no related posts 1`] = `
 <div
-  style="padding-top: 60px;"
+  style="padding-top: 5px;"
 >
   <div
     data-testid="helmet"

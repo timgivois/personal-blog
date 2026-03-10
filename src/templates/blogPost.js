@@ -64,7 +64,7 @@ const Template = ({ data, switchTheme, children }) => {
     url: articleUrl,
   }
   return (
-    <Grid fluid style={{ paddingTop: '60px' }}>
+    <Grid fluid style={{ paddingTop: '5px' }}>
       <Helmet defer={false}>
         <title>{frontmatter.title}</title>
         <meta name="description" content={metaDescription} />
